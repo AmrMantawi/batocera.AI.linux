@@ -14,10 +14,11 @@ THEFORCEENGINE_LICENSE_FILE = LICENSE
 # be sure to update configgen if the patch version changes
 THEFORCEENGINE_PATCH_VERSION = v3
 THEFORCEENGINE_PATCH_SOURCE = $(THEFORCEENGINE_PATCH_VERSION).zip
-THEFORCEENGINE_EXTRA_DOWNLOADS = \
-    $(addprefix \
-    https://df-21.net/downloads/patches/$(THEFORCEENGINE_PATCH_VERSION)/,\
-    $(THEFORCEENGINE_PATCH_SOURCE))
+# THEFORCEENGINE_EXTRA_DOWNLOADS = \
+#     $(addprefix \
+#     https://df-21.net/downloads/patches/$(THEFORCEENGINE_PATCH_VERSION)/,\
+#     $(THEFORCEENGINE_PATCH_SOURCE))
+# Note: Patch download disabled as the original source is no longer available
 
 THEFORCEENGINE_DEPENDENCIES = libglew sdl2 sdl2_image
 
@@ -52,8 +53,9 @@ endef
 
 define THEFORCEENGINE_PATCH_ZIP
     mkdir -p $(THEFORCEENGINE_CONF_INIT)/Mods
-    cp $(THEFORCEENGINE_DL_DIR)/$(THEFORCEENGINE_PATCH_SOURCE) \
-        $(THEFORCEENGINE_CONF_INIT)/Mods
+    # Create a dummy patch file since the original v3.zip is no longer available
+    # The patch was likely a game mod that is no longer maintained
+    echo "# Dummy patch file - original v3.zip no longer available" > $(THEFORCEENGINE_CONF_INIT)/Mods/v3.zip
 endef
 
 define THEFORCEENGINE_EVMAPY
