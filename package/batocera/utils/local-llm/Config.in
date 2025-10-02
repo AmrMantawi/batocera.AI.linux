@@ -1,0 +1,16 @@
+config BR2_PACKAGE_LOCAL_LLM
+    bool "local-llm"
+    depends on BR2_INSTALL_LIBSTDCPP
+    depends on BR2_TOOLCHAIN_HAS_THREADS   # uses std::thread/pthreads
+    select BR2_PACKAGE_SDL2
+    select BR2_PACKAGE_ALSA_LIB
+    select BR2_PACKAGE_OPUS
+    select BR2_PACKAGE_LIBOPUSENC
+    select BR2_PACKAGE_LIBSOXR
+    select BR2_PACKAGE_XTENSOR
+    help
+      Local LLM assistant (STT via whisper.cpp, LLM via llama.cpp, TTS via Paroli).
+
+      Source: https://github.com/AmrMantawi/local-llm
+
+

@@ -1,0 +1,95 @@
+#!/bin/sh
+
+# local-llm init script with systemd fallback
+
+SERVICE_NAME="local-llm.service"
+BIN="/usr/bin/local-llm"
+PIDFILE="/var/run/local-llm.pid"
+SOCKET="/run/local-llm.sock"
+CONFIG="/usr/share/local-llm/config/models.json"
+LOGDIR="/userdata/system/logs"
+LOGFILE="$LOGDIR/local-llm.log"
+
+start_with_init() {
+  mkdir -p "$LOGDIR"
+  # Install models on first boot if missing
+  if [ ! -f /userdata/system/local-llm/models/tts/encoder.onnx ] && [ -x /usr/bin/local-llm-install-models ]; then
+    /usr/bin/local-llm-install-models || true
+  fi
+  # Ensure audio devices are ready (simple wait loop)
+  for i in 1 2 3 4 5; do
+    if [ -e /dev/snd/pcmC0D0c ] || [ -e /dev/snd/pcmC0D0p ] || [ -e /dev/snd/timer ]; then
+      break
+    fi
+    sleep 1
+  done
+  export SDL_AUDIODRIVER="alsa"
+  if [ -x /sbin/start-stop-daemon ]; then
+    /sbin/start-stop-daemon -S -b -m -p "$PIDFILE" --exec "$BIN" -- \
+      --mode server --socket "$SOCKET" --config "$CONFIG" \
+      >>"$LOGFILE" 2>&1
+  else
+    nohup "$BIN" --mode server --socket "$SOCKET" --config "$CONFIG" \
+      >>"$LOGFILE" 2>&1 &
+    echo $! > "$PIDFILE"
+  fi
+}
+
+stop_with_init() {
+  if [ -f "$PIDFILE" ]; then
+    kill "$(cat "$PIDFILE")" 2>/dev/null || true
+    rm -f "$PIDFILE"
+  fi
+}
+
+status_with_init() {
+  if [ -S "$SOCKET" ]; then
+    echo "local-llm socket present: $SOCKET"
+  fi
+  if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+    echo "local-llm running (pid $(cat "$PIDFILE"))"
+    exit 0
+  fi
+  echo "local-llm not running"
+  exit 3
+}
+
+case "$1" in
+  start)
+    if command -v systemctl >/dev/null 2>&1; then
+      systemctl start "$SERVICE_NAME"
+    else
+      start_with_init
+    fi
+    ;;
+  stop)
+    if command -v systemctl >/dev/null 2>&1; then
+      systemctl stop "$SERVICE_NAME"
+    else
+      stop_with_init
+    fi
+    ;;
+  restart|reload)
+    if command -v systemctl >/dev/null 2>&1; then
+      systemctl restart "$SERVICE_NAME"
+    else
+      stop_with_init
+      start_with_init
+    fi
+    ;;
+  status)
+    if command -v systemctl >/dev/null 2>&1; then
+      systemctl status "$SERVICE_NAME" | cat
+    else
+      status_with_init
+    fi
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
+
