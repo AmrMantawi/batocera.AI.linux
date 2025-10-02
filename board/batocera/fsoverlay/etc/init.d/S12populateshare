@@ -89,6 +89,7 @@ fi
 for FILE in music bios extractions kodi library saves screenshots recordings splash \
             system/.config/lirc/lircd.conf \
             system/configs/emulationstation/es_settings.cfg \
+            system/custom-es-config \
             system/.kodi \
             system/configs/amiberry \
             system/configs/amiberry/whdboot \
