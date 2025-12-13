@@ -8,6 +8,7 @@ config BR2_PACKAGE_LOCAL_LLM
     select BR2_PACKAGE_LIBOPUSENC
     select BR2_PACKAGE_LIBSOXR
     select BR2_PACKAGE_XTENSOR
+    select BR2_PACKAGE_PKGCONF
     help
       Local LLM assistant (STT via whisper.cpp, LLM via llama.cpp, TTS via Paroli).
 

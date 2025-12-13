@@ -1,0 +1,11 @@
+config BR2_PACKAGE_RKNPU_DRIVER
+	bool "rknpu-driver"
+	depends on BR2_PACKAGE_BATOCERA_TARGET_RK3588
+	depends on BR2_LINUX_KERNEL
+	select BR2_LINUX_NEEDS_MODULES
+	help
+	  Install the RKNPU kernel driver for Rockchip RK3588 NPU acceleration.
+	  This package provides the kernel module source code that will be
+	  compiled and installed for NPU functionality on RK3588 platforms.
+
+	  https://github.com/airockchip/rknn-llm

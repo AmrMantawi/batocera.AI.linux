@@ -4,22 +4,22 @@
 #
 ################################################################################
 
-LOCAL_LLM_VERSION = 2008928cf3098a1567e827b6f97a27bdb1aff224
+LOCAL_LLM_VERSION = 868f7b2c4067d05326d2fb09266f16c282834620
 LOCAL_LLM_SITE = https://github.com/AmrMantawi/local-llm.git
 LOCAL_LLM_SITE_METHOD = git
 LOCAL_LLM_GIT_SUBMODULES = YES
 
 # Use a local working tree instead of fetching
-LOCAL_LLM_OVERRIDE_SRCDIR = /sources/local-llm
+# LOCAL_LLM_OVERRIDE_SRCDIR = /sources/local-llm
 LOCAL_LLM_LICENSE = MIT
 LOCAL_LLM_LICENSE_FILES = LICENSE
 
 # Dependencies
 LOCAL_LLM_DEPENDENCIES = sdl2 alsa-lib opus libopusenc libsoxr host-pkgconf xtensor
 
-# Model sources (will be fetched during build with wget into /usr/share)
+# Model sources (fetched at build time and installed into /usr/share)
 LOCAL_LLM_MODEL_URL_STT_WHISPER := https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin
-LOCAL_LLM_MODEL_URL_LLM_JAN     := https://huggingface.co/Menlo/Jan-nano-gguf/resolve/main/jan-nano-4b-Q3_K_M.gguf
+LOCAL_LLM_MODEL_URL_LLM_RKLLM   := https://huggingface.co/amrmantawi/chatglm3-6b-rkllm/resolve/main/chatglm3-6b.rkllm
 LOCAL_LLM_MODEL_URL_TTS_ENCODER := https://huggingface.co/amrmantawi/paroli-models/resolve/main/encoder.onnx
 LOCAL_LLM_MODEL_URL_TTS_DECODER := https://huggingface.co/amrmantawi/paroli-models/resolve/main/decoder.onnx
 LOCAL_LLM_MODEL_URL_TTS_CONFIG  := https://huggingface.co/amrmantawi/paroli-models/resolve/main/config.json
@@ -30,15 +30,10 @@ LOCAL_LLM_CONF_OPTS += -DTHREADS_PREFER_PTHREAD_FLAG=ON
 # local-llm is a CMake project
 LOCAL_LLM_SUPPORTS_IN_SOURCE_BUILD = NO
 LOCAL_LLM_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release
-LOCAL_LLM_CONF_OPTS += -DUSE_LLAMA=ON -DUSE_WHISPER=ON -DUSE_PAROLI=ON
+LOCAL_LLM_CONF_OPTS += -DUSE_RKLLM=ON -DUSE_WHISPER=ON -DUSE_PAROLI=ON
 # Build fully static to avoid missing shared libs (e.g., libwhisper.so.1)
 LOCAL_LLM_CONF_OPTS += -DBUILD_SHARED_LIBS=OFF
 LOCAL_LLM_CONF_OPTS += -DWHISPER_BUILD_SHARED=OFF -DLLAMA_BUILD_SHARED=OFF
-
-# Point Paroli/ONNX Runtime finder to staged ONNX Runtime location
-LOCAL_LLM_CONF_OPTS += -DORT_ROOT=$(STAGING_DIR)/usr
-LOCAL_LLM_CONF_OPTS += -DPIPER_PHONEMIZE_ROOT=$(STAGING_DIR)/usr
-LOCAL_LLM_CONF_OPTS += -DESPEAK_NG_DATA_DIR=/usr/share/espeak-ng-data
 
 define LOCAL_LLM_INSTALL_TARGET_CMDS
     $(INSTALL) -D -m 0755 $(@D)/buildroot-build/local-llm \
@@ -50,12 +45,16 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
     
     mkdir -p $(TARGET_DIR)/usr/share/local-llm
     mkdir -p $(TARGET_DIR)/usr/share/local-llm/config
+    mkdir -p $(TARGET_DIR)/userdata/system/local-llm/models/stt
+    mkdir -p $(TARGET_DIR)/userdata/system/local-llm/models/llm
+    mkdir -p $(TARGET_DIR)/userdata/system/local-llm/models/tts
+
     # Ensure espeak-ng-data is available system-wide at runtime
     mkdir -p $(TARGET_DIR)/usr/share/espeak-ng-data
     [ -d $(@D)/deps/piper_phonemize/share/espeak-ng-data ] && \
         cp -a $(@D)/deps/piper_phonemize/share/espeak-ng-data/. $(TARGET_DIR)/usr/share/espeak-ng-data/ || true
     
-    # Create configuration file with provided structure
+    # Create configuration file pointing to preinstalled models under /usr/share
     printf '%s\n' \
       '{' \
       '  "models": {' \
@@ -67,10 +66,10 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
       '      }' \
       '    },' \
       '    "llm": {' \
-      '      "llama": {' \
-      '        "path": "/userdata/system/local-llm/models/llm/jan-nano-4b-Q3_K_M.gguf",' \
-      '        "type": "llama",' \
-      '        "description": "Jan Nano 4B Q3_K_M GGUF for text generation"' \
+      '      "rkllm": {' \
+      '        "path": "/userdata/system/local-llm/models/llm/chatglm.rkllm",' \
+      '        "type": "rkllm",' \
+      '        "description": "ChatGLM3-6B RKLLM model"' \
       '      }' \
       '    },' \
       '    "tts": {' \
@@ -103,11 +102,6 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
       '  }' \
       '}' > $(TARGET_DIR)/usr/share/local-llm/config/models.json
     
-    # Install runtime installer script that downloads models on first boot
-    $(INSTALL) -D -m 0755 \
-        $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/install-models.sh \
-        $(TARGET_DIR)/usr/bin/local-llm-install-models
-
     # Install BusyBox init.d fallback script
     $(INSTALL) -D -m 0755 \
         $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/S30local-llm \
@@ -117,8 +111,30 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
     mkdir -p $(TARGET_DIR)/usr/lib/systemd/system
     echo "[Unit]"                                                        >  $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
     echo "Description=Local LLM assistant"                               >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
-    echo "After=sound.target local-fs.target local-llm-models.service"  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
-    echo "Wants=sound.target local-llm-models.service"                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
+    echo "After=sound.target local-fs.target local-llm-models.service" >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
+    echo "Wants=local-llm-models.service"                              >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
+    # Install model installer script
+    $(INSTALL) -D -m 0755 \
+        $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/install-models.sh \
+        $(TARGET_DIR)/usr/bin/local-llm-install-models
+
+    # One-shot service to download models on first boot
+    echo "[Unit]"                                                        >  $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "Description=Download Local LLM models into /userdata"         >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "After=network-online.target local-fs.target"                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "Wants=network-online.target"                                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "ConditionPathExists=!/userdata/system/local-llm/models/llm/chatglm3-6b.rkllm" >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "[Service]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "Type=oneshot"                                                 >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "ExecStart=/usr/bin/local-llm-install-models"                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "[Install]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
+    echo "WantedBy=multi-user.target"                                   >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service;
+
+    # Enable the model preseed service
+    mkdir -p $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants
+    ln -sf /usr/lib/systemd/system/local-llm-models.service $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/local-llm-models.service
     echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
     echo "[Service]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
     echo "Type=simple"                                                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
@@ -130,24 +146,6 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
     echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
     echo "[Install]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service; \
     echo "WantedBy=multi-user.target"                                   >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm.service;
-
-    # Install a one-shot service to download models into /userdata on first boot
-    echo "[Unit]"                                                        >  $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "Description=Download Local LLM models into /userdata"         >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "After=network-online.target local-fs.target"                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "Wants=network-online.target"                                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "ConditionPathExists=!/userdata/system/local-llm/models/tts/encoder.onnx" >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "[Service]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "Type=oneshot"                                                 >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "ExecStart=/usr/bin/local-llm-install-models"                  >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo ""                                                             >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "[Install]"                                                    >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service; \
-    echo "WantedBy=multi-user.target"                                   >> $(TARGET_DIR)/usr/lib/systemd/system/local-llm-models.service;
-
-    # Enable the preseed service so it runs automatically on first boot
-    mkdir -p $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants
-    ln -sf /usr/lib/systemd/system/local-llm-models.service $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants/local-llm-models.service
     
     # Build and install a simple socket test utility (optional)
     $(TARGET_CXX) $(TARGET_CXXFLAGS) -O2 -s \
