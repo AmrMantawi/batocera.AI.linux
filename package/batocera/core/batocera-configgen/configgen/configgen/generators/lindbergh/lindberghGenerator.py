@@ -19,7 +19,6 @@ import re
 import shutil
 import socket
 import stat
-import subprocess
 import tarfile
 from pathlib import Path
 from typing import IO, TYPE_CHECKING, Any, ClassVar, Final, Literal
@@ -298,11 +297,13 @@ class LindberghGenerator(Generator):
             self.setConf(conf, "EMULATE_CARDREADER", 0)
 
         # House of the Dead 4 - CPU speed
-        cpu_speed = self.get_cpu_min_speed()
-        if cpu_speed is not None:
-            _logger.debug("Current CPU Speed: %.2f GHz", cpu_speed)
-            if "hotd" in romName.lower() and system.config.get_bool("lindbergh_speed"):
-                self.setConf(conf, "CPU_FREQ_GHZ", cpu_speed)
+        cpu_speed = system.config.get("lindbergh_speed")
+        if "hotd4" in romName.lower() and cpu_speed:
+            cpu_speed = float(cpu_speed)
+            _logger.debug("Current CPU Speed : %.2f GHz", cpu_speed)
+            self.setConf(conf, "CPU_FREQ_GHZ", cpu_speed)
+        else:
+            self.commentConf(conf, "CPU_FREQ_GHZ")
 
         # OutRun 2 - Network
         ip = self.get_ip_address()
@@ -317,7 +318,7 @@ class LindberghGenerator(Generator):
             _logger.debug("Unable to retrieve IP address.")
 
         # Primeval Hunt mode (touch screen)
-        if "primeva" in romName.lower() or "primehunt" in romName.lower():
+        if "primevah" in romName.lower() or "primehunt" in romName.lower():
             self.setConf(conf, "PRIMEVAL_HUNT_MODE", system.config.get("lindbergh_hunt", "1"))
 
         ## Guns
@@ -382,9 +383,8 @@ class LindberghGenerator(Generator):
             self.setup_joysticks_evdev(conf, system, shortRomName, guns, wheels, playersControllers)
 
         # map service and test buttons for tests mode
-        if system.config.get_bool("lindbergh_test"):
-            if input_mode == 2:
-                self.setup_test_mode_evdev(conf, playersControllers)
+        if system.config.get_bool("lindbergh_test") and input_mode == 2:
+            self.setup_test_mode_evdev(conf, playersControllers)
 
     def setup_test_mode_evdev(
         self,
@@ -397,7 +397,7 @@ class LindberghGenerator(Generator):
             if input_name in pad.inputs and pad.inputs[input_name].type == "button":
                 self.setConf(conf, "TEST_BUTTON", f"{pad.device_path}:KEY:{pad.inputs[input_name].code}")
             input_name = "down"
-            if input_name in pad.inputs and pad.inputs[input_name].type == "hat":
+            if input_name in pad.inputs and pad.inputs[input_name].type == "hat":  # noqa: SIM102
                 if pad.inputs[input_name].value == "4": # down
                     # 16 is the HAT0 code, MAX for down/right
                     input_value = f"ABS:{16+1+int(pad.inputs[input_name].id)*2}:MAX"
@@ -408,7 +408,7 @@ class LindberghGenerator(Generator):
                     input_value = f"ABS_NEG:{pad.inputs[input_name].code}"
                 else:
                     input_value = f"ABS:{pad.inputs[input_name].code}"
-                self.setConf(conf, f"PLAYER_1_BUTTON_SERVICE", f"{pad.device_path}:{input_value}:MAX")
+                self.setConf(conf, "PLAYER_1_BUTTON_SERVICE", f"{pad.device_path}:{input_value}:MAX")
 
     def setup_joysticks_evdev(
         self,
@@ -520,10 +520,18 @@ class LindberghGenerator(Generator):
                                 if nplayer == 1:
                                     self.setConf(conf, f"{button_name}", f"{controller_name}:{input_value}")
                             else:
+                                # here
+                                minmax_value = "MAX"
                                 if input_name == "joystick1left" or input_name == "joystick1up" or input_name == "joystick2left" or input_name == "joystick2up" or input_name == "left" or input_name == "up":
-                                    self.setConf(conf, f"PLAYER_{player_input}_{button_name}", f"{controller_name}:{input_value}:MIN")
-                                else:
-                                    self.setConf(conf, f"PLAYER_{player_input}_{button_name}", f"{controller_name}:{input_value}:MAX")
+                                    minmax_value = "MIN"
+                                # reversed axis
+                                if input_name in relaxValues and relaxValues[input_name]["reversed"]:
+                                    if minmax_value == "MAX":
+                                        minmax_value == "MIN"
+                                    else:
+                                        minmax_value == "MAX"
+                                # set
+                                self.setConf(conf, f"PLAYER_{player_input}_{button_name}", f"{controller_name}:{input_value}:{minmax_value}")
                         elif pad.inputs[input_base_name].type == "hat":
                             if pad.inputs[input_base_name].value == "1" or pad.inputs[input_base_name].value == "4": # up or down
                                 # 16 is the HAT0 code
@@ -770,13 +778,38 @@ class LindberghGenerator(Generator):
             del mappings_actions["3"]
 
         if shortRomName == "hotdex":
-            mappings_actions["2"] = "BUTTON_LEFT"
+            mappings_actions["right"] = "BUTTON_LEFT"
             del mappings_actions["7"]
             del mappings_actions["8"]
 
         if shortRomName == "hotd4sp":
             mappings_actions["2"] = "BUTTON_4"
             del mappings_actions["3"]
+
+        if shortRomName == "letsgojusp":
+            # if there is only one gun, let the player1 able to press BUTTON_4 of player 2 (required)
+            if len(guns) == 1:
+                mappings_actions["7"] = "BUTTON_4"
+                del mappings_actions["3"]
+                mapping = "8"
+                action = "BUTTON_4"
+                if mapping in mappings_codes:
+                    gun = guns[0]
+                    code = mappings_codes[mapping]
+                    self.setConf(conf, f"PLAYER_2_{action}", f"{gun.node}:KEY:{code}")
+                    del mappings_actions[mapping]
+            elif len(guns) > 1:
+                mappings_actions["right"] = "BUTTON_4"
+                del mappings_actions["3"]
+
+        if shortRomName == "letsgoju" and len(guns) == 1:
+            mapping = "right"
+            action = "BUTTON_START"
+            if mapping in mappings_codes:
+                gun = guns[0]
+                code = mappings_codes[mapping]
+                self.setConf(conf, f"PLAYER_2_{action}", f"{gun.node}:KEY:{code}")
+                del mappings_actions[mapping]
 
         for nplayer, gun in enumerate(guns[:2], start=1):
             _logger.debug("lindbergh gun for player %s", nplayer)
@@ -787,12 +820,12 @@ class LindberghGenerator(Generator):
             self.setConf(conf, f"ANALOGUE_{yplayer}", f"{evplayer}:ABS:1")
 
             # reverse axis for let's go jungle
-            if shortRomName == ("letsgoju"): # not for the p version
+            if shortRomName == ("letsgoju", "letsgojua"): # not for the special version
                 self.setConf(conf, f"ANALOGUE_{xplayer}", f"{evplayer}:ABS_NEG:1")
                 self.setConf(conf, f"ANALOGUE_{yplayer}", f"{evplayer}:ABS_NEG:0")
 
             # add shake for hotd4
-            if shortRomName == "hotd4":
+            if shortRomName.startswith("hotd4"):
                 xplayerp4 = xplayer + 4
                 yplayerp4 = yplayer + 4
                 self.setConf(conf, f"ANALOGUE_{xplayerp4}", f"{evplayer}:ABS:0:SHAKE")
@@ -803,9 +836,10 @@ class LindberghGenerator(Generator):
                     code = mappings_codes[mapping]
                     action = mappings_actions[mapping]
 
-                    # in hotdex, player2 reload is on button right (et butto left for player 1...)
-                    if shortRomName == "hotdex" and nplayer == 2 and action == "BUTTON_LEFT":
+                    # in hotdex, player2 reload is on button right (and button left for player 1...)
+                    if shortRomName == "hotdex" and nplayer == 2 and mapping == "right":
                         action = "BUTTON_RIGHT"
+                        nplayer = 1
 
                     if not (action == "COIN" and nplayer != 1): # COIN is only for player 1
                         self.setConf(conf, f"PLAYER_{nplayer}_{action}", f"{evplayer}:KEY:{code}")
@@ -893,31 +927,31 @@ class LindberghGenerator(Generator):
         # copy the config file in the rom dir, where it is used
         shutil.copy2(LINDBERGH_CONFIG_FILE, romDir / "lindbergh.conf")
 
-    def get_cpu_min_speed(self):
-        try:
-            # Run lscpu to get CPU frequency information
-            result = subprocess.run(
-                ["lscpu"],
-                capture_output=True,
-                text=True,
-                check=True
-            )
-            output = result.stdout
-
-            # Find the "CPU min MHz" value
-            match = re.search(r"CPU min MHz:\s+([\d.]+)", output)
-            if match:
-                min_speed_mhz = float(match.group(1))
-                # Convert to GHz
-                _logger.debug(f"CPU min MHz is {min_speed_mhz}.")
-                return min_speed_mhz / 1000
-
-            _logger.debug("CPU min MHz information not found.")
-            return None
-
-        except subprocess.CalledProcessError as e:
-            _logger.debug("Error running lscpu: %s", e)
-            return None
+#    def get_cpu_min_speed(self):
+#        try:
+#            # Run lscpu to get CPU frequency information
+#            result = subprocess.run(
+#                ["lscpu"],
+#                capture_output=True,
+#                text=True,
+#                check=True
+#            )
+#            output = result.stdout
+#
+#            # Find the "CPU min MHz" value
+#            match = re.search(r"CPU min MHz:\s+([\d.]+)", output)
+#            if match:
+#                min_speed_mhz = float(match.group(1))
+#                # Convert to GHz
+#                _logger.debug(f"CPU min MHz is {min_speed_mhz}.")
+#                return min_speed_mhz / 1000
+#
+#            _logger.debug("CPU min MHz information not found.")
+#            return None
+#
+#        except subprocess.CalledProcessError as e:
+#            _logger.debug("Error running lscpu: %s", e)
+#            return None
 
     def get_ip_address(self, destination: str = "1.1.1.1", port: int = 80) -> Any | None:
         try:

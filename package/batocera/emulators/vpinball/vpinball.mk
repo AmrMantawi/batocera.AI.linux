@@ -3,9 +3,9 @@
 # vpinball
 #
 ################################################################################
-# Version: Commits on Mar 31, 2025
+# Version: Commits on Sep 27, 2025
 # uses standalone tree for now
-VPINBALL_VERSION = c3e8134bebae535689c52f8d841f86a970a89acb
+VPINBALL_VERSION = 3ec37c7f9a7f57168802ca7bbb3fd9f6b745bdc3
 VPINBALL_SITE = $(call github,vpinball,vpinball,$(VPINBALL_VERSION))
 VPINBALL_LICENSE = GPLv3+
 VPINBALL_LICENSE_FILES = LICENSE
@@ -13,7 +13,7 @@ VPINBALL_DEPENDENCIES = host-libcurl libfreeimage libpinmame libaltsound libdmdu
 VPINBALL_SUPPORTS_IN_SOURCE_BUILD = NO
 
 # handle supported target platforms
-ifeq ($(BR2_PACKAGE_BATOCERA_TARGET_RK3588),y)
+ifeq ($(BR2_PACKAGE_BATOCERA_TARGET_RK3588)$(BR2_PACKAGE_BATOCERA_TARGET_RK3588_SDIO),y)
     SOURCE = CMakeLists_gl-linux-aarch64.txt
     SOURCE_DIR = linux-aarch64
     ARCH = aarch64
@@ -65,6 +65,8 @@ define VPINBALL_INSTALL_TARGET_CMDS
     cp -R $(@D)/buildroot-build/assets $(TARGET_DIR)/usr/bin/vpinball/
     cp -R $(@D)/buildroot-build/scripts $(TARGET_DIR)/usr/bin/vpinball/
     cp -R $(@D)/buildroot-build/shader10.8.0 $(TARGET_DIR)/usr/bin/vpinball/
+    $(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/emulators/vpinball/batocera-vpx-scraper.py \
+        $(TARGET_DIR)/usr/bin/batocera-vpx-scraper
 endef
 
 define VPINBALL_EVMAPY

@@ -7,8 +7,15 @@ BATOCERA_DESKTOPAPPS_VERSION = 1.0
 BATOCERA_DESKTOPAPPS_SOURCE=
 
 BATOCERA_DESKTOPAPPS_SCRIPTS = filemanagerlauncher
-BATOCERA_DESKTOPAPPS_APPS  = xterm.desktop
-BATOCERA_DESKTOPAPPS_ICONS =
+BATOCERA_DESKTOPAPPS_APPS    = xterm.desktop
+BATOCERA_DESKTOPAPPS_ICONS   =
+BATOCERA_DESKTOPAPPS_TOOLBOX =
+BATOCERA_DESKTOPAPPS_ACTIONS = system.md5sum.desktop
+
+#file-roller integration for pcmanfm - open/list archives
+BATOCERA_DESKTOPAPPS_APPS    += file-roller-mimics.desktop
+
+## System depended applets
 
 # wiimote
 BATOCERA_DESKTOPAPPS_APPS    += xwiishowir.desktop
@@ -164,6 +171,20 @@ ifeq ($(BR2_PACKAGE_LINDBERGH_LOADER),y)
   BATOCERA_DESKTOPAPPS_SCRIPTS += batocera-config-lindbergh
 endif
 
+## Context Menu Actions
+
+# wine
+ifeq ($(BR2_PACKAGE_WINE_TKG),y)
+  BATOCERA_DESKTOPAPPS_TOOLBOX += wine.toolbox
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.configit.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.wsquashfs.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.symlinkprefix.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.listprefix.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.folder2autorun.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.file2autorun.desktop
+  BATOCERA_DESKTOPAPPS_ACTIONS += wine.toolbox.extract.desktop
+endif
+
 define BATOCERA_DESKTOPAPPS_INSTALL_TARGET_CMDS
 	# scripts
 	mkdir -p $(TARGET_DIR)/usr/bin
@@ -172,10 +193,17 @@ define BATOCERA_DESKTOPAPPS_INSTALL_TARGET_CMDS
 	# apps
 	mkdir -p $(TARGET_DIR)/usr/share/applications
 	$(foreach f,$(BATOCERA_DESKTOPAPPS_APPS), cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-desktopapps/apps/$(f) $(TARGET_DIR)/usr/share/applications/$(f)$(sep))
+	# default-mime types
+	cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-desktopapps/mime/defaults.list $(TARGET_DIR)/usr/share/applications/defaults.list
 
 	# icons
 	mkdir -p $(TARGET_DIR)/usr/share/icons/batocera
 	$(foreach f,$(BATOCERA_DESKTOPAPPS_ICONS), cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-desktopapps/icons/$(f) $(TARGET_DIR)/usr/share/icons/batocera/$(f)$(sep))
+
+	# context menu actions/toolboxes
+	mkdir -p $(TARGET_DIR)/usr/share/file-manager/actions/toolbox
+	$(foreach f,$(BATOCERA_DESKTOPAPPS_ACTIONS), cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-desktopapps/contextactions/$(f) $(TARGET_DIR)/usr/share/file-manager/actions/$(f)$(sep))
+	$(foreach f,$(BATOCERA_DESKTOPAPPS_TOOLBOX), cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-desktopapps/toolbox/$(f) $(TARGET_DIR)/usr/share/file-manager/actions/toolbox/$(f)$(sep))
 
 	# menu
 	mkdir -p $(TARGET_DIR)/etc/xdg/menus

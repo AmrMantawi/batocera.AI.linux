@@ -384,6 +384,11 @@ msgctxt "game_options"
 msgid "10x Native (6400x5280)"
 msgstr "10x Native (6400x5280)"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "10x Native (~3600p/6K)"
+msgstr "10x Native (~3600p/6K)"
+
 #. TRANSLATION: libretro/snes9x_next
 msgctxt "game_options"
 msgid "11 MHz"
@@ -403,6 +408,11 @@ msgstr "11"
 msgctxt "game_options"
 msgid "11x Native (7040x5808)"
 msgstr "11x Native (7040x5808)"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "11x Native (~3960p)"
+msgstr "11x Native (~3960p)"
 
 #. TRANSLATION: libretro/snes9x_next
 msgctxt "game_options"
@@ -494,6 +504,11 @@ msgctxt "game_options"
 msgid "12x Native (7680x6336) for 8K"
 msgstr "12x Native (7680x6336) для 8K"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "12x Native (~4320p/8K)"
+msgstr "12x Native (~4320p/8K)"
+
 #. TRANSLATION: libretro/snes9x_next
 msgctxt "game_options"
 msgid "13 MHz"
@@ -513,6 +528,11 @@ msgstr "13MB (рекомендуется)"
 msgctxt "game_options"
 msgid "13th"
 msgstr "13"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "13x Native (~5824p)"
+msgstr "13x Native (~5824p)"
 
 #. TRANSLATION: libretro/hatarib
 msgctxt "game_options"
@@ -553,6 +573,11 @@ msgstr "144fps"
 msgctxt "game_options"
 msgid "14th"
 msgstr "14"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "14x Native (~6272p)"
+msgstr "14x Native (~6272p)"
 
 #. TRANSLATION: libretro/snes9x_next
 msgctxt "game_options"
@@ -599,6 +624,11 @@ msgctxt "game_options"
 msgid "15th"
 msgstr "15"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "15x Native (~6720p)"
+msgstr "15x Native (~6720p)"
+
 #. TRANSLATION: libretro/px68k
 msgctxt "game_options"
 msgid "16 Frame"
@@ -619,10 +649,10 @@ msgctxt "game_options"
 msgid "16 bit"
 msgstr "16 bit"
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "16-bit"
-msgstr ""
+msgstr "16-bit"
 
 #. TRANSLATION: openjazz
 msgctxt "game_options"
@@ -699,6 +729,11 @@ msgctxt "game_options"
 msgid "16x MSAA"
 msgstr "16x MSAA"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "16x Native (~7168p)"
+msgstr "16x Native (~7168p)"
+
 #. TRANSLATION: dolphin_triforce, duckstation, libretro/duckstation, libretro/swanstation
 msgctxt "game_options"
 msgid "16x SSAA"
@@ -709,7 +744,7 @@ msgctxt "game_options"
 msgid "17th"
 msgstr "17"
 
-#. TRANSLATION: libretro/mesen, melonds, moonlight
+#. TRANSLATION: libretro/mesen, melonds, moonlight, ymir
 msgctxt "game_options"
 msgid "180 degrees"
 msgstr "180 градусов"
@@ -757,7 +792,7 @@ msgstr "1MB"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "1ST PERSON GUNS"
-msgstr ""
+msgstr "ОРУЖИЕ ОТ ПЕРВОГО ЛИЦА"
 
 #. TRANSLATION: tsugaru
 msgctxt "game_options"
@@ -788,6 +823,11 @@ msgstr "1x (по умолчанию)"
 msgctxt "game_options"
 msgid "1x (~480)"
 msgstr "1x (~480)"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "1x Native (PS2)"
+msgstr "1x Native (PS2)"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -1154,7 +1194,7 @@ msgctxt "game_options"
 msgid "2x Native (1280x1056) for 720p"
 msgstr "2x Native (1280x1056) для 720p"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "2x Native (~720p)"
 msgstr "2x (~720p)"
@@ -1274,10 +1314,10 @@ msgctxt "game_options"
 msgid "32 MHz (Overclock)"
 msgstr "32 MHz (Разгон)"
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "32-bit"
-msgstr ""
+msgstr "32-bit"
 
 #. TRANSLATION: openjazz
 msgctxt "game_options"
@@ -1392,7 +1432,7 @@ msgstr "3"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "3rd Person"
-msgstr ""
+msgstr "От третьего лица"
 
 #. TRANSLATION: citron, ryujinx
 msgctxt "game_options"
@@ -1404,7 +1444,7 @@ msgctxt "game_options"
 msgid "3x Native (1920x1584) for 1080p"
 msgstr "3x Native (1920x1584) для 1080p"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "3x Native (~1080p)"
 msgstr "3x (~1080p)"
@@ -1604,7 +1644,7 @@ msgctxt "game_options"
 msgid "4x Native (2560x2112) for 1440p"
 msgstr "4x Native (2560x2112) для 1440p"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "4x Native (~1440p/2K)"
 msgstr "4x (~1440p/2K)"
@@ -1784,6 +1824,11 @@ msgctxt "game_options"
 msgid "5x Native (~1620p)"
 msgstr "5x (~1620p)"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "5x Native (~1800p/3K)"
+msgstr "5x Native (~1800p/3K)"
+
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
 msgid "5x native (1280 x 960)"
@@ -1899,7 +1944,7 @@ msgctxt "game_options"
 msgid "6x Native (3840x3168) for 4K"
 msgstr "6x Native (3840x3168) для 4K"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "6x Native (~2160p/4K)"
 msgstr "6x (~2160p/4K)"
@@ -1978,6 +2023,11 @@ msgstr "7x Native (4480x3696)"
 msgctxt "game_options"
 msgid "7x Native (~2520p)"
 msgstr "7x (~2520p)"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "7x Native (~2530p)"
+msgstr "7x Native (~2530p)"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -2099,7 +2149,7 @@ msgctxt "game_options"
 msgid "8x Native (5120x4224) for 5K"
 msgstr "8x Native (5120x4224) для 5K"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "8x Native (~2880p/5K)"
 msgstr "8x (~2880p/5K)"
@@ -2123,6 +2173,16 @@ msgstr "9 MHz (Замедление)"
 msgctxt "game_options"
 msgid "90 degrees"
 msgstr "90 градусов"
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "90 degrees clockwise"
+msgstr ""
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "90 degrees counter-clockwise"
+msgstr ""
 
 #. TRANSLATION: libretro/tyrquake
 msgctxt "game_options"
@@ -2159,6 +2219,19 @@ msgctxt "game_options"
 msgid "9x Native (5760x4752)"
 msgstr "9x Native (5760x4752)"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "9x Native (~3240p)"
+msgstr "9x Native (~3240p)"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid ""
+"A small  number of games will have compatibility problems with this enabled."
+msgstr ""
+"Небольшое количество игр может иметь проблемы с совместимостью при включении "
+"этой функции."
+
 #. TRANSLATION: libretro/puae, libretro/puae2021
 msgctxt "game_options"
 msgid "A1200 (2MB Chip + 8MB Fast)"
@@ -2192,7 +2265,7 @@ msgstr "АБСОЛЮТНЫЙ ВВОД МЫШИ"
 #. TRANSLATION: vpinball
 msgctxt "game_options"
 msgid "ACCELEROMETER"
-msgstr ""
+msgstr "АКСЕЛЕРОМЕТР"
 
 #. TRANSLATION: citron
 msgctxt "game_options"
@@ -2247,7 +2320,7 @@ msgstr "URL СЕРВИСА ПЕРЕВОДА AI"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "AIMING CROSSHAIR"
-msgstr ""
+msgstr "ПРИЦЕЛ / ПРИЦЕЛЬНАЯ СЕТКА"
 
 #. TRANSLATION: bigpemu
 msgctxt "game_options"
@@ -2337,7 +2410,7 @@ msgstr "АНИЗОТРОПНАЯ ФИЛЬТРАЦИЯ"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "ANISTROPIC FILTER"
-msgstr ""
+msgstr "АНИЗАТРОПНЫЙ ФИЛЬТР"
 
 #. TRANSLATION: dolphin, dolphin_triforce, iortcw, rpcs3
 msgctxt "game_options"
@@ -2407,7 +2480,7 @@ msgstr "ASMJIT Рекомпилятор"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "ASPECT"
-msgstr ""
+msgstr "СООТНОШЕНИЕ"
 
 #. TRANSLATION: bigpemu, cannonball, cemu, cgenius, citron, ...
 msgctxt "game_options"
@@ -2537,7 +2610,7 @@ msgstr "АВТО AIM"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "AUTO AIMING"
-msgstr ""
+msgstr "АВТОНАВЕДЕНИЕ"
 
 #. TRANSLATION: ppsspp
 msgctxt "game_options"
@@ -2567,7 +2640,7 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА ПРИ ЗАПУСКЕ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "AUTO SWITCH WEAPON"
-msgstr ""
+msgstr "АВТОПЕРЕКЛЮЧЕНИЕ ОРУЖИЯ"
 
 #. TRANSLATION: libretro/beetle-saturn, libretro/flycast, libretro/kronos, libretro/mupen64plus-next, libretro/parallel_n64, ...
 msgctxt "game_options"
@@ -2582,7 +2655,7 @@ msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "AUTOMATICALLY RELOAD WEAPON"
-msgstr ""
+msgstr "АВТОМАТИЧЕСКАЯ ПЕРЕЗАРЯДКА"
 
 #. TRANSLATION: theforceengine
 msgctxt "game_options"
@@ -2736,7 +2809,7 @@ msgid "Add debug logging to help troubleshoot issues."
 msgstr ""
 "Добавляет ведение журнала отладки, чтобы помочь в устранении неполадок."
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid ""
 "Adjust mixing of CD audio. In MSU-MD, cartridge-sourced sound effects are "
@@ -2870,7 +2943,7 @@ msgstr "Algeria"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "All + Enemy Jedi Dodge"
-msgstr ""
+msgstr "Все + вражеские джедаи уклоняются"
 
 #. TRANSLATION: libretro/mesen
 msgctxt "game_options"
@@ -2900,7 +2973,7 @@ msgstr "Все возможные лицензии (не рекомендует�
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "All voiceovers"
-msgstr ""
+msgstr "Все голоса"
 
 #. TRANSLATION: libretro
 msgctxt "game_options"
@@ -2914,6 +2987,11 @@ msgid ""
 "resolution."
 msgstr "Разрешить рендеринг игры, поддерживающей разные разрешения."
 
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid "Allow wine to access raw io ports (usb, parallel, ...)"
+msgstr ""
+
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
 msgid "Allows Alt+Tab to RPCS3's menu. Useful for manual disc-swapping."
@@ -2924,6 +3002,13 @@ msgstr ""
 msgctxt "game_options"
 msgid "Allows loading protected games without subchannel information."
 msgstr "Позволяет загружать защищенные игры без информации о подканале."
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"Allows reducing the visual quality of these curves for higher performance."
+msgstr ""
+"Позволяет уменьшить детализацию кривых для повышения производительности."
 
 #. TRANSLATION: mame
 msgctxt "game_options"
@@ -2963,7 +3048,7 @@ msgstr "Alone in the Dark"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Alt. Attack"
-msgstr ""
+msgstr "Альт. атака"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -3196,7 +3281,7 @@ msgstr "Апрель"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Arabic"
-msgstr ""
+msgstr "Arabic"
 
 #. TRANSLATION: libretro/hatarib
 msgctxt "game_options"
@@ -3381,7 +3466,7 @@ msgctxt "game_options"
 msgid "Auto-disable zoom"
 msgstr "Автоотключение масштабирования"
 
-#. TRANSLATION: libretro/81, libretro/fceumm, libretro/genesisplusgx, libretro/nestopia, libretro/o2em, ...
+#. TRANSLATION: libretro/81, libretro/fceumm, libretro/genesisplusgx-expanded, libretro/nestopia, libretro/o2em, ...
 msgctxt "game_options"
 msgid "Autodetect"
 msgstr "Автообнаружение"
@@ -3414,7 +3499,7 @@ msgstr "Автоматический"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Automatic pickup weapon."
-msgstr ""
+msgstr "Автоподбор оружия."
 
 #. TRANSLATION: dolphin
 msgctxt "game_options"
@@ -3625,7 +3710,7 @@ msgctxt "game_options"
 msgid "BIRTH MONTH"
 msgstr "МЕСЯЦ РОЖДЕНИЯ"
 
-#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx, libretro/mesen-s, libretro/nestopia, libretro/snes9x, ...
+#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx-expanded, libretro/mesen-s, libretro/nestopia, libretro/snes9x, ...
 msgctxt "game_options"
 msgid "BLARGG NTSC FILTER"
 msgstr "BLARGG NTSC ФИЛЬТР"
@@ -3640,7 +3725,7 @@ msgctxt "game_options"
 msgid "BLEND SPRITES (SINGE)"
 msgstr "СМЕШИВАНИЕ СПРАЙТОВ (SINGE)"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "BLENDING ACCURACY"
 msgstr "ТОЧНОСТЬ СМЕШИВАНИЯ"
@@ -3690,7 +3775,7 @@ msgctxt "game_options"
 msgid "BRETT HULL HOCKEY"
 msgstr "BRETT HULL HOCKEY"
 
-#. TRANSLATION: dhewm3, openjk
+#. TRANSLATION: dhewm3, openjk, openmohaa
 msgctxt "game_options"
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
@@ -3715,6 +3800,11 @@ msgctxt "game_options"
 msgid "BT601_625/D65 (recommended for all EUR/AUS developed games)"
 msgstr "BT601_625/D65 (рекомендуется для всех EUR/AUS игр)"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "BUFFER GRAPHICS COMMANDS"
+msgstr "БУФЕРИЗАЦИЯ ГРАФ. КОМАНД"
+
 #. TRANSLATION: quake2.keys
 msgctxt "keys_files"
 msgid "Back / Menu"
@@ -3723,7 +3813,7 @@ msgstr "Назад / Меню"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Backpedal"
-msgstr ""
+msgstr "Задний ход"
 
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
@@ -3745,6 +3835,11 @@ msgctxt "game_options"
 msgid "Baltic"
 msgstr "Baltic"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "Basic"
+msgstr "Основные"
+
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
 msgid "Basic (Recommended)"
@@ -3763,6 +3858,11 @@ msgid ""
 msgstr ""
 "Базовый тип фильтрации для дисплея Jaguar при рендеринге на собственном "
 "дисплее."
+
+#. TRANSLATION: hotkeys.keys
+msgctxt "keys_files"
+msgid "Batocera Control Center"
+msgstr ""
 
 #. TRANSLATION: cemu
 msgctxt "game_options"
@@ -3824,12 +3924,12 @@ msgctxt "game_options"
 msgid "Bilinear (Default)"
 msgstr "Bilinear (по умолчанию)"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Bilinear (Forced excluding sprite)"
 msgstr "Билинейная (Принудительно исключая спрайт)"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Bilinear (Forced)"
 msgstr "Билинейная (принудительный)"
@@ -3839,7 +3939,7 @@ msgctxt "game_options"
 msgid "Bilinear (No Edge Blending)"
 msgstr "Bilinear (без смешивания краев)"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Bilinear (PS2)"
 msgstr "Билинейная (PS2)"
@@ -3971,10 +4071,25 @@ msgctxt "game_options"
 msgid "Bottom (Default)"
 msgstr "Снизу (по умолчанию)"
 
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Bottom Center"
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Bottom Left"
+msgstr ""
+
 #. TRANSLATION: azahar
 msgctxt "game_options"
 msgid "Bottom Only"
 msgstr "Bottom Only"
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Bottom Right"
+msgstr ""
 
 #. TRANSLATION: melonds
 msgctxt "game_options"
@@ -4189,7 +4304,7 @@ msgctxt "game_options"
 msgid "CD"
 msgstr "CD"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "CD ADD-ON"
 msgstr "CD ADD-ON"
@@ -4199,7 +4314,7 @@ msgctxt "game_options"
 msgid "CD TURBO SPEED"
 msgstr "CD TURBO SPEED"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "CD-DA VOLUME"
 msgstr "ГРОМКОСТЬ CD-DA"
@@ -4259,7 +4374,7 @@ msgctxt "game_options"
 msgid "CGA"
 msgstr "CGA"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "CHEATS"
 msgstr "ЧИТЫ"
@@ -4324,7 +4439,7 @@ msgctxt "game_options"
 msgid "COLORIZATION"
 msgstr "КОЛОРИЗАЦИЯ"
 
-#. TRANSLATION: libretro/cap32, openjk
+#. TRANSLATION: libretro/cap32, openjk, openmohaa
 msgctxt "game_options"
 msgid "COLOUR DEPTH"
 msgstr "ГЛУБИНА ЦВЕТА"
@@ -4379,7 +4494,7 @@ msgctxt "game_options"
 msgid "CONTROLLER 1 FEATURE PACK"
 msgstr "КОТРОЛЛЕР 1 FEATURE PACK"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "CONTROLLER 1 INPUT MAPPING"
 msgstr "КОНТРОЛЛЕР 1 - СОПОСТАВЛЕНИЕ КНОПОК"
@@ -4399,7 +4514,7 @@ msgctxt "game_options"
 msgid "CONTROLLER 2 FEATURE PACK"
 msgstr "КОТРОЛЛЕР 2 FEATURE PACK"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "CONTROLLER 2 INPUT MAPPING"
 msgstr "КОНТРОЛЛЕР 2 - СОПОСТАВЛЕНИЕ КНОПОК"
@@ -4419,7 +4534,7 @@ msgctxt "game_options"
 msgid "CONTROLLER 3 FEATURE PACK"
 msgstr "КОТРОЛЛЕР 3 FEATURE PACK"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "CONTROLLER 3 INPUT MAPPING"
 msgstr "КОНТРОЛЛЕР 3 - СОПОСТАВЛЕНИЕ КНОПОК"
@@ -4439,7 +4554,7 @@ msgctxt "game_options"
 msgid "CONTROLLER 4 FEATURE PACK"
 msgstr "КОТРОЛЛЕР 4 FEATURE PACK"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "CONTROLLER 4 INPUT MAPPING"
 msgstr "КОНТРОЛЛЕР 4 - СОПОСТАВЛЕНИЕ КНОПОК"
@@ -4509,7 +4624,7 @@ msgctxt "game_options"
 msgid "CONTROLLER TYPE 2"
 msgstr "ТИП КОНТРОЛЛЕРА 2"
 
-#. TRANSLATION: duckstation, libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: duckstation, libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "CONTROLLERS"
 msgstr "КОНТРОЛЛЕРЫ"
@@ -4599,6 +4714,15 @@ msgctxt "game_options"
 msgid "CPU Type used in emulation"
 msgstr "Тип CPU, используемое в эмуляции"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"CPU-GPU latency limit. Lower values improve latency but may reduce "
+"performance."
+msgstr ""
+"Лимит задержки CPU-GPU. Меньшие значения уменьшают задержку, но могут "
+"снизить производительность."
+
 #. TRANSLATION: libretro/mame, libretro/mamevirtual
 msgctxt "game_options"
 msgid "CROP ARTWORK"
@@ -4614,7 +4738,7 @@ msgctxt "game_options"
 msgid "CROP OVERSCAN"
 msgstr "КАДРИРОВАНИЕ"
 
-#. TRANSLATION: duckstation, mame, theforceengine
+#. TRANSLATION: duckstation, mame, openmohaa, theforceengine
 msgctxt "game_options"
 msgid "CROSSHAIR"
 msgstr "ПРИЦЕЛ"
@@ -4622,12 +4746,12 @@ msgstr "ПРИЦЕЛ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "CROSSHAIR LINE THICKNESS"
-msgstr ""
+msgstr "ТОЛЩИНА ПРИЦЕЛА"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "CROSSHAIR SIZE"
-msgstr ""
+msgstr "РАЗМЕР ПРИЦЕЛА"
 
 #. TRANSLATION: supermodel
 msgctxt "game_options"
@@ -4684,6 +4808,11 @@ msgctxt "game_options"
 msgid "CURSOR TIMEOUT"
 msgstr "ТАЙМАУТ КУРСОРА"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "CURVE DETAIL"
+msgstr "КАЧЕСТВО КРИВЫХ"
+
 #. TRANSLATION: shared
 msgctxt "game_options"
 msgid "CUSTOM .PNG IMAGE PATH"
@@ -4722,12 +4851,12 @@ msgstr "НАСТРОЙКА ЭМУЛИРОВАННЫХ WIIMOTE И ГЕЙМПАД�
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "CUTSCENE SUBTITLES"
-msgstr ""
+msgstr "СУБТИТРЫ В КАТ-СЦЕНАХ"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "CUTSCENES"
-msgstr ""
+msgstr "КАТ-СЦЕНЫ"
 
 #. TRANSLATION: libretro/mupen64plus-next
 msgctxt "game_options"
@@ -4802,11 +4931,6 @@ msgctxt "game_options"
 msgid "Can fix slowdown. Only works on some drivers."
 msgstr "Может исправить замедление. Работает только на некоторых драйверах."
 
-#. TRANSLATION: wine
-msgctxt "game_options"
-msgid "Can improve frame rate and responsiveness."
-msgstr "Может улучшить частоту кадров и отзывчивость."
-
 #. TRANSLATION: mugen
 msgctxt "game_options"
 msgid "Can improve frame rates and responsiveness."
@@ -4825,7 +4949,7 @@ msgstr ""
 "Может улучшить производительность видео. Не используйте с играми ActionMax "
 "или scanlines."
 
-#. TRANSLATION: mugen, wine
+#. TRANSLATION: mugen
 msgctxt "game_options"
 msgid "Can increase performance for games that stress the CPU."
 msgstr "Может повысить производительность для игр, которые нагружают CPU."
@@ -4920,10 +5044,20 @@ msgctxt "game_options"
 msgid "Catalan"
 msgstr "Каталонский"
 
-#. TRANSLATION: scummvm
+#. TRANSLATION: pcsx2, scummvm
 msgctxt "game_options"
 msgid "Center"
 msgstr "Центр"
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Center Left"
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Center Right"
+msgstr ""
 
 #. TRANSLATION: libretro/mesen-s
 msgctxt "game_options"
@@ -4952,7 +5086,7 @@ msgctxt "game_options"
 msgid "Change the consoles country from the default of the United States."
 msgstr "Изменить страну консоли с установленной по умолчанию - США."
 
-#. TRANSLATION: dhewm3, openjk
+#. TRANSLATION: dhewm3, openjk, openmohaa
 msgctxt "game_options"
 msgid "Change the game's brightness."
 msgstr "Изменить яркость игры."
@@ -4975,6 +5109,11 @@ msgstr ""
 msgctxt "game_options"
 msgid "Change the output resolution ratio."
 msgstr "Изменяет соотношение разрешения вывода."
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "Change the rotation of the rendered image."
+msgstr ""
 
 #. TRANSLATION: supermodel
 msgctxt "game_options"
@@ -5043,7 +5182,7 @@ msgstr "Chinese (Traditional) [Big5]"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Choose Screen Space Ambient Occlusion for better lighting."
-msgstr ""
+msgstr "Исп. Screen Space Ambient Occlusion для улучшенного освещения."
 
 #. TRANSLATION: redream
 msgctxt "game_options"
@@ -5058,12 +5197,17 @@ msgstr "Выберите тип кабеля для TV."
 #. TRANSLATION: cemu, redream, shadps4
 msgctxt "game_options"
 msgid "Choose console language. Not all games may support the language choice."
-msgstr ""
+msgstr "Выберите язык консоли. Не все игры могут поддерживать выбранный язык."
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "Choose deinterlace option."
+msgstr "Выберите режим деинтерлейсинга."
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Choose difficulty for the game."
-msgstr ""
+msgstr "Выберите уровень сложности."
 
 #. TRANSLATION: cemu
 msgctxt "game_options"
@@ -5093,12 +5237,12 @@ msgstr "Выберите второй feature pack для контроллера
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose shadow details."
-msgstr ""
+msgstr "Выберите качество теней."
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose slow motion death option."
-msgstr ""
+msgstr "Выберите опцию замедления при смерти."
 
 #. TRANSLATION: libretro/kronos
 msgctxt "game_options"
@@ -5108,7 +5252,7 @@ msgstr "Выбрать язык BIOS системы."
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose text language."
-msgstr ""
+msgstr "Выберите язык текста."
 
 #. TRANSLATION: libretro/flycast, redream
 msgctxt "game_options"
@@ -5120,12 +5264,24 @@ msgctxt "game_options"
 msgid "Choose the Parallel N64 graphics plugin."
 msgstr "Выбрать графический плагин Parallel N64."
 
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid ""
+"Choose the Wayland driver mode if on a handheld device. XWayland has more "
+"compatibility."
+msgstr ""
+
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid ""
 "Choose the amount of Gamma which changes how light or dark mid-range tones "
 "appear."
-msgstr ""
+msgstr "Выберите уровень гаммы, чтобы изменить яркость полутонов."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the amount of shadow detail."
+msgstr "Выберите детализацию теней."
 
 #. TRANSLATION: openmsx
 msgctxt "game_options"
@@ -5145,6 +5301,11 @@ msgctxt "game_options"
 msgid "Choose the audio output type."
 msgstr "Выберите тип аудиовыхода."
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the character view type."
+msgstr "Выберите отображение персонажа."
+
 #. TRANSLATION: fallout1-ce, fallout2-ce
 msgctxt "game_options"
 msgid "Choose the combat difficulty."
@@ -5162,9 +5323,9 @@ msgstr ""
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose the depth of texture quality."
-msgstr ""
+msgstr "Выберите детализацию текстур."
 
-#. TRANSLATION: libretro/cap32, openjk
+#. TRANSLATION: libretro/cap32, openjk, openmohaa
 msgctxt "game_options"
 msgid "Choose the emulated colour depth."
 msgstr "Выберите эмулируемую глубину цвета."
@@ -5174,14 +5335,45 @@ msgctxt "game_options"
 msgid "Choose the games difficulty."
 msgstr "Выбрать сложность игры."
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openmohaa
 msgctxt "game_options"
-msgid "Choose the level of geometric detail."
-msgstr ""
+msgid "Choose the level of curve detail."
+msgstr "Выберите детализацию кривых."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the level of effects detail."
+msgstr "Выберите детализацию эффектов."
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
+msgid "Choose the level of geometric detail."
+msgstr "Выберите детализацию геометрии."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the level of model detail."
+msgstr "Выберите детализацию моделей."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the level of terrain detail."
+msgstr "Выберите детализацию ландшафта."
+
+#. TRANSLATION: openjk, openmohaa
+msgctxt "game_options"
 msgid "Choose the level of texture detail."
+msgstr "Выберите детализацию текстур."
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid ""
+"Choose the on-screen position for performance metrics (FPS, CPU usage, etc.)."
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Choose the on-screen position for system messages."
 msgstr ""
 
 #. TRANSLATION: fallout1-ce, fallout2-ce
@@ -5197,12 +5389,17 @@ msgstr "Выберите режим масштабирования игрово�
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Choose the size of the heads-up display."
-msgstr ""
+msgstr "Выберите размер интерфейса."
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Choose the texture colour depth."
+msgstr "Выберите глубину цвета текстур."
+
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "Choose the texture filter type."
-msgstr ""
+msgstr "Выберите тип фильтра текстур."
 
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
@@ -5222,7 +5419,7 @@ msgstr "Выбрать включение или отключение катсц
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Choose to keep corpses present."
-msgstr ""
+msgstr "Выберите отображение трупов."
 
 #. TRANSLATION: theforceengine
 msgctxt "game_options"
@@ -5232,6 +5429,11 @@ msgid ""
 msgstr ""
 "Выбрать для рендера графических текстур высокого разрешения. Требуется "
 "OpenGL, True Colour и файл enhanced.gob."
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "Choose to render meshes as transparent polygons."
+msgstr ""
 
 #. TRANSLATION: openjkdf2, theforceengine
 msgctxt "game_options"
@@ -5246,12 +5448,12 @@ msgstr "Выберите метод масштабирования."
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose voice language."
-msgstr ""
+msgstr "Выберите язык озвучки."
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Choose when to enable subtitles."
-msgstr ""
+msgstr "Выберите отображение субтитров."
 
 #. TRANSLATION: citron
 msgctxt "game_options"
@@ -5368,15 +5570,10 @@ msgctxt "game_options"
 msgid "Choose your desired pixel aspect ratio."
 msgstr "Выбрать желаемое пиксельное соотношение сторон."
 
-#. TRANSLATION: redream
+#. TRANSLATION: cgenius, redream
 msgctxt "game_options"
 msgid "Choose your preferred aspect ratio."
 msgstr "Выберите предпочтительное соотношение сторон."
-
-#. TRANSLATION: cgenius
-msgctxt "game_options"
-msgid "Choose your preferred aspect ratio.."
-msgstr "Выбрать предпочтительное соотношение сторон.."
 
 #. TRANSLATION: scummvm
 msgctxt "game_options"
@@ -5517,6 +5714,11 @@ msgstr ""
 "Компиляция шейдеров в фоновом потоке позволяет избежать заиканий при "
 "компиляции шейдеров. Может вызвать графические гличи."
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Complex"
+msgstr "Complex"
+
 #. TRANSLATION: libretro/snes9x, libretro/snes9x_next, redream
 msgctxt "game_options"
 msgid "Composite"
@@ -5527,7 +5729,7 @@ msgctxt "game_options"
 msgid "Composite (Blargg)"
 msgstr "Композит (Blargg)"
 
-#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx, libretro/nestopia
+#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx-expanded, libretro/nestopia
 msgctxt "game_options"
 msgid "Composite (color bleeding + artifacts)"
 msgstr "Композит (выцветание + артефакты)"
@@ -5541,11 +5743,6 @@ msgstr "Композитный прямой (FirebrandX)"
 msgctxt "game_options"
 msgid "Config"
 msgstr "Конфиг"
-
-#. TRANSLATION: gzdoom
-msgctxt "game_options"
-msgid "Configuring controllers in GZDoom can cause problems."
-msgstr "Настройка контроллеров в GZDoom может вызвать проблемы."
 
 #. TRANSLATION: libretro/fbneo
 msgctxt "game_options"
@@ -5562,12 +5759,12 @@ msgctxt "game_options"
 msgid "Control the texture filtering of the emulation."
 msgstr "Управляет фильтрацией текстур."
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Control the texture's trilinear filtering of the emulation."
 msgstr "Управляет трехлинейной фильтрацией текстур."
 
-#. TRANSLATION: libretro/mame, mame/pcsx2
+#. TRANSLATION: libretro/fbneo, libretro/flycast, libretro/mame, mame/pcsx2
 msgctxt "game_options"
 msgid "Controls for 5/6 button games and other unique controls"
 msgstr ""
@@ -5588,12 +5785,17 @@ msgctxt "game_options"
 msgid "Converts DirectX 8/9/10/11/12 calls to Vulkan."
 msgstr "Преобразует вызовы DirectX 8/9/10/11/12 в Vulkan."
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "Copy to texture"
+msgstr "Копирование в текстуру"
+
 #. TRANSLATION: shared
 msgctxt "game_options"
 msgid "Core provided"
 msgstr "Определяется ядром"
 
-#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx, libretro/mesen-s, libretro/nestopia
+#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx-expanded, libretro/mesen-s, libretro/nestopia
 msgctxt "game_options"
 msgid "Core-powered video filter."
 msgstr "Видео фильтр на базе ядра."
@@ -5654,7 +5856,12 @@ msgctxt "game_options"
 msgid "Cross"
 msgstr "Крест"
 
-#. TRANSLATION: quake2.keys
+#. TRANSLATION: hypseus-singe/uzem
+msgctxt "game_options"
+msgid "Crosshairs in supported games e.g. ActionMax, Maddog II."
+msgstr "Прицелы в поддерживаемых играх (Action Max, Mad Dog II и т.д.)."
+
+#. TRANSLATION: mohaa.keys, quake2.keys
 msgctxt "keys_files"
 msgid "Crouch"
 msgstr "Пригнуться"
@@ -5740,6 +5947,11 @@ msgctxt "game_options"
 msgid "DATA PLUGIN"
 msgstr "DATA ПЛАГИН"
 
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "DE"
+msgstr "DE"
+
 #. TRANSLATION: dolphin, mupen64plus
 msgctxt "game_options"
 msgid "DEADZONE"
@@ -5765,6 +5977,11 @@ msgctxt "game_options"
 msgid "DEFAULT POWER ON RAM STATE"
 msgstr "ПИТАНИЕ ПО УМОЛЧАНИЮ В СОСТОЯНИЕ ОЗУ"
 
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "DEINTERLACE"
+msgstr "ДЕИНТЕРЛЕЙСИНГ"
+
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
 msgid "DEINTERLACING"
@@ -5778,7 +5995,7 @@ msgstr "DESKTOP"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "DETAILED SHADERS"
-msgstr ""
+msgstr "УЛУЧШЕННЫЕ ШЕЙДЕРЫ"
 
 #. TRANSLATION: sonic2013, soniccd
 msgctxt "game_options"
@@ -5788,7 +6005,7 @@ msgstr "МЕНЮ РАЗРАБОТЧИКА"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "DIFFICULTY"
-msgstr ""
+msgstr "УРОВЕНЬ СЛОЖНОСТИ"
 
 #. TRANSLATION: theforceengine
 msgctxt "game_options"
@@ -5803,32 +6020,37 @@ msgstr "DIGITAL SOUND PROCESSOR"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "DIP SWITCH 1"
-msgstr ""
+msgstr "DIP SWITCH 1"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "DIP SWITCH 2"
-msgstr ""
+msgstr "DIP SWITCH 2"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "DIP SWITCH 3"
-msgstr ""
+msgstr "DIP SWITCH 3"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "DIP SWITCH HEX 1"
-msgstr ""
+msgstr "DIP SWITCH HEX 1"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "DIP SWITCH HEX 2"
-msgstr ""
+msgstr "DIP SWITCH HEX 2"
 
 #. TRANSLATION: mupen64plus
 msgctxt "game_options"
 msgid "DISABLE 4MB EXPANSION RAM PACK"
 msgstr "ОТКЛЮЧИТЬ 4MB EXPANSION RAM PACK"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "DISABLE CULLING"
+msgstr "ОТКЛЮЧИТЬ ОТСЕЧЕНИЕ"
 
 #. TRANSLATION: libretro/puae, libretro/puae2021
 msgctxt "game_options"
@@ -5890,7 +6112,7 @@ msgctxt "game_options"
 msgid "DISPLAY ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "DITHERING"
 msgstr "ДИЗЕРИНГ"
@@ -5953,7 +6175,7 @@ msgstr "ФИЛЬТР УМЕНЬШЕНИЯ МАСШТАБА"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "DRAW CROSSHAIR"
-msgstr ""
+msgstr "ОТОБРАЖАТЬ ПРИЦЕЛ"
 
 #. TRANSLATION: libretro/melondsds, melonds
 msgctxt "game_options"
@@ -5985,6 +6207,11 @@ msgctxt "game_options"
 msgid "DUAL CORE MODE"
 msgstr "ДВУХЯДЕРНЫЙ РЕЖИМ"
 
+#. TRANSLATION: melonds
+msgctxt "game_options"
+msgid "DUAL SCREEN"
+msgstr ""
+
 #. TRANSLATION: dolphin
 msgctxt "game_options"
 msgid "DUALSHOCK MOTION CONTROL"
@@ -6008,12 +6235,12 @@ msgstr "DXVK СБРОС КЭША"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "DYNAMIC GLOW"
-msgstr ""
+msgstr "ДИНАМИЧЕСКОЕ СВЕЧЕНИЕ"
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "DYNAMIC LIGHTS"
-msgstr ""
+msgstr "ДИНАМИЧЕСКОЕ ОСВЕЩЕНИЕ"
 
 #. TRANSLATION: moonlight
 msgctxt "game_options"
@@ -6070,6 +6297,11 @@ msgctxt "game_options"
 msgid "Darken"
 msgstr "Затемнение"
 
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "De-Interlaced"
+msgstr "Чересстрочная развёртка"
+
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
 msgid "December"
@@ -6085,7 +6317,7 @@ msgctxt "game_options"
 msgid "Default (2 Buttons)"
 msgstr "По умолчанию (2 кнопки)"
 
-#. TRANSLATION: libretro/mame, mame/pcsx2
+#. TRANSLATION: libretro/fbneo, libretro/flycast, libretro/mame, mame/pcsx2
 msgctxt "game_options"
 msgid "Default Only"
 msgstr "Только по умолчанию"
@@ -6221,7 +6453,7 @@ msgstr "Отключить всю обработку ввода (режим то
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Disable mission start confirmation."
-msgstr ""
+msgstr "Отключить подтверждение начала миссии."
 
 #. TRANSLATION: wine
 msgctxt "game_options"
@@ -6236,7 +6468,7 @@ msgstr "Отключите для доступа к системным наст�
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Disable weapon waggle."
-msgstr ""
+msgstr "Отключить \"тряску\" оружия."
 
 #. TRANSLATION: bigpemu, bstone, citron, corsixth, duckstation, ...
 msgctxt "game_options"
@@ -6379,7 +6611,7 @@ msgstr "Вниз"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Down/Crouch"
-msgstr ""
+msgstr "Вниз/Красться"
 
 #. TRANSLATION: flycast/dolphin, libretro/flycast
 msgctxt "game_options"
@@ -6433,7 +6665,7 @@ msgstr "DualShock поддерживает вибрацию. Не все игр�
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Duck"
-msgstr ""
+msgstr "Присесть"
 
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
@@ -6487,6 +6719,11 @@ msgstr "Dynarec (самый быстрый)"
 msgctxt "game_options"
 msgid "EET"
 msgstr "EET"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "EFFECTS DETAIL"
+msgstr "ДЕТАЛИЗАЦИЯ ЭФФЕКТОВ"
 
 #. TRANSLATION: libretro/dosbox_pure
 msgctxt "game_options"
@@ -6670,6 +6907,16 @@ msgstr "ВКЛЮЧИТЬ ШИРОКОЭКРАННЫЕ ПАТЧИ"
 
 #. TRANSLATION: wine
 msgctxt "game_options"
+msgid "ENABLE WIN32"
+msgstr ""
+
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid "ENABLE WINE DEVICES SERVICES"
+msgstr ""
+
+#. TRANSLATION: wine
+msgctxt "game_options"
 msgid "ENABLE XIM"
 msgstr "ВКЛЮЧИТЬ XIM"
 
@@ -6688,7 +6935,7 @@ msgctxt "game_options"
 msgid "EST5EDT"
 msgstr "EST5EDT"
 
-#. TRANSLATION: mugen, wine
+#. TRANSLATION: mugen
 msgctxt "game_options"
 msgid "ESYNC"
 msgstr "ESYNC"
@@ -6713,7 +6960,7 @@ msgctxt "game_options"
 msgid "EXPOSE MODE"
 msgstr "РЕЖИМ ЭКСПОЗИЦИИ"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "EXTENDED SCREEN"
 msgstr "РАСШИРЕННЫЙ ЭКРАН"
@@ -6883,6 +7130,13 @@ msgstr ""
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Enable High Dynamic Range if your display supports it."
+msgstr "Включить HDR, если ваш дисплей поддерживает его."
+
+#. TRANSLATION: melonds
+msgctxt "game_options"
+msgid ""
+"Enable MelonDS to display over two screens. Some related screen options will "
+"be ignored."
 msgstr ""
 
 #. TRANSLATION: pcsx2
@@ -6903,12 +7157,12 @@ msgstr "Включить режим X-Input для контроллеров ти
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable aiming crosshair."
-msgstr ""
+msgstr "Включить прицельную сетку."
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable auto aiming."
-msgstr ""
+msgstr "Включить автонаведение."
 
 #. TRANSLATION: redream
 msgctxt "game_options"
@@ -6953,7 +7207,7 @@ msgstr "Включить свободную игру для поддержива
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable full subtitles on cutscenes."
-msgstr ""
+msgstr "Включить полные субтитры в кат-сценах."
 
 #. TRANSLATION: model2emu
 msgctxt "game_options"
@@ -6983,7 +7237,7 @@ msgstr ""
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable high dots per inch."
-msgstr ""
+msgstr "Включить высокое количество точек на дюйм."
 
 #. TRANSLATION: sonic2013, soniccd
 msgctxt "game_options"
@@ -6998,7 +7252,7 @@ msgstr "Включает запуск предустановленных WHDLoad
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable lightsaber auto-camera."
-msgstr ""
+msgstr "Включить автоматическую камеру для светового меча."
 
 #. TRANSLATION: mame/pcsx2
 msgctxt "game_options"
@@ -7063,7 +7317,7 @@ msgstr ""
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Enable rotation on overlay map."
-msgstr ""
+msgstr "Включить вращение карты."
 
 #. TRANSLATION: model2emu
 msgctxt "game_options"
@@ -7110,6 +7364,11 @@ msgid ""
 "same network."
 msgstr ""
 "Включите IP-адрес для сетевой игры OutRun 2 против другого ПК в той же сети."
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "Enable the Virtual Keyboard."
+msgstr ""
 
 #. TRANSLATION: duckstation
 msgctxt "game_options"
@@ -7261,6 +7520,11 @@ msgstr ""
 "Включает билинейную фильтрацию на tilemaps. Выглядит хорошо, но может "
 "вызвать некоторые артефакты растяжения."
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "Enables cheats files to be read from the `cheats` directory."
+msgstr "Включить загрузку чит-файлов из папки \"cheats\"."
+
 #. TRANSLATION: model2emu
 msgctxt "game_options"
 msgid ""
@@ -7319,12 +7583,12 @@ msgstr "English (по умолчанию)"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "English (United Kingdom)"
 
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "English (United States)"
-msgstr ""
+msgstr "English (United States)"
 
 #. TRANSLATION: hatari, libretro/hatarib
 msgctxt "game_options"
@@ -7341,7 +7605,7 @@ msgctxt "game_options"
 msgid "Enhanced OpenGL"
 msgstr "Улучшенный OpenGL"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Enhanced sound output support for compatible games."
 msgstr "Расширенная поддержка вывода звука для совместимых игр."
@@ -7366,11 +7630,6 @@ msgstr ""
 msgctxt "game_options"
 msgid "Enhancement. Enables improved polygon splitting."
 msgstr "Улучшение. Позволяет улучшить разбиение полигонов."
-
-#. TRANSLATION: ppsspp
-msgctxt "game_options"
-msgid "Enhancement. Enables texture upscaling textures and their size."
-msgstr "Улучшение. Включает апскейлинг текстур и их размера."
 
 #. TRANSLATION: mupen64plus
 msgctxt "game_options"
@@ -7438,7 +7697,7 @@ msgctxt "game_options"
 msgid "Enhancement. Remove the eight sprites per line limit."
 msgstr "Улучшение. Удаляет ограничение в восемь спрайтов."
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "Enhancement. Remove the eighty sprites per line limit."
 msgstr "Улучшение. Удаляет ограничение в восемьдесят спрайтов."
@@ -7482,7 +7741,7 @@ msgctxt "game_options"
 msgid "Enhancement. Smooth out jagged edges on 3D objects polygons."
 msgstr "Улучшение. Сглаживание неровных краев полигонов 3D-объектов."
 
-#. TRANSLATION: duckstation
+#. TRANSLATION: duckstation, libretro/pcsx2
 msgctxt "game_options"
 msgid "Enhancement. Smooth/upscale textures on 3D objects."
 msgstr "Улучшение. Сглаживание/апскейл текстур на 3D объектах."
@@ -7576,7 +7835,7 @@ msgctxt "game_options"
 msgid "Export"
 msgstr "Экспорт"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Extend the game screen area, similar to the Master System."
 msgstr "Расширяет область игрового экрана, как в Master System."
@@ -7621,6 +7880,11 @@ msgctxt "game_options"
 msgid "FAST BLITTER (LESS COMPATIBLE)"
 msgstr "БЫСТРЫЙ БЛИТТЕР (МЕНЕЕ СОВМЕСТИМ)"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "FAST CD/DVD ACCESS"
+msgstr "БЫСТРЫЙ ДОСТУП К CD/DVD"
+
 #. TRANSLATION: dolphin
 msgctxt "game_options"
 msgid "FAST DISK TRANSFER RATE"
@@ -7639,7 +7903,7 @@ msgstr "FIDELITY FX СУПЕР РАЗРЕШЕНИЕ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "FIELD OF VIEW"
-msgstr ""
+msgstr "ПОЛЕ ЗРЕНИЯ (FOV)"
 
 #. TRANSLATION: citron
 msgctxt "game_options"
@@ -7669,7 +7933,7 @@ msgstr "НАСТРОЙКИ ПРОШИВКИ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "FIST CROSSHAIR"
-msgstr ""
+msgstr "РУЧНОЙ ПРИЦЕЛ"
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -7681,7 +7945,7 @@ msgctxt "game_options"
 msgid "FLOPPY TURBO SPEED"
 msgstr "ФЛОППИ ТУРБО СКОРОСТЬ"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "FM SYNTHESIZER"
 msgstr "FM SYNTHESIZER"
@@ -7749,12 +8013,12 @@ msgstr "ПРИНУДИТЕЛЬНЫЙ РЕЖИМ WINDOWS CE"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "FOV VERTICAL"
-msgstr ""
+msgstr "ВЕРТИКАЛЬНЫЙ FOV"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "FPS LIMIT"
-msgstr ""
+msgstr "ЛИМИТ FPS"
 
 #. TRANSLATION: lindbergh-loader, wine
 msgctxt "game_options"
@@ -7765,6 +8029,11 @@ msgstr "ОГРАНИЧЕНИЕ FPS"
 msgctxt "game_options"
 msgid "FPS TARGET"
 msgstr "ЦЕЛЕВОЙ FPS"
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "FR"
+msgstr "FR"
 
 #. TRANSLATION: libretro/mednafen_psx
 msgctxt "game_options"
@@ -7786,6 +8055,11 @@ msgctxt "game_options"
 msgid "FRAME RATE LIMIT"
 msgstr "ОГРАНИЧЕНИЕ ЧАСТОТЫ КАДРОВ"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "FRAME SKIPPING"
+msgstr "ПРОПУСК КАДРОВ"
+
 #. TRANSLATION: libretro/desmume, libretro/fbneo, libretro/flycast, libretro/mame078plus, libretro/mgba, ...
 msgctxt "game_options"
 msgid "FRAMESKIP"
@@ -7795,6 +8069,11 @@ msgstr "ПРОПУСК КАДРОВ"
 msgctxt "game_options"
 msgid "FRAMESKIP (GL64MK2 ONLY)"
 msgstr "ПРОПУСК КАДРОВ (ТОЛЬКО GL64MK2)"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "FRAMESKIP CONTROL"
+msgstr "НАСТРОЙКА ПРОПУСКА КАДРОВ"
 
 #. TRANSLATION: drastic
 msgctxt "game_options"
@@ -7811,10 +8090,15 @@ msgctxt "game_options"
 msgid "FREE PLAY"
 msgstr "СВОБОДНАЯ ИГРА"
 
-#. TRANSLATION: mugen, wine
+#. TRANSLATION: mugen
 msgctxt "game_options"
 msgid "FSYNC"
 msgstr "FSYNC"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "FULL ENTITY LIGHTING"
+msgstr "ПОЛНОЕ ОСВЕЩЕНИЕ ОБЪЕКТОВ"
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -7892,7 +8176,7 @@ msgstr "Faroe Islands"
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Fast"
-msgstr ""
+msgstr "Быстро"
 
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
@@ -7903,6 +8187,11 @@ msgstr "Интерпретатор (быстро)"
 msgctxt "keys_files"
 msgid "Fast forward"
 msgstr "Быстрая перемотка вперёд"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "Faster but can cause text problems in some games."
+msgstr "Быстрее, но может вызывать проблемы с текстом."
 
 #. TRANSLATION: bigpemu
 msgctxt "game_options"
@@ -7930,12 +8219,12 @@ msgstr "FidelityFX Super Resolution"
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Field Light"
-msgstr ""
+msgstr "Освещение объектов"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Field of view is vertical (Hor+)."
-msgstr ""
+msgstr "Вертикальный FOV (Hor+)"
 
 #. TRANSLATION: play
 msgctxt "game_options"
@@ -7984,12 +8273,12 @@ msgstr "Огонь"
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Fire 1"
-msgstr ""
+msgstr "Огонь 1"
 
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Fire 2"
-msgstr ""
+msgstr "Огонь 2"
 
 #. TRANSLATION: scummvm
 msgctxt "game_options"
@@ -8052,7 +8341,7 @@ msgstr ""
 "позволяет разрывать данные при восстановлении после замедления. Mailbox "
 "может иметь меньшую задержку, но может пропускать кадры."
 
-#. TRANSLATION: xenia-canary
+#. TRANSLATION: gzdoom, xenia-canary
 msgctxt "game_options"
 msgid ""
 "Fix screen tearing. With Some games you need to turn VSync on in the games "
@@ -8131,17 +8420,6 @@ msgctxt "game_options"
 msgid "For emulators and controllers supporting force feedback."
 msgstr "Для эмуляторов и контроллеров, поддерживающих вибрацию."
 
-#. TRANSLATION: supermodel
-#, c-format
-msgctxt "game_options"
-msgid ""
-"For playing driving games with a game pad, it is sometimes a good idea to "
-"use a value larger than 100%% so that the steering feels less sensitive on a "
-"thumbstick."
-msgstr ""
-"Для игр с вождением на геймпаде иногда полезно использовать значение больше "
-"100%%, чтобы управление было менее чувствительным при поворотах."
-
 #. TRANSLATION: libretro/mesen
 msgctxt "game_options"
 msgid "For use with HD texture packs."
@@ -8172,7 +8450,7 @@ msgctxt "game_options"
 msgid "Force 32:9"
 msgstr "Принудительно 32:9"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Force 32bit"
 msgstr "Принудительно 32bit"
@@ -8304,12 +8582,12 @@ msgstr "French"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "French (Canada)"
-msgstr ""
+msgstr "French (Canada)"
 
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "French (France)"
-msgstr ""
+msgstr "French (France)"
 
 #. TRANSLATION: hatari, libretro/hatarib
 msgctxt "game_options"
@@ -8356,7 +8634,7 @@ msgctxt "game_options"
 msgid "Fujitsu FM-77AV disk images"
 msgstr "Fujitsu FM-77AV disk images"
 
-#. TRANSLATION: libretro/hatarib, shared
+#. TRANSLATION: libretro/hatarib, libretro/pcsx2, openmohaa, shared
 msgctxt "game_options"
 msgid "Full"
 msgstr "Полное"
@@ -8514,12 +8792,12 @@ msgstr "ГЕЙМПАД СКОРОСТЬ КУРСОРА"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "GAMEPLAY"
-msgstr ""
+msgstr "ГЕЙМПЛЕЙ"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "GAMMA"
-msgstr ""
+msgstr "ГАММА"
 
 #. TRANSLATION: citron
 msgctxt "game_options"
@@ -8639,12 +8917,12 @@ msgstr "GDC"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "GENERAL"
-msgstr ""
+msgstr "ОСНОВНЫЕ"
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "GEOMETRIC DETAIL"
-msgstr ""
+msgstr "ДЕТАЛИЗАЦИЯ ГЕОМЕТРИИ"
 
 #. TRANSLATION: libretro
 msgctxt "game_options"
@@ -8700,7 +8978,7 @@ msgctxt "game_options"
 msgid "GRAPHICAL USER INTERFACE"
 msgstr "ГРАФИЧЕСКИЙ ИНТЕРФЕЙС"
 
-#. TRANSLATION: azahar, iortcw, theforceengine
+#. TRANSLATION: azahar, iortcw, libretro/pcsx2, theforceengine
 msgctxt "game_options"
 msgid "GRAPHICS"
 msgstr "ГРАФИКА"
@@ -8820,7 +9098,7 @@ msgctxt "game_options"
 msgid "Gamepad Modern"
 msgstr "Gamepad Modern"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid ""
 "Games may run faster/slower than normal if the incorrect region is selected."
@@ -9018,10 +9296,25 @@ msgctxt "game_options"
 msgid "Guatemala"
 msgstr "Guatemala"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Gun Only"
+msgstr "Только пистолет"
+
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
 msgid "HARD TEXTURE CACHE MEMORY LIMIT"
 msgstr "ЖЕСТКИЙ ЛИМИТ ПАМЯТИ ТЕКСТУРНОГО КЭША"
+
+#. TRANSLATION: azahar
+msgctxt "game_options"
+msgid "HARDWARE SHADER"
+msgstr ""
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "HARDWARE TESSELLATION"
+msgstr "АППАРАТНАЯ ТЕССЕЛЛЯЦИЯ"
 
 #. TRANSLATION: theforceengine
 msgctxt "game_options"
@@ -9031,7 +9324,7 @@ msgstr "HD ТЕКСТУРЫ"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 #. TRANSLATION: shared
 msgctxt "game_options"
@@ -9053,11 +9346,6 @@ msgctxt "game_options"
 msgid "HI-RES ARTIFACTING"
 msgstr "АРТЕФАКТЫ ВЫСОКОГО РАЗРЕШЕНИЯ"
 
-#. TRANSLATION: hypseus-singe/uzem
-msgctxt "game_options"
-msgid "HIDE LIGHT GUN CROSSHAIRS"
-msgstr "СКРЫТЬ ПЕРЕКРЕСТИЕ СВЕТОВОГО ПИСТОЛЕТА"
-
 #. TRANSLATION: wine
 msgctxt "game_options"
 msgid "HIDE NVIDIA GPU"
@@ -9066,7 +9354,7 @@ msgstr "СКРЫТЬ NVIDIA GPU"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "HIDPI"
-msgstr ""
+msgstr "HIDPI"
 
 #. TRANSLATION: cannonball
 msgctxt "game_options"
@@ -9116,7 +9404,7 @@ msgstr "HST"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "HUD SCALE"
-msgstr ""
+msgstr "HUD РАЗМЕР"
 
 #. TRANSLATION: lindbergh-loader
 msgctxt "game_options"
@@ -9203,6 +9491,15 @@ msgctxt "game_options"
 msgid "Help games which are too quick or that have bugs."
 msgstr "Помогает слишком быстрым играм или в которых есть ошибки."
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid ""
+"Helps forcing an international Japanese version to English. Unlocking more "
+"European languages etc."
+msgstr ""
+"Позволяет переключить японскую международную версию на английский. Открывает "
+"поддержку европейских языков."
+
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
 msgid ""
@@ -9211,6 +9508,18 @@ msgid ""
 msgstr ""
 "Помогает снизить энергопотребление CPU, когда он не нужен. Полезно для "
 "портативных устройств."
+
+#. TRANSLATION: azahar
+msgctxt "game_options"
+msgid "Helps some games to launch when disabled. May affect performance."
+msgstr ""
+
+#. TRANSLATION: libretro/flycast
+msgctxt "game_options"
+msgid ""
+"Helps with texture corruption and depth issues on AMD GPUs. Can also help "
+"Intel GPUs in some cases."
+msgstr ""
 
 #. TRANSLATION: libretro/dosbox_pure
 msgctxt "game_options"
@@ -9227,7 +9536,7 @@ msgctxt "game_options"
 msgid "Hermite (Default)"
 msgstr "Hermite (по умолчанию)"
 
-#. TRANSLATION: hypseus-singe/uzem, libretro/hatarib
+#. TRANSLATION: libretro/hatarib
 msgctxt "game_options"
 msgid "Hide"
 msgstr "Скрыть"
@@ -9236,11 +9545,6 @@ msgstr "Скрыть"
 msgctxt "keys_files"
 msgid "Hide bezels"
 msgstr "Скрыть рамки (bezels)"
-
-#. TRANSLATION: hypseus-singe/uzem
-msgctxt "game_options"
-msgid "Hide crosshairs in supported games e.g. ActionMax, Maddog II."
-msgstr "Скрыть прицел в поддерживаемых играх, например в ActionMax, Maddog II."
 
 #. TRANSLATION: libretro/puae, libretro/puae2021
 msgctxt "game_options"
@@ -9267,15 +9571,30 @@ msgctxt "game_options"
 msgid "High 720p"
 msgstr "Высокое 720p"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "High Detail"
+msgstr "Высокая детализация"
+
 #. TRANSLATION: shared
 msgctxt "game_options"
 msgid "High Performance"
 msgstr "Высокая производительность"
 
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "High-Resolution Keyboard, which is larger and might be easier to see."
+msgstr ""
+
 #. TRANSLATION: vpinball
 msgctxt "game_options"
 msgid "High-end Computer"
 msgstr "Высокопроизводительный компьютер"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Higher"
+msgstr "Повышенная"
 
 #. TRANSLATION: moonlight
 msgctxt "game_options"
@@ -9283,6 +9602,11 @@ msgid "Higher number for higher picture quality, but requires more bandwidth."
 msgstr ""
 "Высокое значение обеспечивает более качественное изображение, требует больше "
 "пропускной способности."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Highest"
+msgstr "Максимальная"
 
 #. TRANSLATION: libretro/xrick
 msgctxt "game_options"
@@ -9312,11 +9636,8 @@ msgstr "Горизонтально"
 #. TRANSLATION: lindbergh-loader
 msgctxt "game_options"
 msgid ""
-"House of the Dead 4 speed fix. Sets the game to the CPU minimum frequency of "
-"your processor."
-msgstr ""
-"Исправление скорости House of the Dead 4. Устанавливает игру на минимальную "
-"частоту ЦП вашего процессора."
+"House of the Dead 4 speed fix. Select CPU base frequency of your processor."
+msgstr "Фикс скорости для House of the Dead 4. Выберите базовую частоту CPU."
 
 #. TRANSLATION: libretro/mame, mame/pcsx2
 msgctxt "game_options"
@@ -9388,7 +9709,7 @@ msgstr "IDE (по умолчанию)"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "IDENTIFY TARGET"
-msgstr ""
+msgstr "ОПРЕДЕЛИТЬ ЦЕЛЬ"
 
 #. TRANSLATION: x16emu
 msgctxt "game_options"
@@ -9490,6 +9811,12 @@ msgctxt "game_options"
 msgid "Iceland"
 msgstr "Iceland"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "If a game runs at 30hz, PPSSPP wtill push 60 frames to the monitor."
+msgstr ""
+"Если игра работает на 30 Гц, PPSSPP будет выводить 60 кадров на монитор."
+
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
 msgid "If game crashes, try ASMJIT. If still crashing, try Fast Interpreter."
@@ -9547,6 +9874,11 @@ msgctxt "game_options"
 msgid "Improves clarity of distant textures."
 msgstr "Повышает чёткость отдалённых текстур."
 
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid "Improves frame rate and responsiveness."
+msgstr ""
+
 #. TRANSLATION: shared
 msgctxt "game_options"
 msgid "Improves performance at the cost of latency and more video stuttering."
@@ -9562,12 +9894,21 @@ msgstr "Улучшает производительность в 3D-играх. 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "In Cinematics"
-msgstr ""
+msgstr "В кат-сценах"
 
 #. TRANSLATION: libretro
 msgctxt "game_options"
 msgid "In milliseconds. Can reduce crackling/cutting out."
 msgstr "В миллисекундах. Может уменьшить потрескивание."
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"In some games, this can fix severe slowdowns, but can also cause graphical "
+"issues."
+msgstr ""
+"В некоторых играх это может устранить сильные лаги, но иногда вызывает "
+"артефакты."
 
 #. TRANSLATION: bigpemu
 msgctxt "game_options"
@@ -9593,6 +9934,11 @@ msgctxt "game_options"
 msgid "Increase to 128 MiB for debug or homebrew applications."
 msgstr "Увеличить до 128 МБ отладки или хоумбрю приложений."
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Increases texture quality."
+msgstr "Повышает качество текстур."
+
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
 msgid "India"
@@ -9606,7 +9952,7 @@ msgstr "Indonesia"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesian"
 
 #. TRANSLATION: libretro/mame, mame/pcsx2
 msgctxt "game_options"
@@ -9652,12 +9998,19 @@ msgctxt "game_options"
 msgid "Integer Scale"
 msgstr "Целочисленный масштаб"
 
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "Interlaced"
+msgstr "Чересстрочный"
+
 #. TRANSLATION: vpinball
 msgctxt "game_options"
 msgid ""
 "Internal accelerometer. Disable if you experience random tilts or unexpected "
 "ball behavior."
 msgstr ""
+"Встроенный акселерометр. Отключите, если наблюдаются случайные наклоны или "
+"аномальное поведение."
 
 #. TRANSLATION: duckstation
 msgctxt "game_options"
@@ -9868,47 +10221,47 @@ msgctxt "game_options"
 msgid "Joypad"
 msgstr "Джойстик"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 2 Button"
 msgstr "Джойстик 2 кнопки"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 2 Button + Master Tap"
 msgstr "Джойстик 2 кнопки + Master Tap"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "Joypad 3 Button"
 msgstr "Джойстик 3 кнопки"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 3 Button + 4-WayPlay"
 msgstr "Джойстик 3 кнопки + 4-WayPlay"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 3 Button + Teamplayer"
 msgstr "Джойстик 3 кнопки + Teamplayer"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "Joypad 6 Button"
 msgstr "Джойстик 6 кнопок"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 6 Button + 4-WayPlay"
 msgstr "Джойстик 6 кнопок + 4-WayPlay"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad 6 Button + Teamplayer"
 msgstr "Джойстик 6 кнопок + Teamplayer"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Joypad Auto"
 msgstr "Джойстик Авто"
@@ -9928,7 +10281,7 @@ msgctxt "game_options"
 msgid "July"
 msgstr "Июль"
 
-#. TRANSLATION: openjkdf2.keys, quake2.keys
+#. TRANSLATION: mohaa.keys, openjkdf2.keys, quake2.keys
 msgctxt "keys_files"
 msgid "Jump"
 msgstr "Прыжок"
@@ -9946,17 +10299,27 @@ msgstr "Justifier"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "KEEP CORPSES"
-msgstr ""
+msgstr "НЕ УДАЛЯТЬ ТЕЛА"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "KEEP LIGHTSABER"
-msgstr ""
+msgstr "НЕ УБИРАТЬ СВЕТОВОЙ МЕЧ"
 
 #. TRANSLATION: drastic
 msgctxt "game_options"
 msgid "KEEP MAIN SCREEN ON TOP"
 msgstr "ДЕРЖАТЬ ГЛАВНЫЙ ЭКРАН НАВЕРХУ"
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "KEYBOARD LAYOUT"
+msgstr ""
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "KEYBOARD OPTIONS"
+msgstr ""
 
 #. TRANSLATION: libretro/vice_x128, libretro/vice_x64, libretro/vice_x64sc, libretro/vice_xpet, libretro/vice_xplus4, ...
 msgctxt "game_options"
@@ -9967,6 +10330,11 @@ msgstr "КЛАВИАТУРА PASSTHROUGH"
 msgctxt "game_options"
 msgid "KEYBOARD SUPPORT"
 msgstr "ПОДДЕРЖКА КЛАВИАТУРЫ"
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "KEYBOARD TRANSPARENCY"
+msgstr ""
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -10062,7 +10430,7 @@ msgstr ""
 "Konami Justifier P2 последовательно подключается к контроллеру 2 и "
 "отображается как порт 3 в системе."
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Konami Justifiers"
 msgstr "Konami Justifiers"
@@ -10107,10 +10475,25 @@ msgctxt "game_options"
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "LANGUAGE UNLOCK"
+msgstr "РАЗБЛОКИРОВКА ЯЗЫКОВ"
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "LARGER KEYBOARD"
+msgstr ""
+
 #. TRANSLATION: shared
 msgctxt "game_options"
 msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "LAZY TEXTURE CACHING"
+msgstr "ЛЕНИВОЕ КЭШИРОВАНИЕ ТЕКСТУР"
 
 #. TRANSLATION: libretro/pokemini
 msgctxt "game_options"
@@ -10127,7 +10510,7 @@ msgctxt "game_options"
 msgid "LCD GHOSTING EFFECTS"
 msgstr "LCD GHOSTING ЭФФЕКТ"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "LCD GHOSTING FILTER"
 msgstr "LCD GHOSTING ФИЛЬТР"
@@ -10145,7 +10528,7 @@ msgstr "LCD Ghosting (быстрое)"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "LIGHT FLARES"
-msgstr ""
+msgstr "СВЕТОВЫЕ БЛИКИ"
 
 #. TRANSLATION: duckstation, flycast, hypseus-singe/uzem, libretro/beetle-saturn, libretro/fbneo, ...
 msgctxt "game_options"
@@ -10157,6 +10540,11 @@ msgctxt "game_options"
 msgid "LIGHT GUN CROSSHAIR"
 msgstr "ПЕРЕКРЕСТИЕ СВЕТОВОГО ПИСТОЛЕТА"
 
+#. TRANSLATION: hypseus-singe/uzem
+msgctxt "game_options"
+msgid "LIGHT GUN CROSSHAIRS"
+msgstr "ПРИЦЕЛЫ ДЛЯ СВЕТОВОГО ПИСТОЛЕТА"
+
 #. TRANSLATION: dolphin, rpcs3, shared
 msgctxt "game_options"
 msgid "LIGHT GUNS"
@@ -10165,12 +10553,12 @@ msgstr "СВЕТОВЫЕ ПИСТОЛЕТЫ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "LIGHTSABER CAMERA"
-msgstr ""
+msgstr "КАМЕРА ДЛЯ СВЕТОВОГО МЕЧА"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "LIGHTSABER CROSSHAIR"
-msgstr ""
+msgstr "ПРИЦЕЛ ДЛЯ СВЕТОВОГО МЕЧА"
 
 #. TRANSLATION: openbor/openbor7530
 msgctxt "game_options"
@@ -10268,6 +10656,16 @@ msgctxt "game_options"
 msgid "Latvia"
 msgstr "Latvia"
 
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Lean left"
+msgstr "Наклониться влево"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Lean right"
+msgstr "Наклониться вправо"
+
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
 msgid "Lebanon"
@@ -10343,7 +10741,7 @@ msgctxt "game_options"
 msgid "Light Gun"
 msgstr "Light Gun"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Light Phaser"
 msgstr "Light Phaser"
@@ -10358,7 +10756,7 @@ msgctxt "game_options"
 msgid "Light Purple"
 msgstr "Светло-фиолетовый"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/snes9x
+#. TRANSLATION: libretro/genesisplusgx-expanded, libretro/snes9x
 msgctxt "game_options"
 msgid "Light guns can only be used in port 2."
 msgstr "Световой пистолет можно исп. только в порту 2."
@@ -10432,6 +10830,11 @@ msgctxt "game_options"
 msgid "Long visible screen edge (cm)"
 msgstr "Длинный видимый край экрана (см)"
 
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Look"
+msgstr "Обзор"
+
 #. TRANSLATION: quake2.keys
 msgctxt "keys_files"
 msgid "Look down"
@@ -10457,6 +10860,11 @@ msgctxt "game_options"
 msgid "Low-end Computer"
 msgstr "Бюджетный компьютер"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Lower"
+msgstr "Пониженный"
+
 #. TRANSLATION: mupen64plus
 msgctxt "game_options"
 msgid ""
@@ -10465,6 +10873,11 @@ msgid ""
 msgstr ""
 "Низкие значения уменьшают задержку звука и улучшают производительность, но "
 "могут вызвать проблемы со звуком."
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Lowest"
+msgstr "Минимальный"
 
 #. TRANSLATION: libretro/pcsx_rearmed
 msgctxt "game_options"
@@ -10501,17 +10914,17 @@ msgctxt "game_options"
 msgid "MAC MODEL"
 msgstr "МОДЕЛЬ MAC"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "MAME (ASIC YM3438)"
 msgstr "MAME (ASIC YM3438)"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "MAME (Enhanced YM3438)"
 msgstr "MAME (Enhanced YM3438)"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "MAME (YM2612)"
 msgstr "MAME (YM2612)"
@@ -10529,7 +10942,7 @@ msgstr "РУЧНОЙ САМПЛИНГ ТЕКСТУР"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "MAP ROTATION"
-msgstr ""
+msgstr "ВРАЩЕНИЕ КАРТЫ"
 
 #. TRANSLATION: libretro/dosbox_pure
 msgctxt "game_options"
@@ -10594,27 +11007,27 @@ msgstr "MISSILE COMMAND 3D VR"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "MISSION START"
-msgstr ""
+msgstr "СТАРТ МИССИИ"
 
 #. TRANSLATION: hatari, libretro/fuse, libretro/mame, mame/pcsx2
 msgctxt "game_options"
 msgid "MODEL"
 msgstr "МОДЕЛЬ"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "MODEL DETAIL"
+msgstr "ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ"
+
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "MODEL DISMEMBERMENT"
-msgstr ""
+msgstr "РАСЧЛЕНЕНИЕ МОДЕЛЕЙ"
 
 #. TRANSLATION: libretro/vice_x128, libretro/vice_x64, libretro/vice_x64sc, libretro/vice_xpet, libretro/vice_xplus4, ...
 msgctxt "game_options"
 msgid "MODEL TYPE"
 msgstr "ТИП МОДЕЛИ"
-
-#. TRANSLATION: supermodel
-msgctxt "game_options"
-msgid "MODERN PEDAL CONTROLS"
-msgstr "MODERN PEDAL CONTROLS"
 
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
@@ -10629,42 +11042,42 @@ msgstr "МЫШЬ КАК УКАЗАТЕЛЬ WIIMOTE"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 1 HORIZONTAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 1 HORIZONTAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 1 VERTICAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 1 VERTICAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 2 HORIZONTAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 2 HORIZONTAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 2 VERTICAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 2 VERTICAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 3 HORIZONTAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 3 HORIZONTAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 3 VERTICAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 3 VERTICAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 4 HORIZONTAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 4 HORIZONTAL"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "MOUSE AXIS FOR PADDLE 4 VERTICAL"
-msgstr ""
+msgstr "MOUSE AXIS FOR PADDLE 4 VERTICAL"
 
 #. TRANSLATION: libretro/puae, libretro/puae2021
 msgctxt "game_options"
@@ -10862,7 +11275,7 @@ msgstr "Ручная установка циклов в секунду. Испо
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Map"
-msgstr ""
+msgstr "Карта"
 
 #. TRANSLATION: libretro
 msgctxt "game_options"
@@ -10884,7 +11297,7 @@ msgctxt "game_options"
 msgid "Match Window"
 msgstr "Match Window"
 
-#. TRANSLATION: dosbox
+#. TRANSLATION: dosbox, openmohaa
 msgctxt "game_options"
 msgid "Max"
 msgstr "Максимум"
@@ -10894,12 +11307,17 @@ msgctxt "game_options"
 msgid "Max (demanding games)"
 msgstr "Макс (требовательные игры)"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "Max Detail"
+msgstr "Максимальная детализация"
+
 #. TRANSLATION: libretro/mednafen_psx
 msgctxt "game_options"
 msgid "Max Performance"
 msgstr "Максимальная производительность"
 
-#. TRANSLATION: rpcs3
+#. TRANSLATION: libretro/pcsx2, rpcs3
 msgctxt "game_options"
 msgid "Maximum"
 msgstr "Максимум"
@@ -10988,7 +11406,7 @@ msgctxt "game_options"
 msgid "May result in a sharper image in some 2D games."
 msgstr "Может показать более четкое изображение в некоторых 2D-играх."
 
-#. TRANSLATION: libretro/mesen, libretro/mesen-s, mupen64plus, openjk, openjkdf2, ...
+#. TRANSLATION: libretro/mesen, libretro/mesen-s, libretro/pcsx2, mupen64plus, openjk, ...
 msgctxt "game_options"
 msgid "Medium"
 msgstr "Средний"
@@ -11037,12 +11455,12 @@ msgstr ""
 "Режимы Mega и Giga могут повысить производительность. Используйте Safe режим "
 "для максимальной совместимости."
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "MegaSD"
 msgstr "MegaSD"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "Megadrive"
 msgstr "Megadrive"
@@ -11057,7 +11475,7 @@ msgctxt "game_options"
 msgid "Memory Pak"
 msgstr "Memory Pak"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Menacer Light Gun"
 msgstr "Menacer Light Gun"
@@ -11127,7 +11545,7 @@ msgctxt "game_options"
 msgid "Minimal"
 msgstr "Минимум"
 
-#. TRANSLATION: pcsx2, rpcs3
+#. TRANSLATION: libretro/pcsx2, openmohaa, pcsx2, rpcs3
 msgctxt "game_options"
 msgid "Minimum"
 msgstr "Минимум"
@@ -11147,7 +11565,7 @@ msgctxt "game_options"
 msgid "Moderate"
 msgstr "Умеренный"
 
-#. TRANSLATION: libretro/mame, mame/pcsx2
+#. TRANSLATION: libretro/fbneo, libretro/flycast, libretro/mame, mame/pcsx2
 msgctxt "game_options"
 msgid "Modern Fightstick Style"
 msgstr "Стиль Modern Fightstick"
@@ -11214,7 +11632,7 @@ msgctxt "game_options"
 msgid "Mount a floppy for user data, creates if needed"
 msgstr "Смонтировать дискету для данных, создать при необходимости"
 
-#. TRANSLATION: libretro/flycast, libretro/genesisplusgx, libretro/melonds, libretro/np2kai
+#. TRANSLATION: libretro/flycast, libretro/genesisplusgx-expanded, libretro/melonds, libretro/np2kai
 msgctxt "game_options"
 msgid "Mouse"
 msgstr "Мышь"
@@ -11232,42 +11650,42 @@ msgstr "Клик мышью"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 1, horizontal screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 1, горизонтальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 1, vertical screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 1, вертикальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 2, horizontal screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 2, горизонтальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 2, vertical screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 2, вертикальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 3, horizontal screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 3, горизонтальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 3, vertical screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 3, вертикальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 4, horizontal screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 4, горизонтальное движение экрана."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Mouse axis for player 4, vertical screen motion."
-msgstr ""
+msgstr "Ось мыши для игрока 4, вертикальное движение экрана."
 
 #. TRANSLATION: catacomb.keys
 msgctxt "keys_files"
@@ -11288,6 +11706,11 @@ msgstr "Двигаться вперед. Можно нажать W"
 msgctxt "keys_files"
 msgid "Move Stylet Pointer"
 msgstr "Переместить указатель стилета"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Move back"
+msgstr "Движение назад"
 
 #. TRANSLATION: quake2.keys
 msgctxt "keys_files"
@@ -11319,7 +11742,7 @@ msgctxt "keys_files"
 msgid "Move camera up"
 msgstr "Переместить камеру вверх"
 
-#. TRANSLATION: bstone.keys, openjkdf2.keys, quake2.keys, rott.keys
+#. TRANSLATION: bstone.keys, mohaa.keys, openjkdf2.keys, quake2.keys, rott.keys
 msgctxt "keys_files"
 msgid "Move forward"
 msgstr "Двигаться вперёд"
@@ -11365,6 +11788,11 @@ msgstr "N64 3-point"
 msgctxt "game_options"
 msgid "NAT"
 msgstr "NAT"
+
+#. TRANSLATION: libretro/flycast
+msgctxt "game_options"
+msgid "NATIVE DEPTH INTERPOLATION"
+msgstr ""
 
 #. TRANSLATION: libretro/melonds, libretro/melondsds
 msgctxt "game_options"
@@ -11419,12 +11847,12 @@ msgstr "НЕТ (по умолчанию)"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "NO DANGEROUS WEAPONS"
-msgstr ""
+msgstr "БЕЗ ОПАСНЫХ ВИДОВ ОРУЖИЯ"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "NO WEAKER WEAPONS"
-msgstr ""
+msgstr "БЕЗ СЛАБОГО ОРУЖИЯ"
 
 #. TRANSLATION: wine
 msgctxt "game_options"
@@ -11491,12 +11919,12 @@ msgctxt "game_options"
 msgid "NTSC TV"
 msgstr "NTSC TV"
 
-#. TRANSLATION: duckstation, libretro/genesisplusgx
+#. TRANSLATION: duckstation, libretro/genesisplusgx, libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "NTSC-J"
 msgstr "NTSC-J"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "NTSC-U"
 msgstr "NTSC-U"
@@ -11505,6 +11933,11 @@ msgstr "NTSC-U"
 msgctxt "game_options"
 msgid "NTSC-U/C"
 msgstr "NTSC-U/C"
+
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid "NTSYNC"
+msgstr ""
 
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
@@ -11547,7 +11980,7 @@ msgstr ""
 "Nat для доступа в интернет с машины xemu. Udp для системной ссылки. По "
 "умолчанию (Авто) отключает доступ к сети."
 
-#. TRANSLATION: xemu
+#. TRANSLATION: wine, xemu
 msgctxt "game_options"
 msgid "Native"
 msgstr "Родное"
@@ -11587,7 +12020,7 @@ msgctxt "game_options"
 msgid "NeGcon (Rumble)"
 msgstr "NeGcon (вибрация)"
 
-#. TRANSLATION: libretro/duckstation, libretro/melondsds, libretro/parallel_n64, libretro/swanstation, pcsx2, ...
+#. TRANSLATION: libretro/duckstation, libretro/melondsds, libretro/parallel_n64, libretro/pcsx2, libretro/swanstation, ...
 msgctxt "game_options"
 msgid "Nearest"
 msgstr "Ближайший"
@@ -11674,17 +12107,17 @@ msgstr "New3D"
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Next Force Power"
-msgstr ""
+msgstr "Следующая Силовая Способность"
 
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Next Inventory Item"
-msgstr ""
+msgstr "Следующий предмет в инвентаре"
 
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Next Weapon"
-msgstr ""
+msgstr "Следующее оружие"
 
 #. TRANSLATION: hotkeys.keys
 msgctxt "keys_files"
@@ -11701,7 +12134,7 @@ msgctxt "keys_files"
 msgid "Next slot"
 msgstr "Следующий слот"
 
-#. TRANSLATION: bstone.keys, quake2.keys
+#. TRANSLATION: bstone.keys, mohaa.keys, quake2.keys
 msgctxt "keys_files"
 msgid "Next weapon"
 msgstr "Следующее оружие"
@@ -11710,6 +12143,16 @@ msgstr "Следующее оружие"
 msgctxt "game_options"
 msgid "Nicaragua"
 msgstr "Nicaragua"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "No (Default)"
+msgstr "Нет (по умолчанию)"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "No Buffer"
+msgstr "Без буфера"
 
 #. TRANSLATION: libretro/dosbox_pure
 msgctxt "game_options"
@@ -11751,7 +12194,7 @@ msgctxt "game_options"
 msgid "None"
 msgstr "Нет"
 
-#. TRANSLATION: cgenius, iortcw, libretro/mame, mame/pcsx2, supermodel
+#. TRANSLATION: cgenius, iortcw, libretro/mame, mame/pcsx2, pcsx2, ...
 msgctxt "game_options"
 msgid "None (Default)"
 msgstr "Нет (по умолчанию)"
@@ -11794,7 +12237,7 @@ msgstr "Norwegian"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Norwegian (Bokmaal)"
-msgstr ""
+msgstr "Norwegian (Bokmaal)"
 
 #. TRANSLATION: libretro/hatarib
 msgctxt "game_options"
@@ -11841,17 +12284,17 @@ msgctxt "keys_files"
 msgid "Nudge up"
 msgstr "Подтолкнуть вверх"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Nuked (YM2612)"
 msgstr "Nuked (YM2612)"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Nuked (YM3438)"
 msgstr "Nuked (YM3438)"
 
-#. TRANSLATION: amiberry
+#. TRANSLATION: amiberry, libretro/pcsx2
 msgctxt "game_options"
 msgid "OFF"
 msgstr "ВЫКЛ"
@@ -11891,6 +12334,16 @@ msgctxt "game_options"
 msgid "OSD MESSAGES"
 msgstr "ЭКРАННЫЕ СООБЩЕНИЯ"
 
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "OSD MESSAGES POSITION"
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "OSD PERFORMANCE POSITION"
+msgstr ""
+
 #. TRANSLATION: dolphin_triforce
 msgctxt "game_options"
 msgid "OUTPUT RESAMPLING"
@@ -11920,6 +12373,11 @@ msgstr "МНОЖИТЕЛЬ РАЗГОНА"
 msgctxt "game_options"
 msgid "OVERCLOCK TYPE"
 msgstr "ТИП РАЗГОНА"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Objective"
+msgstr "Цель"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -12033,7 +12491,7 @@ msgctxt "game_options"
 msgid "On (default)"
 msgstr "On (по умолчанию)"
 
-#. TRANSLATION: libretro/81, libretro/genesisplusgx
+#. TRANSLATION: libretro/81, libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "On (forced)"
 msgstr "Вкл (принудительно)"
@@ -12272,17 +12730,17 @@ msgstr "Только P2"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "PADDLE ANALOG STICK SENSITIVITY"
-msgstr ""
+msgstr "PADDLE ANALOG STICK SENSITIVITY"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "PADDLE D-PAD SENSITIVITY"
-msgstr ""
+msgstr "PADDLE D-PAD SENSITIVITY"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "PADDLE MOUSE SENSITIVITY"
-msgstr ""
+msgstr "PADDLE MOUSE SENSITIVITY"
 
 #. TRANSLATION: libretro/atari800, libretro/puae, libretro/puae2021
 msgctxt "game_options"
@@ -12379,6 +12837,16 @@ msgctxt "game_options"
 msgid "PER-GAME SAVES"
 msgstr "СОХРАНЕНИЯ ИГРЫ"
 
+#. TRANSLATION: flycast/dolphin
+msgctxt "game_options"
+msgid "PER-GAME VMU"
+msgstr "VMU ДЛЯ КАЖДОЙ ИГРЫ"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "PERFORMANCE"
+msgstr "ПРОИЗВОДИТЕЛЬНОСТЬ"
+
 #. TRANSLATION: dolphin
 msgctxt "game_options"
 msgid "PERFORMANCE HACKS"
@@ -12402,7 +12870,7 @@ msgstr "РАСКЛАДКА ФИЗИЧЕСКОЙ КЛАВИАТУРЫ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "PICKUP WEAPON"
-msgstr ""
+msgstr "ПОДБОР ОРУЖИЯ"
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -12530,7 +12998,7 @@ msgctxt "game_options"
 msgid "PVM_20M2U/D93"
 msgstr "PVM_20M2U/D93"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Paddle Control"
 msgstr "Paddle Control"
@@ -12746,12 +13214,12 @@ msgstr "Розовый - Blossom Pink"
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Pitch Down"
-msgstr ""
+msgstr "Тангаж вниз"
 
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Pitch Up"
-msgstr ""
+msgstr "Тангаж вверх"
 
 #. TRANSLATION: scummvm
 msgctxt "game_options"
@@ -12791,7 +13259,7 @@ msgstr "Мышь PlayStation"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Player"
-msgstr ""
+msgstr "Игрок"
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -12806,22 +13274,22 @@ msgstr "Расстояние глаз игрока от нижнего края 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Player, Any Enemy"
-msgstr ""
+msgstr "Игрок, любой враг"
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Player, Any Enemy Jedi"
-msgstr ""
+msgstr "Игрок, любой враг джедай"
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Player, Last Enemy Jedi"
-msgstr ""
+msgstr "Игрок, последний враг джедай"
 
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Player, Last Enemy in Group"
-msgstr ""
+msgstr "Игрок, последний враг в группе"
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -12911,12 +13379,12 @@ msgstr "Португальский"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Portuguese (Brazil)"
 
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Portuguese (Portugal)"
-msgstr ""
+msgstr "Portuguese (Portugal)"
 
 #. TRANSLATION: dolphin
 msgctxt "game_options"
@@ -13008,17 +13476,17 @@ msgstr "Нажмите клавишу N для 'Yes'"
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Previous Force Power"
-msgstr ""
+msgstr "Предыдущая Силовая Способность"
 
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Previous Inventory Item"
-msgstr ""
+msgstr "Предыдущий предмет в инвентаре"
 
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Previous Weapon"
-msgstr ""
+msgstr "Предыдущее оружие"
 
 #. TRANSLATION: quake2.keys
 msgctxt "keys_files"
@@ -13030,10 +13498,15 @@ msgctxt "keys_files"
 msgid "Previous slot"
 msgstr "Предыдущий слот"
 
-#. TRANSLATION: bstone.keys, openjkdf2.keys
+#. TRANSLATION: bstone.keys, mohaa.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Previous weapon"
 msgstr "Предыдущее оружие"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Primary attack"
+msgstr "Основной атака"
 
 #. TRANSLATION: cemu
 msgctxt "game_options"
@@ -13140,12 +13613,17 @@ msgctxt "game_options"
 msgid "READBACK RESOLVE"
 msgstr "READBACK RESOLVE"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "REAL DYNAMIC LIGHTING"
+msgstr "РЕАЛЬНОЕ ДИНАМИЧЕСКОЕ ОСВЕЩЕНИЕ"
+
 #. TRANSLATION: libretro/np2kai
 msgctxt "game_options"
 msgid "REAL PALETTES"
 msgstr "НАСТОЯЩАЯ ПАЛИТРА"
 
-#. TRANSLATION: libretro/bluemsx, libretro/fceumm, libretro/genesisplusgx, libretro/mednafen_supergrafx, libretro/mesen, ...
+#. TRANSLATION: libretro/bluemsx, libretro/fceumm, libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/mednafen_supergrafx, ...
 msgctxt "game_options"
 msgid "REDUCE SPRITE FLICKERING"
 msgstr "УМЕНЬШИТЬ МЕРЦАНИЕ СПРАЙТОВ"
@@ -13160,7 +13638,7 @@ msgctxt "game_options"
 msgid "REFRESH RATE"
 msgstr "ЧАСТОТА ОБНОВЛЕНИЯ"
 
-#. TRANSLATION: libretro/genesisplusgx, lindbergh-loader, redream
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, lindbergh-loader, redream
 msgctxt "game_options"
 msgid "REGION"
 msgstr "РЕГИОН"
@@ -13168,7 +13646,7 @@ msgstr "РЕГИОН"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "RELOAD WEAPON"
-msgstr ""
+msgstr "ПЕРЕЗАРЯДКА ОРУЖИЯ"
 
 #. TRANSLATION: amiberry
 msgctxt "game_options"
@@ -13184,6 +13662,11 @@ msgstr "УДАЛИТЬ СКАНЛАЙНЫ"
 msgctxt "game_options"
 msgid "RENDER"
 msgstr "РЕНДЕР"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "RENDER DUPLICATE FRAMES TO 60 HZ"
+msgstr "ДУБЛИРОВАНИЕ КАДРОВ ДО 60 ГЦ"
 
 #. TRANSLATION: redream
 msgctxt "game_options"
@@ -13215,7 +13698,7 @@ msgctxt "game_options"
 msgid "RENDERER MODE"
 msgstr "РЕЖИМ РЕНДЕРЕРА"
 
-#. TRANSLATION: citron, dolphin, duckstation, pcsx2
+#. TRANSLATION: citron, dolphin, duckstation, pcsx2, ppsspp
 msgctxt "game_options"
 msgid "RENDERING"
 msgstr "РЕНДЕРИНГ"
@@ -13260,7 +13743,7 @@ msgctxt "game_options"
 msgid "RGB (Blargg)"
 msgstr "RGB (Blargg)"
 
-#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx, libretro/nestopia
+#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx-expanded, libretro/nestopia
 msgctxt "game_options"
 msgid "RGB (crisp image)"
 msgstr "RGB (чёткое изображение)"
@@ -13324,6 +13807,11 @@ msgstr "ПОВЕРНУТЬ"
 msgctxt "game_options"
 msgid "ROTATE FACE BUTTONS"
 msgstr "ВРАЩЕНИЕ ЛИЦЕВЫХ КНОПОК"
+
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "ROTATION"
+msgstr ""
 
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
@@ -13408,7 +13896,7 @@ msgctxt "game_options"
 msgid "Reduce stutter that happens when compiling shaders."
 msgstr "Уменьшает заикание, возникающее при компиляции шейдеров."
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid ""
 "Reduces banding between colours and improves the preceived colour depth."
@@ -13453,6 +13941,11 @@ msgctxt "game_options"
 msgid "Relaxed XFloat"
 msgstr "Расслабленный XFloat"
 
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Reload weapon"
+msgstr "Перезарядка оружия"
+
 #. TRANSLATION: libretro/xrick
 msgctxt "game_options"
 msgid "Remove the padding on the sides of the screen."
@@ -13494,7 +13987,7 @@ msgctxt "game_options"
 msgid "Required by some games."
 msgstr "Требуется для некоторых игр."
 
-#. TRANSLATION: libretro/gambatte, libretro/genesisplusgx, libretro/o2em, libretro/pokemini, libretro/potator
+#. TRANSLATION: libretro/gambatte, libretro/genesisplusgx-expanded, libretro/o2em, libretro/pokemini, libretro/potator
 msgctxt "game_options"
 msgid "Required for certain visual effects."
 msgstr "Требуется для некоторых визуальных эффектов."
@@ -13541,11 +14034,6 @@ msgid ""
 msgstr ""
 "Зарезервируйте немертвую зону в центре руля для движения прямо (в градусах)."
 
-#. TRANSLATION: hotkeys.keys
-msgctxt "keys_files"
-msgid "Reset"
-msgstr "Сброс"
-
 #. TRANSLATION: wine
 msgctxt "game_options"
 msgid ""
@@ -13590,7 +14078,7 @@ msgctxt "game_options"
 msgid "Retropad"
 msgstr "Retropad"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid "Retropad (Default)"
 msgstr "Retropad (по умолчанию)"
@@ -13735,7 +14223,7 @@ msgstr ""
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Run/Walk"
-msgstr ""
+msgstr "Бег/Ходьба"
 
 #. TRANSLATION: wine
 msgctxt "game_options"
@@ -13745,6 +14233,15 @@ msgid ""
 msgstr ""
 "Раннеры упрощают совместимость запуска игр под Windows. Раннер должен "
 "находиться в отдельной директории в каталоге /userdata/system/wine/custom."
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"Runs \"skinning\" on the CPU instead of the GPU, means that draw calls from "
+"the game can more easily be combined, which often improves things."
+msgstr ""
+"\"Скиннинг\" выполняется на CPU вместо GPU - объединяет вызовы отрисовки и "
+"часто улучшает производительность."
 
 #. TRANSLATION: libretro/dosbox_pure, xenia, xenia-canary
 msgctxt "game_options"
@@ -13941,10 +14438,10 @@ msgctxt "game_options"
 msgid "SHADER SET"
 msgstr "НАБОР ШЕЙДЕРОВ"
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "SHADOWS"
-msgstr ""
+msgstr "ТЕНИ"
 
 #. TRANSLATION: libretro/mame, libretro/mamevirtual
 msgctxt "game_options"
@@ -13976,7 +14473,7 @@ msgctxt "game_options"
 msgid "SHOW LID STATE"
 msgstr "ПОКАЗАТЬ LID СОСТОЯНИЕ"
 
-#. TRANSLATION: dolphin, libretro/fbneo, libretro/fceumm, libretro/genesisplusgx, libretro/mame078plus, ...
+#. TRANSLATION: dolphin, libretro/fbneo, libretro/fceumm, libretro/genesisplusgx-expanded, libretro/mame078plus, ...
 msgctxt "game_options"
 msgid "SHOW LIGHT GUN CROSSHAIRS"
 msgstr "ПОКАЗАТЬ ПЕРЕКРЕСТИЕ СВЕТОВОГО ПИСТОЛЕТА"
@@ -14019,7 +14516,7 @@ msgstr "SIO УСКОРЕНИЕ"
 #. TRANSLATION: ppsspp
 msgctxt "game_options"
 msgid "SKIP BUFFER EFFECTS"
-msgstr ""
+msgstr "ПРОПУСК ЭФФЕКТОВ БУФЕРИЗАЦИИ"
 
 #. TRANSLATION: theforceengine
 msgctxt "game_options"
@@ -14030,6 +14527,11 @@ msgstr "ПРОПУСКАТЬ КАТСЦЕНЫ"
 msgctxt "game_options"
 msgid "SKIP DS SYSTEM MENU"
 msgstr "ПРОПУСК DS МЕНЮ"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "SKIP GPU READBACKS"
+msgstr "ПРОПУСК ЧТЕНИЯ ДАННЫХ GPU"
 
 #. TRANSLATION: iortcw
 msgctxt "game_options"
@@ -14054,12 +14556,17 @@ msgstr "ТОЧНОСТЬ ТАЙМЕРОВ СНА"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "SLOW MOTION DEATH"
-msgstr ""
+msgstr "СЛОУ-МО ПРИ ГИБЕЛИ"
 
 #. TRANSLATION: citron
 msgctxt "game_options"
 msgid "SMAA"
 msgstr "SMAA"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "SMART 2D TEXTURE FILTERING"
+msgstr "УМНАЯ ФИЛЬТРАЦИЯ 2D-ТЕКСТУР"
 
 #. TRANSLATION: hypseus-singe, play, shared
 msgctxt "game_options"
@@ -14106,6 +14613,11 @@ msgctxt "game_options"
 msgid "SOFTWARE LIST"
 msgstr "СИСТЕМНЫЕ СПИСКИ"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "SOFTWARE SKINNING"
+msgstr "ПРОГРАММНЫЙ СКИННИНГ"
+
 #. TRANSLATION: libretro/mgba, libretro/vba-m
 msgctxt "game_options"
 msgid "SOLAR SENSOR LEVEL"
@@ -14131,7 +14643,7 @@ msgctxt "game_options"
 msgid "SOUNDBLASTER TYPE"
 msgstr "ТИП SOUNDBLASTER"
 
-#. TRANSLATION: libretro/mame, mame/pcsx2
+#. TRANSLATION: libretro/fbneo, libretro/flycast, libretro/mame, mame/pcsx2
 msgctxt "game_options"
 msgid "SPECIAL CONTROL LAYOUTS"
 msgstr "СПЕЦИАЛЬНАЯ СХЕМА УПРАВЛЕНИЯ"
@@ -14151,10 +14663,20 @@ msgctxt "game_options"
 msgid "SPEED HACK (SAFE)"
 msgstr "СПИДХАК (БЕЗОПАСНО)"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "SPEED HACKS"
+msgstr "ХАКИ ДЛЯ УСКОРЕНИЯ"
+
 #. TRANSLATION: soniccd
 msgctxt "game_options"
 msgid "SPINDASH TYPE"
 msgstr "ТИП SPINDASH"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "SPLINE/BEZIER CURVES QUALITY"
+msgstr "КАЧЕСТВО СПЛАЙНОВ/КРИВЫХ БЕЗЬЕ"
 
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
@@ -14179,12 +14701,12 @@ msgstr "SPU XFloat Точность"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "SSAA Multiplier"
-msgstr ""
+msgstr "Множитель SSAA"
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "SSAO"
-msgstr ""
+msgstr "SSAO"
 
 #. TRANSLATION: libretro/hatarib
 msgctxt "game_options"
@@ -14195,11 +14717,6 @@ msgstr "ST"
 msgctxt "game_options"
 msgid "STE"
 msgstr "STE"
-
-#. TRANSLATION: supermodel
-msgctxt "game_options"
-msgid "STEERING SENSITIVITY"
-msgstr "ЧУВСТВИТЕЛЬНОСТЬ РУЛЕВОГО УПРАВЛЕНИЯ"
 
 #. TRANSLATION: shared
 msgctxt "game_options"
@@ -14231,7 +14748,7 @@ msgctxt "game_options"
 msgid "STRICT RENDERING MODE"
 msgstr "СТРОГИЙ РЕЖИМ РЕНДЕРЕРА"
 
-#. TRANSLATION: fallout1-ce, fallout2-ce, openjk
+#. TRANSLATION: fallout1-ce, fallout2-ce, openjk, openmohaa
 msgctxt "game_options"
 msgid "SUBTITLES"
 msgstr "СУБТИТРЫ"
@@ -14266,7 +14783,7 @@ msgctxt "game_options"
 msgid "SVGA"
 msgstr "SVGA"
 
-#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx, libretro/nestopia
+#. TRANSLATION: libretro/fceumm, libretro/genesisplusgx-expanded, libretro/nestopia
 msgctxt "game_options"
 msgid "SVideo (color bleeding only)"
 msgstr "SVideo (только выцветание)"
@@ -14279,7 +14796,7 @@ msgstr "ПОМЕНЯТЬ ГЕЙМПАДЫ"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "SWITCH WEAPON"
-msgstr ""
+msgstr "ПЕРЕКЛЮЧЕНИЕ ОРУЖИЯ"
 
 #. TRANSLATION: libretro/tgbdual
 msgctxt "game_options"
@@ -14295,6 +14812,11 @@ msgstr "СИНХРОНИЗАЦИЯ С ЧАСТОТОЙ ОБНОВЛЕНИЯ ХО
 msgctxt "game_options"
 msgid "SYNCHRONOUS RENDERING"
 msgstr "СИНХРОННЫЙ РЕНДЕРИНГ"
+
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
 
 #. TRANSLATION: shared
 msgctxt "game_options"
@@ -14356,7 +14878,7 @@ msgctxt "game_options"
 msgid "ScaleForce"
 msgstr "ScaleForce"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Scaled"
 msgstr "Scaled"
@@ -14391,6 +14913,11 @@ msgctxt "game_options"
 msgid "Search for custom configured joystick profiles."
 msgstr "Поиск настроенных профилей контроллера."
 
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Secondary attack"
+msgstr "Дополнительная атака"
+
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
 msgid ""
@@ -14406,7 +14933,7 @@ msgctxt "game_options"
 msgid "See your FPS and version of Vulkan API/driver."
 msgstr "Просмотр своего FPS и версию Vulkan API/драйвера."
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid "Sega/Mega CD"
 msgstr "Sega/Mega CD"
@@ -14513,27 +15040,29 @@ msgstr "Селфи"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Sensitivity when using D-pad for a paddle."
-msgstr ""
+msgstr "Чувствительность при использовании D-pad для paddle."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Sensitivity when using D-pad or analog stick for a throttle."
 msgstr ""
+"Чувствительность при использовании D-pad или стика для управления тягой."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Sensitivity when using D-pad or analog stick for a wheel."
 msgstr ""
+"Чувствительность при использовании D-pad или стика для управления рулём."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Sensitivity when using analog stick for a paddle."
-msgstr ""
+msgstr "Чувствительность при использовании стика для управления paddle."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Sensitivity when using mouse for a paddle."
-msgstr ""
+msgstr "Чувствительность при использовании мыши для управления paddle."
 
 #. TRANSLATION: azahar
 msgctxt "game_options"
@@ -14613,12 +15142,12 @@ msgstr "Установите уровень шума контроллера, е�
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Set the crosshair line thickness."
-msgstr ""
+msgstr "Установить толщину линий прицела."
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Set the crosshair size."
-msgstr ""
+msgstr "Установить размер прицела."
 
 #. TRANSLATION: libretro/dosbox_pure
 msgctxt "game_options"
@@ -14639,11 +15168,16 @@ msgstr "Устанавливает разрешение дисплея. Не в�
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Set the field of view."
-msgstr ""
+msgstr "Установить поле зрения (fov)."
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Set the fps limit."
+msgstr "Установить лимит fps."
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "Set the on-screen keyboard transparency (0-100%)."
 msgstr ""
 
 #. TRANSLATION: lindbergh-loader
@@ -14680,6 +15214,13 @@ msgstr ""
 "Установить размер зоны виртуальных джойстиков. Меньший размер увеличивает "
 "чувствительность. Больший размер уменьшает ее."
 
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid ""
+"Sets Runner to 32bit, works only if there is no prefix for current app is "
+"installed."
+msgstr ""
+
 #. TRANSLATION: scummvm
 msgctxt "game_options"
 msgid "Sets the scaler filter mode when rendering."
@@ -14693,27 +15234,27 @@ msgstr "Устанавливает размер окна в целочислен
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Setting for 16-position DIP switch number 1."
-msgstr ""
+msgstr "Настройка для 16-позиционного DIP switch номер 1."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Setting for 16-position DIP switch number 2."
-msgstr ""
+msgstr "Настройка для 16-позиционного DIP switch номер 2."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Setting for DIP switch 1."
-msgstr ""
+msgstr "Настройка для DIP switch 1."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Setting for DIP switch 2."
-msgstr ""
+msgstr "Настройка для DIP switch 2."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Setting for DIP switch 3."
-msgstr ""
+msgstr "Настройка для DIP switch 3."
 
 #. TRANSLATION: libretro/mrboom
 msgctxt "game_options"
@@ -14775,7 +15316,7 @@ msgctxt "game_options"
 msgid "Short visible screen edge (cm)"
 msgstr "Короткий видимый край экрана (см)"
 
-#. TRANSLATION: duckstation, hypseus-singe/uzem, libretro/duckstation, libretro/gambatte, libretro/mednafen_psx, ...
+#. TRANSLATION: duckstation, libretro/duckstation, libretro/gambatte, libretro/mednafen_psx, libretro/mgba, ...
 msgctxt "game_options"
 msgid "Show"
 msgstr "Показать"
@@ -14798,12 +15339,12 @@ msgstr "Показать всё"
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Show Crosshair with fist."
-msgstr ""
+msgstr "Показывать прицел в рукопашном бою."
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Show Crosshair with lightsaber."
-msgstr ""
+msgstr "Показывать прицел со световым мечом."
 
 #. TRANSLATION: shared
 msgctxt "game_options"
@@ -14890,7 +15431,7 @@ msgctxt "game_options"
 msgid "Side by side"
 msgstr "Бок о бок"
 
-#. TRANSLATION: dosbox, libretro/gambatte, libretro/o2em, openjk
+#. TRANSLATION: dosbox, libretro/gambatte, libretro/o2em, openjk, openmohaa
 msgctxt "game_options"
 msgid "Simple"
 msgstr "Простой"
@@ -14993,9 +15534,11 @@ msgstr "Пропускть буферные эффекты"
 #. TRANSLATION: ppsspp
 msgctxt "game_options"
 msgid ""
-"Skip buffer effects disables auto frameskip and renders at display output "
-"resolution."
+"Skip buffer effects faster but may not render some games. Disables "
+"resolution, MSAA, auto frameskip and duplicate frames to 60Hz."
 msgstr ""
+"Пропускать эффекты буферизации (быстрее, но может вызывать проблемы). "
+"Отключает разрешение, MSAA, авто-пропуск кадров и дублирование до 60 Гц."
 
 #. TRANSLATION: iortcw.keys, theforceengine.keys
 msgctxt "keys_files"
@@ -15264,7 +15807,7 @@ msgctxt "game_options"
 msgid "SounBlaster Pro 2"
 msgstr "SounBlaster Pro 2"
 
-#. TRANSLATION: libretro/genesisplusgx
+#. TRANSLATION: libretro/genesisplusgx-expanded
 msgctxt "game_options"
 msgid ""
 "Sound generator. MAME is faster and Nuked is cycle accurate. Original model "
@@ -15296,12 +15839,12 @@ msgstr "Spanish"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Spanish (Latin America)"
-msgstr ""
+msgstr "Spanish (Latin America)"
 
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Spanish (Spain)"
-msgstr ""
+msgstr "Spanish (Spain)"
 
 #. TRANSLATION: hatari, libretro/hatarib
 msgctxt "game_options"
@@ -15377,6 +15920,11 @@ msgstr "Spectrum SE"
 msgctxt "game_options"
 msgid "Speech module installed"
 msgstr "Установить речевой модуль"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Speed"
+msgstr "Скорость"
 
 #. TRANSLATION: dolphin, dolphin_triforce
 msgctxt "game_options"
@@ -15462,15 +16010,15 @@ msgctxt "game_options"
 msgid "Steering Wheel"
 msgstr "Руль"
 
-#. TRANSLATION: openjk.keys
+#. TRANSLATION: mohaa.keys, openjk.keys
 msgctxt "keys_files"
 msgid "Step left"
-msgstr ""
+msgstr "Шаг влево"
 
-#. TRANSLATION: openjk.keys
+#. TRANSLATION: mohaa.keys, openjk.keys
 msgctxt "keys_files"
 msgid "Step right"
-msgstr ""
+msgstr "Шаг вправо"
 
 #. TRANSLATION: citron, rpcs3
 msgctxt "game_options"
@@ -15781,6 +16329,11 @@ msgctxt "game_options"
 msgid "TEMPEST 2000"
 msgstr "TEMPEST 2000"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "TERRAIN DETAIL"
+msgstr "ДЕТАЛИЗАЦИЯ ЛАНДШАФТА"
+
 #. TRANSLATION: easyrpg
 msgctxt "game_options"
 msgid "TEST PLAY"
@@ -15789,22 +16342,32 @@ msgstr "ПРОБНАЯ ИГРА"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "TEXT"
-msgstr ""
+msgstr "ТЕКСТ"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "TEXTURE COLOUR DEPTH"
+msgstr "ГЛУБИНА ЦВЕТА ТЕКСТУР"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "TEXTURE COMPRESSION"
+msgstr "СЖАТИЕ ТЕКСТУР"
 
 #. TRANSLATION: ppsspp
 msgctxt "game_options"
 msgid "TEXTURE DEPOSTERIZE"
 msgstr "ДЕПОСТЕРИЗАЦИЯ ТЕКСТУР"
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "TEXTURE DETAIL"
-msgstr ""
+msgstr "ДЕТАЛИЗАЦИЯ ТЕКСТУР"
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "TEXTURE FILTER"
-msgstr ""
+msgstr "ФИЛЬТР ТЕКСТУР"
 
 #. TRANSLATION: citron, duckstation, dxx-rebirth, libretro/duckstation, libretro/mupen64plus-next, ...
 msgctxt "game_options"
@@ -15834,12 +16397,17 @@ msgstr "ПРЕДЗАГРУЗКА ТЕКСТУР"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "TEXTURE QUALITY"
-msgstr ""
+msgstr "КАЧЕСТВО ТЕКСТУР"
 
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
 msgid "TEXTURE REPLACEMENTS"
 msgstr "ЗАМЕНА ТЕКСТУР"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "TEXTURE SCALING"
+msgstr "МАСШТАБИРОВАНИЕ ТЕКСТУР"
 
 #. TRANSLATION: libretro/desmume
 msgctxt "game_options"
@@ -15889,7 +16457,7 @@ msgstr "МНОГОПОТОЧНОЕ ВИДЕО"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "THROTTLE SENSITIVITY"
-msgstr ""
+msgstr "ЧУВСТВИТЕЛЬНОСТЬ ДРОССЕЛЯ"
 
 #. TRANSLATION: libretro/mame, mame/pcsx2
 msgctxt "game_options"
@@ -15941,7 +16509,12 @@ msgctxt "game_options"
 msgid "TRAINER MODE"
 msgstr "РЕЖИМ ТРЕЙНЕРА"
 
-#. TRANSLATION: model2emu, pcsx2
+#. TRANSLATION: ymir
+msgctxt "game_options"
+msgid "TRANSPARENT MESHES"
+msgstr ""
+
+#. TRANSLATION: libretro/pcsx2, model2emu, pcsx2
 msgctxt "game_options"
 msgid "TRILINEAR FILTERING"
 msgstr "ТРИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ"
@@ -16029,7 +16602,7 @@ msgstr "Tandy Radio Shack Color Computer disk images"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Thai"
-msgstr ""
+msgstr "Thai"
 
 #. TRANSLATION: xenia, xenia-canary
 msgctxt "game_options"
@@ -16040,6 +16613,15 @@ msgstr "Thailand"
 msgctxt "game_options"
 msgid "The New 3DS has a faster processor, ZL/ZR buttons and a C-stick."
 msgstr "New 3DS имеет более быстрый процессор, кнопки ZL/ZR и C-стик."
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"The PSP will cull triangles that are outside a 4096x4096 clipping box, and "
+"also triangles crossing the Z=1 plane if clipping is enabled."
+msgstr ""
+"PSP отсекает треугольники вне окна 4096x4096 и те, что пересекают плоскость "
+"z=1 (если включено отсечение)."
 
 #. TRANSLATION: mupen64plus
 msgctxt "game_options"
@@ -16066,7 +16648,7 @@ msgid "The final output image, unrelated to the Wii's emulated NAND setting."
 msgstr ""
 "Окончательное изображение, не связанное с настройкой эмулируемой NAND Wii."
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid ""
 "The higher the setting, the more blending is emulated in the shader "
@@ -16107,8 +16689,12 @@ msgstr "Цвет темы эмулируемой консоли."
 
 #. TRANSLATION: ppsspp
 msgctxt "game_options"
-msgid "The upscaling method used when enabled."
-msgstr "Метод апскейлинга, используемый при включении."
+msgid ""
+"There is generally no point in going beyond 4x texture scaling unless you "
+"are running at very high resolutions."
+msgstr ""
+"Обычно нет смысла исп. масштабирование текстур выше 4x, если только вы не "
+"играете в очень высоком разрешении."
 
 #. TRANSLATION: openmsx
 msgctxt "game_options"
@@ -16129,6 +16715,12 @@ msgctxt "game_options"
 msgid "This option is required for some gun games when playing with a mouse."
 msgstr ""
 "Эта опция требуется для некоторых игр с пистолетом при игре с помощью мыши."
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid ""
+"This setting controls the default language layout for the virtual keyboard."
+msgstr ""
 
 #. TRANSLATION: vpinball
 msgctxt "game_options"
@@ -16184,6 +16776,16 @@ msgctxt "game_options"
 msgid "To use game cheats or 16/9 Aspect Ratio Fix codes."
 msgstr "Для использования читов или кодов соотношения сторон 16/9."
 
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Toggle item"
+msgstr "Переключить предмет"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Toggle menu"
+msgstr "Переключить меню"
+
 #. TRANSLATION: rott.keys
 msgctxt "keys_files"
 msgid "Toggle run"
@@ -16215,10 +16817,30 @@ msgctxt "game_options"
 msgid "Top"
 msgstr "Вверху"
 
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Top Center"
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Top Center (Default)"
+msgstr ""
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Top Left"
+msgstr ""
+
 #. TRANSLATION: azahar
 msgctxt "game_options"
 msgid "Top Only"
 msgstr "Top Only"
+
+#. TRANSLATION: pcsx2
+msgctxt "game_options"
+msgid "Top Right"
+msgstr ""
 
 #. TRANSLATION: melonds
 msgctxt "game_options"
@@ -16304,17 +16926,17 @@ msgstr ""
 "Пытается угадать цвет каждой вершины (гуро) из информации о полигоне Model2 "
 "(плоский)."
 
-#. TRANSLATION: openjk
+#. TRANSLATION: openjk, openmohaa
 msgctxt "game_options"
 msgid "Trilinear"
-msgstr ""
+msgstr "Трилинейная"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Trilinear (Forced)"
 msgstr "Трилинейная (принудительно)"
 
-#. TRANSLATION: pcsx2
+#. TRANSLATION: libretro/pcsx2, pcsx2
 msgctxt "game_options"
 msgid "Trilinear (PS2)"
 msgstr "Трилинейная (PS2)"
@@ -16367,12 +16989,12 @@ msgstr "Поворот направо"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Turn left"
-msgstr ""
+msgstr "Поворот налево"
 
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Turn right"
-msgstr ""
+msgstr "Поворот направо"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -16446,7 +17068,7 @@ msgctxt "game_options"
 msgid "UI PROMPTS"
 msgstr "UI ПОДСКАЗКИ"
 
-#. TRANSLATION: libretro/dosbox_pure
+#. TRANSLATION: amiberry, libretro/dosbox_pure
 msgctxt "game_options"
 msgid "UK"
 msgstr "UK"
@@ -16465,6 +17087,11 @@ msgstr "РЕЖИМ АПСКЕЙЛА"
 msgctxt "game_options"
 msgid "US"
 msgstr "US"
+
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "US (Default)"
+msgstr ""
 
 #. TRANSLATION: citron, flycast/dolphin, libretro/flycast, libretro/neocd, ryujinx
 msgctxt "game_options"
@@ -16486,11 +17113,6 @@ msgctxt "game_options"
 msgid "USE FIRMWARE SETTINGS"
 msgstr "ИСПОЛЬЗОВАТЬ НАСТРОЙКИ ПРОШИВКИ"
 
-#. TRANSLATION: gzdoom
-msgctxt "game_options"
-msgid "USE GZDOOM JOYSTICK CONFIGURATION"
-msgstr "ИСПОЛЬЗОВАТЬ КОНФИГУРАЦИЮ ДЖОЙСТИКА GZDOOM"
-
 #. TRANSLATION: vpinball
 msgctxt "game_options"
 msgid "USE JOYPAD SOUTH BUTTON TO ADD CREDIT"
@@ -16504,27 +17126,27 @@ msgstr "ИСП. СВЕТОВОЙ ПИСТОЛЕТ"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "USE MOUSE FOR PADDLE 1"
-msgstr ""
+msgstr "ИСП. МЫШЬ ДЛЯ PADDLE 1"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "USE MOUSE FOR PADDLE 2"
-msgstr ""
+msgstr "ИСП. МЫШЬ ДЛЯ PADDLE 2"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "USE MOUSE FOR PADDLE 3"
-msgstr ""
+msgstr "ИСП. МЫШЬ ДЛЯ PADDLE 3"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "USE MOUSE FOR PADDLE 4"
-msgstr ""
+msgstr "ИСП. МЫШЬ ДЛЯ PADDLE 4"
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "USE MOUSE POINTER FOR PADDLE 1"
-msgstr ""
+msgstr "ИСП. УКАЗАТЕЛЬ МЫШИ ДЛЯ PADDLE 1"
 
 #. TRANSLATION: corsixth
 msgctxt "game_options"
@@ -16746,6 +17368,11 @@ msgctxt "game_options"
 msgid "Unsaturated v6 (FirebrandX)"
 msgstr "Unsaturated v6 (FirebrandX)"
 
+#. TRANSLATION: libretro/pcsx2
+msgctxt "game_options"
+msgid "Unscaled"
+msgstr "Без масштабирования"
+
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
 msgid "Unscaled (Default)"
@@ -16761,10 +17388,20 @@ msgctxt "keys_files"
 msgid "Up"
 msgstr "Вверх"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "Up to 1"
+msgstr "До 1"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "Up to 2 (Default)"
+msgstr "До 2 (по умолчанию)"
+
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Up/Jump"
-msgstr ""
+msgstr "Вверх/Прыжок"
 
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
@@ -16805,7 +17442,7 @@ msgctxt "game_options"
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#. TRANSLATION: bstone.keys, openjk.keys, openjkdf2.keys
+#. TRANSLATION: bstone.keys, mohaa.keys, openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Use"
 msgstr "Использовать"
@@ -16822,7 +17459,7 @@ msgstr ""
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
 msgid "Use 1:1 aspect."
-msgstr ""
+msgstr "Использовать соотношение 1:1."
 
 #. TRANSLATION: duckstation
 msgctxt "game_options"
@@ -16832,7 +17469,7 @@ msgstr "Исп. аналоговые джойстики с D-Pad для DualShoc
 #. TRANSLATION: openjk.keys, openjkdf2.keys
 msgctxt "keys_files"
 msgid "Use Force Power"
-msgstr ""
+msgstr "Использовать Силовую способность"
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -16842,22 +17479,14 @@ msgstr "Использовать хост"
 #. TRANSLATION: openjkdf2.keys
 msgctxt "keys_files"
 msgid "Use Inventory Item"
-msgstr ""
-
-#. TRANSLATION: supermodel
-msgctxt "game_options"
-msgid ""
-"Use L2/R2 for Brake/Accel and L1/R1 or R-stick Up/Down for Shift Up/Down."
-msgstr ""
-"Используйте L2/R2 для тормоза/газа, а L1/R1 или R-стик вверх/вниз для "
-"переключения передач вверх/вниз."
+msgstr "Использовать предмет в инвентаре"
 
 #. TRANSLATION: libretro/mame, libretro/mamevirtual, mame/pcsx2
 msgctxt "game_options"
 msgid "Use MAME software lists to identify ROM"
 msgstr "Исп. системные списки MAME для идентификации ROM"
 
-#. TRANSLATION: libretro/genesisplusgx, libretro/picodrive
+#. TRANSLATION: libretro/genesisplusgx, libretro/genesisplusgx-expanded, libretro/picodrive
 msgctxt "game_options"
 msgid ""
 "Use Megadrive to automap inputs for a Megadrive style controller with a 6 "
@@ -16891,21 +17520,25 @@ msgstr ""
 msgctxt "game_options"
 msgid "Use a specific mouse for Paddle 1, chosen by Port 1's Mouse Index."
 msgstr ""
+"Использовать определённую мышь для Paddle 1, выбранную по индексу в Порт 1."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Use a specific mouse for Paddle 2, chosen by Port 2's Mouse Index."
 msgstr ""
+"Использовать определённую мышь для Paddle 2, выбранную по индексу в Порт 2."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Use a specific mouse for Paddle 3, chosen by Port 3's Mouse Index."
 msgstr ""
+"Использовать определённую мышь для Paddle 3, выбранную по индексу в Порт 3."
 
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Use a specific mouse for Paddle 4, chosen by Port 4's Mouse Index."
 msgstr ""
+"Использовать определённую мышь для Paddle 4, выбранную по индексу в Порт 4."
 
 #. TRANSLATION: libretro/atari800
 msgctxt "game_options"
@@ -16973,6 +17606,8 @@ msgid ""
 "Use the system mouse pointer as paddle controller 1.  Does not let you "
 "choose a specific mouse if you have several."
 msgstr ""
+"Использовать курсор мыши для управления paddle 1. Не позволяет выбрать "
+"конкретную мышь, если их несколько."
 
 #. TRANSLATION: libretro/melondsds
 msgctxt "game_options"
@@ -17044,6 +17679,11 @@ msgid "Useful to troubleshoot when your Windows game won't start of crashes."
 msgstr ""
 "Полезно для устранения неполадок, когда ваша игра для Windows не запускается "
 "из-за сбоев."
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid "Uses hardware to make curves."
+msgstr "Использует аппаратное ускорение для построения кривых."
 
 #. TRANSLATION: rpcs3
 msgctxt "game_options"
@@ -17120,7 +17760,7 @@ msgctxt "game_options"
 msgid "VIC20 PAL Automatic"
 msgstr "VIC20 PAL Automatic"
 
-#. TRANSLATION: citron, openjk, rpcs3
+#. TRANSLATION: citron, openjk, openmohaa, rpcs3
 msgctxt "game_options"
 msgid "VIDEO"
 msgstr "ВИДЕО"
@@ -17180,6 +17820,11 @@ msgctxt "game_options"
 msgid "VIDEO STREAM RESOLUTION"
 msgstr "РАЗРЕШЕНИЕ ВИДЕОПОТОКА"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "VIEW MODEL"
+msgstr "ПРОСМОТР МОДЕЛИ"
+
 #. TRANSLATION: moonlight
 msgctxt "game_options"
 msgid "VIEW ONLY"
@@ -17188,7 +17833,7 @@ msgstr "ТОЛЬКО ПРОСМОТР"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "VIEW SWAYING"
-msgstr ""
+msgstr "КАЧАНИЕ КАМЕРЫ"
 
 #. TRANSLATION: fallout1-ce, fallout2-ce
 msgctxt "game_options"
@@ -17200,6 +17845,11 @@ msgctxt "game_options"
 msgid "VIRTUAL DESKTOP"
 msgstr "ВИРТУАЛЬНЫЙ РАБОЧИЙ СТОЛ"
 
+#. TRANSLATION: amiberry
+msgctxt "game_options"
+msgid "VIRTUAL KEYBOARD"
+msgstr ""
+
 #. TRANSLATION: vpinball
 msgctxt "game_options"
 msgid "VISUAL NUDGE STRENGTH"
@@ -17208,7 +17858,12 @@ msgstr "VISUAL NUDGE STRENGTH"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "VOICE"
-msgstr ""
+msgstr "ОЗВУЧКА"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "VOLUMETRIC SMOKE"
+msgstr "ОБЪЁМНЫЙ ДЫМ"
 
 #. TRANSLATION: azahar, bigpemu, bstone, cemu, citron, ...
 msgctxt "game_options"
@@ -17219,11 +17874,6 @@ msgstr "VSYNC"
 msgctxt "game_options"
 msgid "VSYNC FPS"
 msgstr "VSYNC FPS"
-
-#. TRANSLATION: ppsspp
-msgctxt "game_options"
-msgid "VSYNC INTERVAL"
-msgstr "VSYNC ИНТЕРВАЛ"
 
 #. TRANSLATION: duckstation
 msgctxt "game_options"
@@ -17303,7 +17953,7 @@ msgstr "Vietnam"
 #. TRANSLATION: shadps4
 msgctxt "game_options"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
@@ -17323,7 +17973,7 @@ msgstr "Voltmace Delta 3b Twin Joysticks"
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "Volumetric"
-msgstr ""
+msgstr "Объёмный"
 
 #. TRANSLATION: thextech
 msgctxt "game_options"
@@ -17345,10 +17995,15 @@ msgctxt "game_options"
 msgid "W-SU"
 msgstr "W-SU"
 
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "WALL DECALS"
+msgstr "НАСТЕННЫЕ ДЕКАЛИ"
+
 #. TRANSLATION: openjk
 msgctxt "game_options"
 msgid "WALL MARKS"
-msgstr ""
+msgstr "СЛЕДЫ НА СТЕНАХ"
 
 #. TRANSLATION: moonlight
 msgctxt "game_options"
@@ -17365,15 +18020,30 @@ msgctxt "game_options"
 msgid "WARN ABOUT UNSUPPORTED FEATURES"
 msgstr "ПРЕДУПРЕЖДЕНИЕ О НЕПОДДЕРЖИВАЕМЫХ ФУНКЦИЯХ"
 
-#. TRANSLATION: openjkdf2
+#. TRANSLATION: wine
 msgctxt "game_options"
-msgid "WEAPON PICKUP"
+msgid "WAYLAND DRIVER MODE"
 msgstr ""
 
 #. TRANSLATION: openjkdf2
 msgctxt "game_options"
+msgid "WEAPON PICKUP"
+msgstr "ПОДБОР ОРУЖИЯ"
+
+#. TRANSLATION: openjkdf2
+msgctxt "game_options"
 msgid "WEAPON WAGGLE"
-msgstr ""
+msgstr "ТРЯСКА ОРУЖИЯ"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "WEAPONS BAR"
+msgstr "ПАНЕЛЬ ОРУЖИЯ"
+
+#. TRANSLATION: openmohaa
+msgctxt "game_options"
+msgid "WEATHER EFFECTS"
+msgstr "ПОГОДНЫЕ ЭФФЕКТЫ"
 
 #. TRANSLATION: citron
 msgctxt "game_options"
@@ -17408,7 +18078,7 @@ msgstr "ПОВОРОТ РУЛЯ"
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "WHEEL SENSITIVITY"
-msgstr ""
+msgstr "ЧУВСТВИТЕЛЬНОСТЬ РУЛЯ"
 
 #. TRANSLATION: pcsx2, shared
 msgctxt "game_options"
@@ -17473,12 +18143,17 @@ msgstr "WRX ВЫСОКОЕ РАЗРЕШЕНИЕ"
 #. TRANSLATION: openjk.keys
 msgctxt "keys_files"
 msgid "Walk forward"
-msgstr ""
+msgstr "Идти вперёд"
 
 #. TRANSLATION: dolphin_triforce
 msgctxt "game_options"
 msgid "Weak"
 msgstr "Слабый"
+
+#. TRANSLATION: mohaa.keys
+msgctxt "keys_files"
+msgid "Weapon drop"
+msgstr "Бросить оружие"
 
 #. TRANSLATION: pcsx2
 msgctxt "game_options"
@@ -17489,6 +18164,20 @@ msgstr "Weave (сначала нижнее поле)"
 msgctxt "game_options"
 msgid "Weave (Top Field First)"
 msgstr "Weave (сначала верхнее поле)"
+
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"When enabled and upscaling, textures look better than linear filtering for a "
+"lot of 2D art."
+msgstr ""
+"При включении и апскейлинге текстуры выглядят лучше, чем при линейной "
+"фильтрации, для 2D-графики."
+
+#. TRANSLATION: flycast/dolphin
+msgctxt "game_options"
+msgid "When enabled, each game has its own VMU on port 1 of controller 1."
+msgstr "При включении каждая игра использует свою VMU (порт 1, контроллер 1)."
 
 #. TRANSLATION: drastic
 msgctxt "game_options"
@@ -17629,7 +18318,7 @@ msgstr ""
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #. TRANSLATION: model2emu
 msgctxt "game_options"
@@ -17651,10 +18340,15 @@ msgctxt "game_options"
 msgid "XBOX LIVE ARCADE"
 msgstr "XBOX LIVE ARCADE"
 
+#. TRANSLATION: wine
+msgctxt "game_options"
+msgid "XWayland (Default)"
+msgstr ""
+
 #. TRANSLATION: libretro/dice
 msgctxt "game_options"
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #. TRANSLATION: libretro/vice_x128, libretro/vice_xpet, libretro/vice_xplus4, libretro/vice_xvic
 msgctxt "game_options"
@@ -18197,6 +18891,15 @@ msgctxt "game_options"
 msgid "xBRZ (Default)"
 msgstr "xBRZ (по умолчанию)"
 
+#. TRANSLATION: ppsspp
+msgctxt "game_options"
+msgid ""
+"xBRZ - a sharpening upscale algorithm, Bicubic - a smooth look, Hybrid - "
+"uses bicubic for smooth areas."
+msgstr ""
+"xBRZ - алгоритм увеличения с резкостью, Bicubic - сглаживание, Hybrid - "
+"использует Bicubic для плавных участков."
+
 #. TRANSLATION: libretro/vice_xplus4
 msgctxt "game_options"
 msgid "yape-ntsc"
@@ -18643,6 +19346,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "Может исправить сломанную графику в некоторых играх."
 
 #~ msgctxt "game_options"
+#~ msgid "Can improve frame rate and responsiveness."
+#~ msgstr "Может улучшить частоту кадров и отзывчивость."
+
+#~ msgctxt "game_options"
 #~ msgid "Center (Default)"
 #~ msgstr "По центру (по умолчанию)"
 
@@ -18715,6 +19422,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "Выберите графический рендеринг"
 
 #~ msgctxt "game_options"
+#~ msgid "Choose your preferred aspect ratio.."
+#~ msgstr "Выбрать предпочтительное соотношение сторон.."
+
+#~ msgctxt "game_options"
 #~ msgid ""
 #~ "Choose your rendered resolution (Requires personal redream.key file)."
 #~ msgstr "Выберите ваше разрешение (требуется личный файл redream.key)."
@@ -18734,6 +19445,10 @@ msgstr "жёлтая/синяя"
 #~ msgid "Configuration menu"
 #~ msgstr "Меню настроек"
 
+#~ msgctxt "game_options"
+#~ msgid "Configuring controllers in GZDoom can cause problems."
+#~ msgstr "Настройка контроллеров в GZDoom может вызвать проблемы."
+
 #~ msgctxt "keys_files"
 #~ msgid "Continue/Pause emulation"
 #~ msgstr "Продолжить/приостановить эмуляцию"
@@ -18745,10 +19460,6 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "keys_files"
 #~ msgid "Cycle through stretch modes"
 #~ msgstr "Переключение между режимами растяжения"
-
-#~ msgctxt "game_options"
-#~ msgid "DE"
-#~ msgstr "DE"
 
 #~ msgctxt "game_options"
 #~ msgid "DISABLE OSD MESSAGES"
@@ -18922,6 +19633,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "Включает улучшенное разделение полигонов."
 
 #~ msgctxt "game_options"
+#~ msgid "Enhancement. Enables texture upscaling textures and their size."
+#~ msgstr "Улучшение. Включает апскейлинг текстур и их размера."
+
+#~ msgctxt "game_options"
 #~ msgid "Enhancement. Upscale in-game screen-captures."
 #~ msgstr "Улучшение. Масштабируемые игровые снимки экрана."
 
@@ -18998,10 +19713,6 @@ msgstr "жёлтая/синяя"
 #~ msgstr "FPU Negative Div hack (Для Gundam Games)"
 
 #~ msgctxt "game_options"
-#~ msgid "FR"
-#~ msgstr "FR"
-
-#~ msgctxt "game_options"
 #~ msgid "FRAMERATE"
 #~ msgstr "ЧАСТОТА КАДРОВ"
 
@@ -19032,6 +19743,16 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "game_options"
 #~ msgid "For digital controller mode."
 #~ msgstr "Для цифрового контроллера."
+
+#, c-format
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "For playing driving games with a game pad, it is sometimes a good idea to "
+#~ "use a value larger than 100%% so that the steering feels less sensitive "
+#~ "on a thumbstick."
+#~ msgstr ""
+#~ "Для игр с вождением на геймпаде иногда полезно использовать значение "
+#~ "больше 100%%, чтобы управление было менее чувствительным при поворотах."
 
 #~ msgctxt "game_options"
 #~ msgid "Force Nvidia GPUs to always be reported as AMD GPUs."
@@ -19102,6 +19823,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "HD Gun Games"
 
 #~ msgctxt "game_options"
+#~ msgid "HIDE LIGHT GUN CROSSHAIRS"
+#~ msgstr "СКРЫТЬ ПЕРЕКРЕСТИЕ СВЕТОВОГО ПИСТОЛЕТА"
+
+#~ msgctxt "game_options"
 #~ msgid "HQ Mode"
 #~ msgstr "HQ РЕЖИМ"
 
@@ -19112,6 +19837,11 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "game_options"
 #~ msgid "Hidden"
 #~ msgstr "Скрыть"
+
+#~ msgctxt "game_options"
+#~ msgid "Hide crosshairs in supported games e.g. ActionMax, Maddog II."
+#~ msgstr ""
+#~ "Скрыть прицел в поддерживаемых играх, например в ActionMax, Maddog II."
 
 #~ msgctxt "game_options"
 #~ msgid "Hide crosshairs in supported games e.g. ActionMax."
@@ -19134,6 +19864,14 @@ msgstr "жёлтая/синяя"
 #~ msgstr ""
 #~ "Исправление скорости House of the Dead 4. Устанавливает игру на базовую "
 #~ "частоту вашего процессора."
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "House of the Dead 4 speed fix. Sets the game to the CPU minimum frequency "
+#~ "of your processor."
+#~ msgstr ""
+#~ "Исправление скорости House of the Dead 4. Устанавливает игру на "
+#~ "минимальную частоту ЦП вашего процессора."
 
 #~ msgctxt "game_options"
 #~ msgid "How the emulator should sort transparent objects."
@@ -19258,6 +19996,10 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "game_options"
 #~ msgid "MICRO VU SPEED HACKS"
 #~ msgstr "MICRO VU SPEED HACKS"
+
+#~ msgctxt "game_options"
+#~ msgid "MODERN PEDAL CONTROLS"
+#~ msgstr "MODERN PEDAL CONTROLS"
 
 #~ msgctxt "game_options"
 #~ msgid "MONSTERS"
@@ -19594,6 +20336,10 @@ msgstr "жёлтая/синяя"
 #~ "задержки ввода."
 
 #~ msgctxt "keys_files"
+#~ msgid "Reset"
+#~ msgstr "Сброс"
+
+#~ msgctxt "keys_files"
 #~ msgid "Reset the application"
 #~ msgstr "Сброс приложения"
 
@@ -19664,6 +20410,10 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "game_options"
 #~ msgid "SSAA"
 #~ msgstr "SSAA"
+
+#~ msgctxt "game_options"
+#~ msgid "STEERING SENSITIVITY"
+#~ msgstr "ЧУВСТВИТЕЛЬНОСТЬ РУЛЕВОГО УПРАВЛЕНИЯ"
 
 #~ msgctxt "keys_files"
 #~ msgid "Save State"
@@ -19857,6 +20607,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "Цвет мишени для игрока 4."
 
 #~ msgctxt "game_options"
+#~ msgid "The upscaling method used when enabled."
+#~ msgstr "Метод апскейлинга, используемый при включении."
+
+#~ msgctxt "game_options"
 #~ msgid ""
 #~ "This option enables the ability to play Xbox Live Arcacde games. May "
 #~ "cause compatibility issues with non-XBLA games."
@@ -19883,6 +20637,10 @@ msgstr "жёлтая/синяя"
 #~ msgstr "Переключить ограничение скорости"
 
 #~ msgctxt "game_options"
+#~ msgid "USE GZDOOM JOYSTICK CONFIGURATION"
+#~ msgstr "ИСПОЛЬЗОВАТЬ КОНФИГУРАЦИЮ ДЖОЙСТИКА GZDOOM"
+
+#~ msgctxt "game_options"
 #~ msgid "USE ZINK RENDERER"
 #~ msgstr "ИСПОЛЬЗОВАТЬ ZINK РЕНДЕРЕР"
 
@@ -19892,6 +20650,13 @@ msgstr "жёлтая/синяя"
 #~ msgstr ""
 #~ "Используйте L2/R2 для ускорения/торможения и L1/R1 или правый стик вверх/"
 #~ "вниз для переключения передач."
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Use L2/R2 for Brake/Accel and L1/R1 or R-stick Up/Down for Shift Up/Down."
+#~ msgstr ""
+#~ "Используйте L2/R2 для тормоза/газа, а L1/R1 или R-стик вверх/вниз для "
+#~ "переключения передач вверх/вниз."
 
 #~ msgctxt "game_options"
 #~ msgid ""
@@ -19938,6 +20703,10 @@ msgstr "жёлтая/синяя"
 #~ msgctxt "game_options"
 #~ msgid "VIDEO STREAM FRAMERATE"
 #~ msgstr "ЧАСТОТА КАДРОВ ВИДЕОПОТОКА"
+
+#~ msgctxt "game_options"
+#~ msgid "VSYNC INTERVAL"
+#~ msgstr "VSYNC ИНТЕРВАЛ"
 
 #~ msgctxt "game_options"
 #~ msgid "VSYNCS IN MTGS QUEUE"

@@ -3,8 +3,8 @@
 # ppsspp
 #
 ################################################################################
-# Version: Commits on Feb 28, 2025
-PPSSPP_VERSION = 6770122c5c0ad0c0902ca2304ebb653da5870fe3
+
+PPSSPP_VERSION = v1.19.3
 PPSSPP_SITE = https://github.com/hrydgard/ppsspp.git
 PPSSPP_SITE_METHOD=git
 PPSSPP_GIT_SUBMODULES=YES
@@ -86,6 +86,7 @@ ifeq ($(BR2_PACKAGE_VULKAN_HEADERS)$(BR2_PACKAGE_VULKAN_LOADER),yy)
     endif
 else
     PPSSPP_CONF_OPTS += -DVULKAN=OFF
+    PPSSPP_CONF_OPTS += -DUSING_X11_VULKAN=OFF
 endif
 
 ifeq ($(BR2_PACKAGE_BATOCERA_WAYLAND),y)
@@ -113,9 +114,9 @@ define PPSSPP_INSTALL_TARGET_CMDS
         $(TARGET_DIR)/usr/bin/PPSSPP
     mkdir -p $(TARGET_DIR)/usr/share/ppsspp
     cp -R $(@D)/assets $(TARGET_DIR)/usr/share/ppsspp/PPSSPP
-    # Fix PSP font for languages like Japanese
-    # (font from https://github.com/minoryorg/Noto-Sans-CJK-JP/blob/master/fonts/)
-    cp -f $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/emulators/ppsspp/NotoSansCJKjp-DemiLight.ttf \
+    # Fix PSP font rendering for CJK languages
+    # (font from http://wenq.org/wqy2/index.cgi?Download#MicroHei_Beta)
+    cp -f $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/emulators/ppsspp/wqy-microhei.ttc \
         $(TARGET_DIR)/usr/share/ppsspp/PPSSPP/Roboto-Condensed.ttf
 endef
 

@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING, Any
 from ... import controllersConfig
 from ...batoceraPaths import BIOS, ROMS, ensure_parents_and_open
 from ...gun import Guns, guns_need_crosses
+from ...utils import videoMode
 from ...utils.configparser import CaseSensitiveConfigParser
-from .libretroPaths import RETROARCH_CONFIG
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -110,6 +110,18 @@ def _handy_options(
     # Set this option to start game at 'None' because it crash the emulator
     _set(coreSettings, 'handy_rot', 'None')
 
+# Bandai Wonder Swan & Wonder Swan Color
+def _mednafen_wswan_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: Guns, wheels: DeviceInfoMapping, /,
+) -> None:
+    # Display rotation
+    if (rotate_display := system.config.get('wswan_rotate_display')) is not system.config.MISSING:
+        wswanOrientation = rotate_display
+    else:
+        wswanGameRotation = videoMode.getAltDecoration(system.name, rom, 'retroarch')
+        wswanOrientation = "portrait" if wswanGameRotation == "90" else "manual"
+
+    _set(coreSettings, 'wswan_rotate_display', wswanOrientation)
 
 # Commodore 64
 def _vice_x64_options(
@@ -1644,6 +1656,9 @@ def _flycast_options(
     _set_from_system(coreSettings, 'reicast_language', system, 'reicast_language', default='Default')
     _set_from_system(coreSettings, 'reicast_region', system, 'reicast_region', default='Default')
 
+    # Native Depth Interpolation
+    _set_from_system(coreSettings, 'reicast_native_depth_interpolation', system, 'reicast_native_depth_interpolation', default='disabled')
+
     ## Atomiswave / Naomi
 
     # Screen Orientation
@@ -1665,7 +1680,7 @@ def _genesisplusgx_options(
     coreSettings: UnixSettings, system: Emulator, rom: Path, guns: Guns, wheels: DeviceInfoMapping, /,
 ) -> None:
     # Allows each game to have its own one brm file for save without lack of space
-    _set(coreSettings, 'genesis_plus_gx_bram', 'per game')
+    _set(coreSettings, 'genesis_plus_gx_system_bram', 'per game')
 
     # Sometimes needs to be forced to NTSC-U for MSU-MD to work (this is to avoid an intentionally coded lock-out screen):
     # https://arcadetv.github.io/msu-md-patches/wiki/Lockout-screen.html
@@ -1851,6 +1866,7 @@ def _px68k_options(
     joytype = system.config.get('px68k_joytype', 'Default (2 Buttons)')
     _set(coreSettings, 'px68k_joytype1', joytype)
     _set(coreSettings, 'px68k_joytype2', joytype)
+
 
 # Sinclair ZX81
 def _81_options(
@@ -2052,7 +2068,43 @@ def _pcsx2_options(
     coreSettings: UnixSettings, system: Emulator, rom: Path, guns: Guns, wheels: DeviceInfoMapping, /,
 ) -> None:
     # Fast Boot
-    _set_from_system(coreSettings, 'pcsx2_fast_boot', system, 'lr_pcsx2_fast_boot', default='disabled')
+    _set_from_system(coreSettings, 'pcsx2_fastboot', system, 'lr_pcsx2_fast_boot', default='disabled')
+    # Fast CD/DVD Access
+    _set_from_system(coreSettings, 'pcsx2_fastcdvd', system, 'lr_pcsx2_fast_cdvd', default='disabled')
+    # Enable Cheats
+    _set_from_system(coreSettings, 'pcsx2_enable_cheats', system, 'lr_pcsx2_fast_cheats', default='disabled')
+    # Language Unlock
+    _set_from_system(coreSettings, 'pcsx2_hint_language_unlock', system, 'lr_pcsx2_language_unlock', default='disabled')
+    # Graphics API
+    gfxbackend = system.config.get("gfxbackend")
+    if gfxbackend == "vulkan":
+        _set(coreSettings, 'pcsx2_renderer', 'Vulkan')
+    else:
+        _set(coreSettings, 'pcsx2_renderer', 'OpenGL')
+    # Render resolution
+    _set_from_system(coreSettings, 'pcsx2_upscale_multiplier', system, 'lr_pcsx2_resolution', default='1x Native (PS2)')
+    # Texture Filtering
+    _set_from_system(coreSettings, 'pcsx2_texture_filtering', system, 'lr_pcsx2_texture_filtering', default='Bilinear (PS2)')
+    # Trilinear Filtering
+    _set_from_system(coreSettings, 'pcsx2_trilinear_filtering', system, 'lr_pcsx2_trilinear_filtering', default='Automatic')
+    # Anisotropic Filtering
+    _set_from_system(coreSettings, 'pcsx2_anisotropic_filtering', system, 'lr_pcsx2_anisotropic', default='disabled')
+    # Dithering
+    _set_from_system(coreSettings, 'pcsx2_dithering', system, 'lr_pcsx2_dithering', default='Unscaled')
+    # Blending Accuracy
+    _set_from_system(coreSettings, 'pcsx2_blending_accuracy', system, 'lr_pcsx2_blending', default='Basic')
+    # Widescreen hint
+    widescreenhint = system.config.get("ratio")
+    if widescreenhint == "16/9" or widescreenhint == "full":
+        _set(coreSettings, 'pcsx2_widescreen_hint', 'enabled (16:9)')
+    elif widescreenhint == "16/10":
+        _set(coreSettings, 'pcsx2_widescreen_hint', 'enabled (16:10)')
+    elif widescreenhint == "21/9":
+        _set(coreSettings, 'pcsx2_widescreen_hint', 'enabled (21:9)')
+    elif widescreenhint == "32/9":
+        _set(coreSettings, 'pcsx2_widescreen_hint', 'enabled (32:9)')
+    else:
+        _set(coreSettings, 'pcsx2_widescreen_hint', 'disabled')
 
 
 def _pcsx_rearmed_options(
@@ -2287,6 +2339,7 @@ _option_functions: dict[str, Callable[[UnixSettings, Emulator, Path, Guns, Devic
     'scummvm': _scummvm_options,
     'flycast': _flycast_options,
     'genesisplusgx': _genesisplusgx_options,
+    'genesisplusgx-expanded': _genesisplusgx_options,
     'picodrive': _picodrive_options,
     'yabasanshiro': _yabasanshiro_options,
     'kronos': _kronos_options,
@@ -2308,6 +2361,7 @@ _option_functions: dict[str, Callable[[UnixSettings, Emulator, Path, Guns, Devic
     'tyrquake': _tyrquake_options,
     'mrboom': _mrboom_options,
     'hatarib': _hatarib_options,
+    'mednafen_wswan': _mednafen_wswan_options,
 }
 
 

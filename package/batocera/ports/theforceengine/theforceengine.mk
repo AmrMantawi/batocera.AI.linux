@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-THEFORCEENGINE_VERSION = v1.22.300
+THEFORCEENGINE_VERSION = v1.22.420
 THEFORCEENGINE_SITE = https://github.com/luciusDXL/TheForceEngine.git
 THEFORCEENGINE_SITE_METHOD=git
 THEFORCEENGINE_GIT_SUBMODULES=YES
@@ -12,7 +12,7 @@ THEFORCEENGINE_LICENSE = GPLv2
 THEFORCEENGINE_LICENSE_FILE = LICENSE
 
 # be sure to update configgen if the patch version changes
-THEFORCEENGINE_PATCH_VERSION = v3
+THEFORCEENGINE_PATCH_VERSION = df_patch4
 THEFORCEENGINE_PATCH_SOURCE = $(THEFORCEENGINE_PATCH_VERSION).zip
 # THEFORCEENGINE_EXTRA_DOWNLOADS = \
 #     $(addprefix \

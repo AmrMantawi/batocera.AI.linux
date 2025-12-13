@@ -4,16 +4,16 @@
 #
 ################################################################################
 
-RETROARCH_VERSION = v1.20.0
+RETROARCH_VERSION = v1.22.2
 RETROARCH_SITE = $(call github,libretro,RetroArch,$(RETROARCH_VERSION))
 RETROARCH_LICENSE = GPLv3+
 RETROARCH_DEPENDENCIES = host-pkgconf dejavu retroarch-assets flac noto-cjk-fonts
 # install in staging for debugging (gdb)
 RETROARCH_INSTALL_STAGING = YES
 
-RETROARCH_CONF_OPTS = --disable-oss --enable-zlib --disable-qt --enable-threads --enable-ozone \
+RETROARCH_CONF_OPTS = --disable-oss --disable-qt --enable-threads --enable-ozone \
     --enable-xmb --disable-discord --enable-flac --enable-lua --enable-networking \
-	--enable-translate --enable-rgui --disable-cdrom
+    --enable-translate --enable-rgui --disable-cdrom
 
 ifeq ($(BR2_ENABLE_DEBUG),y)
     RETROARCH_CONF_OPTS += --enable-debug
@@ -103,7 +103,7 @@ ifeq ($(BR2_PACKAGE_HAS_LIBOPENVG),y)
 endif
 
 ifeq ($(BR2_PACKAGE_ZLIB),y)
-    RETROARCH_CONF_OPTS += --enable-zlib
+    RETROARCH_CONF_OPTS += --disable-builtinzlib --enable-zlib
     RETROARCH_DEPENDENCIES += zlib
 else
     RETROARCH_CONF_OPTS += --disable-zlib
@@ -143,7 +143,7 @@ endif
 
 # disable libdecor : A client-side decorations library for Wayland client
 # it makes retroarch unable to start on dual screen. It looks like a ra bug
-ifeq ($(BR2_PACKAGE_WAYLAND)$(BR2_PACKAGE_SWAY),yy)
+ifeq ($(BR2_PACKAGE_WAYLAND),y)
     RETROARCH_CONF_OPTS += --enable-wayland
     RETROARCH_CONF_OPTS += --disable-libdecor
 else
@@ -153,6 +153,11 @@ endif
 ifeq ($(BR2_PACKAGE_VULKAN_LOADER)$(BR2_PACKAGE_VULKAN_HEADERS),yy)
     RETROARCH_CONF_OPTS += --enable-vulkan
     RETROARCH_DEPENDENCIES += vulkan-headers vulkan-loader slang-shaders
+endif
+
+ifeq ($(BR2_PACKAGE_GLSLANG),y)
+    RETROARCH_CONF_OPTS += --disable-builtinglslang --enable-glslang
+    RETROARCH_DEPENDENCIES += glslang
 endif
 
 ifeq ($(BR2_riscv),y)
@@ -173,9 +178,12 @@ define RETROARCH_CONFIGURE_CMDS
 endef
 
 define RETROARCH_BUILD_CMDS
-	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D)/
-	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D)/gfx/video_filters
-	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D)/libretro-common/audio/dsp_filters
+	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" \
+        LD="$(TARGET_LD)" -C $(@D)/
+	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" \
+        LD="$(TARGET_LD)" -C $(@D)/gfx/video_filters
+	$(TARGET_CONFIGURE_OPTS) $(MAKE) CXX="$(TARGET_CXX)" CC="$(TARGET_CC)" \
+        LD="$(TARGET_LD)" -C $(@D)/libretro-common/audio/dsp_filters
 endef
 
 define RETROARCH_INSTALL_TARGET_CMDS
@@ -186,8 +194,10 @@ define RETROARCH_INSTALL_TARGET_CMDS
 	cp $(@D)/gfx/video_filters/*.filt $(TARGET_DIR)/usr/share/video_filters
 
 	mkdir -p $(TARGET_DIR)/usr/share/audio_filters
-	cp $(@D)/libretro-common/audio/dsp_filters/*.so $(TARGET_DIR)/usr/share/audio_filters
-	cp $(@D)/libretro-common/audio/dsp_filters/*.dsp $(TARGET_DIR)/usr/share/audio_filters
+	cp $(@D)/libretro-common/audio/dsp_filters/*.so \
+        $(TARGET_DIR)/usr/share/audio_filters
+	cp $(@D)/libretro-common/audio/dsp_filters/*.dsp \
+        $(TARGET_DIR)/usr/share/audio_filters
 endef
 
 define RETROARCH_INSTALL_STAGING_CMDS

@@ -65,8 +65,6 @@ cplus4:
       xplus4:      { requireAnyOf: [BR2_PACKAGE_VICE], incompatible_extensions: [m3u,7z] }
     libretro:
       vice_xplus4: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_VICE] }
-    clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
 
 c128:
   name:       Commodore 128
@@ -93,8 +91,6 @@ c20:
       xvic:      { requireAnyOf: [BR2_PACKAGE_VICE], incompatible_extensions: [m3u,7z,20,40,60] }
     libretro:
       vice_xvic: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_VICE] }
-    clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
 
 pet:
   name:       Commodore PET
@@ -506,6 +502,7 @@ megadrive:
   emulators:
     libretro:
       genesisplusgx: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_GENESISPLUSGX] }
+      genesisplusgx-expanded: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_GENESISPLUSGX_EXPANDED] }
       genesisplusgx-wide: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_GENESISPLUSGX_WIDE] }
       picodrive:     { requireAnyOf: [BR2_PACKAGE_LIBRETRO_PICODRIVE] }
       blastem:       { requireAnyOf: [BR2_PACKAGE_LIBRETRO_BLASTEM] }
@@ -566,7 +563,7 @@ mastersystem:
       smsplus:       { requireAnyOf: [BR2_PACKAGE_LIBRETRO_SMSPLUS_GX]}
       gearsystem:    { requireAnyOf: [BR2_PACKAGE_LIBRETRO_GEARSYSTEM]}
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
 
 pico:
   name:       Sega Pico
@@ -998,7 +995,7 @@ colecovision:
     openmsx:
       openmsx: { requireAnyOf: [BR2_PACKAGE_OPENMSX] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
     ## BIOS ##
 
@@ -1239,7 +1236,7 @@ quake:
     Create a blank launch file with a .quake extension to be able to start the game from ES.
     i.e. `Quake.quake` or `Quake Mission Pack 1 - Scourge of Armagon.quake`.
     Launch files should be in `/userdata/roms/quake`.
-    
+
     Mission Packs
     -------------
 
@@ -1268,7 +1265,7 @@ quake:
     The files are named in the pattern "tracknn". i.e. track02.ogg or track02.mp3 etc
 
     vkQuake supports OGG, MP3, FLAC, and WAV audio formats.
-    
+
     For more info: https://wiki.batocera.org/systems:quake
   comment_fr: |
     Placez ici vos fichiers .PAK pour Quake 1.
@@ -1514,7 +1511,7 @@ atarist:
       hatarib: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_HATARIB] }
       hatari: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_HATARI], incompatible_extensions: [ hd, gemdos ] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ m3u, 7z ] }
   comment_en: |
     To enable GEMDOS support,
     Create a directory within the roms folder that has a .gemdos extension.
@@ -1534,7 +1531,7 @@ amstradcpc:
     libretro:
       cap32: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_CAP32] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ m3u, 7z ] }
   comment_en: |
     To enable gamepad support, go in RetroArch menu with "Hotkey + B", then switch this option:
     "Quick Menu/Core Input Options/User 1 Device type: Retropad" with "Amstrad Joystick"
@@ -1559,7 +1556,7 @@ msx1:
     openmsx:
       openmsx: { requireAnyOf: [BR2_PACKAGE_OPENMSX], incompatible_extensions: [m3u] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
     ## BIOS ##
 
@@ -1660,7 +1657,7 @@ msx2:
     openmsx:
       openmsx: { requireAnyOf: [BR2_PACKAGE_OPENMSX], incompatible_extensions: [m3u] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
     ## BIOS ##
 
@@ -1890,8 +1887,6 @@ zx81:
   emulators:
     libretro:
       '81': { requireAnyOf: [BR2_PACKAGE_LIBRETRO_81] }
-    clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
   comment_en: |
     To enable your gamepad support, go in retroarch menu with "Hotkey+B", then switch this option:
     "Settings/Input/Input User 1 Binds/User 1 Device type: Retropad" with "Cursor Joystick"
@@ -1909,7 +1904,7 @@ zxspectrum:
     libretro:
       fuse: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_FUSE] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
     ## Input Devices ##
 
@@ -1962,14 +1957,14 @@ zxspectrum:
     Se você definir um controle junto com o teclado, o controle funcionará bem, exceto pelas ligações para RETURN (ENTER pula linha) e SPACE (Barra de Espaços), e o teclado não registrará as teclas atribuídas aocontrole de cursor ou aos botões L1 e R1 para todos os outros tipos de controle.
 
 moonlight:
-  name:       Moonlight Embedded
+  name:       Moonlight
   manufacturer: Misc. System
   release:
   hardware: system
   extensions: [moonlight]
   emulators:
     moonlight:
-      moonlight: { requireAnyOf: [BR2_PACKAGE_MOONLIGHT_EMBEDDED] }
+      moonlight: { requireAnyOf: [BR2_PACKAGE_MOONLIGHT_EMBEDDED, BR2_PACKAGE_MOONLIGHT_QT] }
   comment_en: |
     For more info: https://wiki.batocera.org/systems:moonlight
   comment_fr: |
@@ -1993,11 +1988,9 @@ apple2:
       gsplus: { requireAnyOf: [BR2_PACKAGE_GSPLUS], incompatible_extensions: [mfi, dfi, rti, edd, woz, wav, zip, 7z, chd, hdv, 2mg] }
     applewin:
       applewin: { requireAnyOf: [BR2_PACKAGE_APPLEWIN], incompatible_extensions: [chd] }
-    clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
 
 saturn:
-  name:       Saturn
+  name: Saturn
   manufacturer: Sega
   release: 1994
   hardware: console
@@ -2007,6 +2000,8 @@ saturn:
       beetle-saturn: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_BEETLE_SATURN], incompatible_extensions: [zip] }
       kronos:        { requireAnyOf: [BR2_PACKAGE_LIBRETRO_KRONOS] }
       yabasanshiro:  { requireAnyOf: [BR2_PACKAGE_LIBRETRO_YABASANSHIRO], incompatible_extensions: [m3u] }
+    ymir:
+      ymir: { requireAnyOf: [BR2_PACKAGE_YMIR] }
 
 jaguar:
   name: Jaguar
@@ -2133,7 +2128,7 @@ ps2:
     pcsx2:
       pcsx2: { requireAnyOf: [BR2_PACKAGE_PCSX2], incompatible_extensions: [m3u]  }
     libretro:
-      pcsx2: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_PS2] }
+      pcsx2: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_PS2], incompatible_extensions: [m3u] }
       play: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_PLAY], incompatible_extensions: [m3u] }
     play:
       play: { requireAnyOf: [BR2_PACKAGE_PLAY], incompatible_extensions: [m3u] }
@@ -2219,7 +2214,7 @@ x1:
   manufacturer: Nintendo
   release: 2011
   hardware: portable
-  extensions: [3ds, 3dsx, cxi, axf, elf, app, squashfs]
+  extensions: [cci, cxi, cia, axf, elf, app, squashfs, zcci, zcia, zcxi]
   emulators:
     azahar:
       azahar: { requireAnyOf: [BR2_PACKAGE_AZAHAR] }
@@ -2408,6 +2403,20 @@ thextech:
   emulators:
     thextech:
       thextech:  { requireAnyOf: [BR2_PACKAGE_THEXTECH] }
+  comment_en: |
+    TheXTech works with the latest game assets available here:
+    https://github.com/TheXTech/TheXTech/releases
+
+    You can, for example, download Super Mario Bros. X.
+    Extract the archive, then rename the extracted folder by adding the .smbx extension at the end.
+    Place it in your TheXTech directory to enjoy the game.
+  comment_fr: |
+    TheXTech fonctionne avec les derniers fichiers de jeu disponibles ici :
+    https://github.com/TheXTech/TheXTech/releases
+
+    Vous pouvez par exemple télécharger Super Mario Bros. X.
+    Décompressez l’archive, puis renommez le dossier extrait en ajoutant l’extension .smbx à la fin.
+    Placez-le ensuite dans votre répertoire TheXTech pour en profiter.
 
 thomson:
   name:       Thomson - MO/TO (Theodore)
@@ -2484,20 +2493,6 @@ ports:
      -------------------------------------------------- -----------------------------
      Aqui você pode encontrar jogos e aplicativos para Linux, iniciados via scripts shell que terminam em
      ".sh". Apenas os scripts ".sh" aparecem no EmulationStation.
-
-amiga:
-  name:       Amiga
-  manufacturer: Commodore
-  release:
-  hardware: computer
-  force:      True
-
-msx:
-  name:       Msx
-  manufacturer: Microsoft
-  release:
-  hardware: computer
-  force:      True
 
 windows:
   name:       Windows
@@ -2709,6 +2704,13 @@ model3:
     supermodel:
       supermodel:        { requireAnyOf: [BR2_PACKAGE_SUPERMODEL] }
       supermodel-legacy: { requireAnyOf: [BR2_PACKAGE_SUPERMODEL_LEGACY] }
+    libretro:
+      archs_include: [x86_64, x86-64-v3]
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      archs_include: [x86_64, x86-64-v3]
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
+
   comment_en: |
     ## SEGA MODEL 3 IMPORTANT INFO ##
 
@@ -3010,7 +3012,7 @@ sonicretro:
     A opção do menu de desenvolvimento é necessária para executar modificações (mods).
 
 model2:
-  name:       Model 2
+  name: Model 2
   manufacturer: Sega
   release: 1993
   hardware: arcade
@@ -3019,6 +3021,13 @@ model2:
   emulators:
     model2emu:
       model2emu: { requireAnyOf: [BR2_PACKAGE_MODEL2EMU] }
+    libretro:
+      archs_include: [x86_64, x86-64-v3]
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      archs_include: [x86_64, x86-64-v3]
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
+
   comment_en: |
     ---------------------------------
     ## SEGA MODEL 2 IMPORTANT INFO ##
@@ -3163,8 +3172,6 @@ apple2gs:
       mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
     gsplus:
       gsplus: { requireAnyOf: [BR2_PACKAGE_GSPLUS], incompatible_extensions: [mfi, dfi, rti, edd, woz, hfe, mfm, td0, imd, d77, d88, 1dd, cqm, cqui, ima, img, ufi, 360, ipf, dc42, zip, 7z] }
-    clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
   comment_en: |
           If your game does not start using LR-Mame. Ensure you choose the right floppy type for the rom extension.
           i.e. some extensions require you to choose the 3 1/2 inch floppy drive (Drive 3).
@@ -3177,10 +3184,13 @@ uzebox:
   manufacturer: Atmel
   release: 2008
   hardware: console
-  extensions: [uze]
+  extensions: [uze, bin, zip]
   emulators:
     libretro:
-      uzem: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_UZEM] }
+      uzem: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_UZEM], incompatible_extensions: [bin, zip] }
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
 
 cdi:
   name:       CD-i
@@ -3413,7 +3423,7 @@ archimedes:
     mame:
       mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
           Requires MAME BIOS files aa310.zip and archimedes_keyboard.zip
           Using software list mode is recommended.
@@ -3455,7 +3465,7 @@ electron:
     mame:
       mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
           Requires MAME BIOS files electron.zip, electron64.zip, electron_plus1.zip, electron_plus3.zip
           Using software list mode (cassette) is recommended.
@@ -3732,7 +3742,7 @@ quake2:
     -------------
 
     Copy necessary data file to `rogue` ("Ground Zero"), `xatrix` ("The Reckoning"), `zaero` ("Quake II: Zaero") and `smd` ("Slight Mechanical Destruction") directories respectively.
-    
+
     The libretro vitaquake2 supported mission pack ROMs are: xatrix, rogue, and zaero.
     If you have vkQuake2 the additional `smd` ("Slight Mechanical Destruction") pack is supported.
     vkQuake2 also supports the Capture the Flag mod using the `ctf` directory.
@@ -3863,6 +3873,10 @@ samcoupe:
   emulators:
     samcoupe:
       samcoupe:  { requireAnyOf: [BR2_PACKAGE_SIMCOUPE] }
+    libretro:
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
 
 abuse:
   name:       Abuse
@@ -3935,7 +3949,7 @@ macintosh:
     mame:
       mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
     clk:
-      clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+      clk: { requireAnyOf: [BR2_PACKAGE_CLK], incompatible_extensions: [ 7z ] }
   comment_en: |
           MAME requires a number of BIOS and device files, place in the bios folder in zip format.
           Boot disks are from MAME's software lists, floppy images need to be extracted and renamed.
@@ -5790,6 +5804,11 @@ oricatmos:
   emulators:
     clk:
       clk: { requireAnyOf: [BR2_PACKAGE_CLK] }
+    libretro:
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
+
   comment_en: |
     Emulator for Oric Atmos (and Oric 1)
     You need at least the rom file /userdata/bios/Oric/basic11.rom
@@ -5814,7 +5833,7 @@ bstone:
     Create a directory for the Balke Stone game you wish to launch.
     i.e. `Aliens Of Gold` or `Aliens Of Gold (Shareware)` or `Planet Strike`.
     Add the games files into the appropriate directory.
-    
+
     Aliens Of Gold Shareware we only need the .BS1 files.
     Aliens Of Gold we only need the .BS6 files.
     Planet Strike we only need the .VSI files
@@ -5848,7 +5867,7 @@ jkdf2:
 
     Jedi Knight - Dark Forces 2 is ideally designed to be best played with a mouse and keyboard.
     We have however mapped a gamepad style controller to the default keyboard for controller use.
-    
+
     Do not enable the joystick option in OpenJKDF2 as the controls aren't ideal.
     Do not adjust the keyboard keys if planning on using the controller mapping.
 
@@ -5886,17 +5905,88 @@ jknight:
             |
             |---assets0.pk3
             |---assets1.pk3...
-    
+
     Batocera will copy the appropriate files to launch the game.
 
     These Jedi Knight games are ideally designed to be best played with a mouse and keyboard.
     We have however mapped a gamepad style controller to the default keyboard for controller use.
-    
+
     Do not enable the joystick option in OpenJK as the controls aren't ideal.
-    Do not adjust the keyboard keys if planning on using the controller mapping.    
+    Do not adjust the keyboard keys if planning on using the controller mapping.
 
     For more info: https://wiki.batocera.org/systems:jknight
   comment_fr: |
     Trouvez la documentation ici : https://wiki.batocera.org/systems:jknight
   comment_br: |
     Para mais informações: https://wiki.batocera.org/systems:jknight
+
+mohaa:
+  name: Medal Of Honor - Allied Assault
+  manufacturer: Ports
+  release: 2002
+  hardware: port
+  extensions: [mohaa]
+  platform: pc
+  group: ports
+  emulators:
+    openmohaa:
+      openmohaa: { requireAnyOf: [BR2_PACKAGE_OPENMOHAA] }
+  comment_en: |
+    Copy the contents of your Medal of Honor: Allied Assault game here.
+    We recommend getting the Medal of Honor: Allied Assault War Chest version from GOG.
+    This version has the Spearhead and Breakthrough expansion packs.
+
+    If copied correctly you should have a `main` directory which is for the standard Allied Assault.
+    If you have the expansion packs then you should have the extra `mainta` & `maintt` directories.
+
+    Then create a blank launch file with a .mohaa extension in this directory to be able to start the game from ES.
+    i.e. Medal of Honor - Allied Assault.mohaa or Medal of Honor - Allied Assault - Breakthrough.mohaa etc.
+
+    Depending on the name used, we will choose the version of MOHAA to load.
+    Therefore ensure you name it correctly. i.e. `Medal of Honor - Allied Assault - Spearhead.mohaa`
+
+    These MOHAA games are ideally designed to be best played with a mouse and keyboard.
+    We have however mapped a gamepad style controller to the default keyboard / mouse for controller use.
+
+    For more info: https://wiki.batocera.org/systems:mohaa
+  comment_fr: |
+    Trouvez la documentation ici : https://wiki.batocera.org/systems:mohaa
+  comment_br: |
+    Para mais informações: https://wiki.batocera.org/systems:mohaa
+
+namco22:
+  name: Namco System 22
+  manufacturer: Namco
+  release: 1992
+  hardware: arcade
+  extensions: [zip, 7z]
+  platform: namco, arcade
+  emulators:
+    libretro:
+      mame: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_MAME] }
+    mame:
+      mame: { requireAnyOf: [BR2_PACKAGE_MAME] }
+  comment_en: |
+    Add your MAME compatible Namco System 22 roms here.
+
+bennugd:
+  name: Bennu Game Development
+  manufacturer: SplinterGU
+  release: 2008
+  hardware: computer
+  extensions: [dcb, dat]
+  platform: pc
+  emulators:
+    libretro:
+      bennugd: { requireAnyOf: [BR2_PACKAGE_LIBRETRO_BENNUGD] }
+  comment_en: |
+    Add your Bennu Game Development compatible games here.
+
+    We recommend to keep games in separate folders.
+    Each game must contain a .dcb or .dat launch file for the engine.
+
+    For more info: https://wiki.batocera.org/systems:bennugd
+  comment_fr: |
+    Trouvez la documentation ici : https://wiki.batocera.org/systems:bennugd
+  comment_br: |
+    Para mais informações: https://wiki.batocera.org/systems:bennugd

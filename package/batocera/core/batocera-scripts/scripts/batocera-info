@@ -8,6 +8,10 @@ else
 fi
 ###
 
+if test -z "${DISPLAY}"; then
+    export DISPLAY=$(getLocalXDisplay)
+fi
+
 getCpu() {
     test -e "${1}/cpufreq/scaling_max_freq" || return 0
 
@@ -68,8 +72,8 @@ fi
 ###
 
 V_BOARD=$(cat /boot/boot/batocera.board)
-V_CPUNB=$(LANG=C lscpu | grep 'Core(s) per socket' | awk '{print $4}' | head -n 1)
-V_CPUMAXNB=$(LANG=C lscpu | grep '^CPU(s):' | awk '{print $2}')
+V_CPUNB=$(LC_ALL=C lscpu | grep 'Core(s) per socket' | awk '{print $4}' | head -n 1)
+V_CPUMAXNB=$(LC_ALL=C lscpu | grep '^CPU(s):' | awk '{print $2}')
 V_CPUMODEL1=$(grep -E $'^model name\t:' /proc/cpuinfo | head -1 | sed -e s+'^model name\t: '++)
 V_SYSTEM=$(uname -rs)
 # min freq : minimum freq among the max cpus ; consider only online cpus
@@ -78,18 +82,11 @@ V_CPUMAXFREQ=$(for CPU in /sys/devices/system/cpu/cpu*; do getCpu "${CPU}"; done
 let V_CPUMINFREQ=${V_CPUMINFREQ}/1000
 let V_CPUMAXFREQ=${V_CPUMAXFREQ}/1000
 
-V_BOARD_MODEL=$(cat /sys/firmware/devicetree/base/model 2>/dev/null | tr -d '\0' | sed -e s+"[^A-Za-z0-9]"+"_"+g)
-if test -z "${V_BOARD_MODEL}"; then
-    # give an other chance with dmi
-    V_BOARD_MODEL=$(cat /sys/devices/virtual/dmi/id/product_name 2>/dev/null | tr -d '\0' | sed -e s+"[^A-Za-z0-9]"+"_"+g)
-fi
-# 3rd time lucky
-if test -z "${V_BOARD_MODEL}" || test "${V_BOARD_MODEL}" == "Default_string"; then
-    V_BOARD_MODEL=$(cat /sys/devices/virtual/dmi/id/board_name 2>/dev/null | tr -d '\0' | sed -e s+"[^A-Za-z0-9]"+"_"+g)
-fi
+V_BOARD_MODEL=$(batocera-model)
 if test -n "${V_BOARD_MODEL}"; then
     echo "Model: ${V_BOARD_MODEL}"
 fi
+
 echo "System: ${V_SYSTEM}"
 V_ARCH=$(uname -m)
 echo "Architecture: ${V_ARCH}"
@@ -131,7 +128,7 @@ fi
 # TDP
 CPU_TDP=$(/usr/bin/batocera-settings-get system.cpu.tdp)
 if ! [ -z "$CPU_TDP" ]; then
-    MAX_TDP=$(ryzenadj -i | grep 'PPT LIMIT FAST' | awk '{printf "%.0f\n", $6}')
+    MAX_TDP=$(/usr/bin/ryzenadj -i | awk '/PPT LIMIT FAST/ {printf "%.0f\n", $6}')
     echo "Ryzen Mobile TDP: ${MAX_TDP}W"
 fi
 
@@ -148,21 +145,53 @@ MEM_TOTAL_MB=$(expr "${MEM_TOTAL_KB}" / 1024)
 MEM_AVAILABLE_MB=$(expr "${MEM_AVAILABLE_KB}" / 1024)
 echo "Available Memory: ${MEM_AVAILABLE_MB}/${MEM_TOTAL_MB} MB"
 
-# Current Resolution
-if test -z "${DISPLAY}"; then
-    export DISPLAY=$(getLocalXDisplay)
+# Get and display DISPLAY SERVER
+DISPLAY_SERVER=$(batocera-resolution getDisplayMode)
+if [ -n "$DISPLAY_SERVER" ]; then
+    echo "Display Server: ${DISPLAY_SERVER}"
 fi
 
-DISPLAYRES=$(batocera-resolution currentResolution)
-if [ ! -z "$WAYLAND_DISPLAY" ]; then # wayland
-    DISPLAYRATE=$(batocera-resolution currentMode | awk -F'[x.]' '{printf "%.3f", $3 / 1000}')
-elif test -f /var/run/drmMode; then  # drm
-    DISPLAYRATE=$(batocera-resolution currentMode | awk -F'\\.' '{print $4}')
-else # xorg
-    DISPLAYRATE=$(batocera-resolution currentMode | awk -F'\\.' '{print $2"."$3}')
+# Get and display DISPLAY COMPOSITOR
+DISPLAY_COMPOSITOR=$(batocera-resolution getDisplayComp)
+if [ -n "$DISPLAY_COMPOSITOR" ]; then
+    echo "Display Compositor: ${DISPLAY_COMPOSITOR}"
 fi
-echo "Display Resolution: ${DISPLAYRES}"
-echo "Display Refresh Rate: ${DISPLAYRATE}Hz"
+
+# Current Resolution and Refresh Rate for single or multiple displays
+OUTPUTS=$(batocera-resolution listOutputs)
+set -- ${OUTPUTS}
+NUM_OUTPUTS=$#
+
+if [ "${NUM_OUTPUTS}" -le 1 ]; then
+    echo "Display Output: ${OUTPUTS}"
+    DISPLAYRES=$(batocera-resolution currentResolution)
+    if [ ! -z "$WAYLAND_DISPLAY" ]; then # wayland
+        DISPLAYRATE=$(batocera-resolution currentMode | awk -F'[x.]' '{printf "%.3f", $3 / 1000}')
+    elif test -f /var/run/drmMode; then  # drm
+        DISPLAYRATE=$(batocera-resolution currentMode | awk -F'\\.' '{print $4}')
+    else # xorg
+        DISPLAYRATE=$(batocera-resolution currentMode | awk -F'\\.' '{print $2"."$3}')
+    fi
+    echo "Display Resolution: ${DISPLAYRES}"
+    echo "Display Refresh Rate: ${DISPLAYRATE}Hz"
+else
+    i=1
+    for output in ${OUTPUTS}; do
+        echo "Display Output ${i}: ${output}"     
+        DISPLAYRES=$(batocera-resolution --screen "${output}" currentResolution)
+        CURRENT_MODE=$(batocera-resolution --screen "${output}" currentMode)
+        if [ ! -z "$WAYLAND_DISPLAY" ]; then # wayland
+            DISPLAYRATE=$(echo "${CURRENT_MODE}" | awk -F'[x.]' '{printf "%.3f", $3 / 1000}')
+        elif test -f /var/run/drmMode; then  # drm
+            DISPLAYRATE=$(echo "${CURRENT_MODE}" | awk -F'\\.' '{print $4}')
+        else # xorg
+            DISPLAYRATE=$(echo "${CURRENT_MODE}" | awk -F'\\.' '{print $2"."$3}')
+        fi
+        echo "Display Resolution ${i}: ${DISPLAYRES}"
+        echo "Display Refresh Rate ${i}: ${DISPLAYRATE}Hz"
+        i=$((i + 1))
+    done
+fi
 
 if [[ "${FULL_DISPLAY}" != 0 ]]; then
 	# OPENGL

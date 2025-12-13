@@ -51,6 +51,7 @@ PACKAGES_LIBRETRO="libretro-81
                    libretro-gambatte
                    libretro-gearsystem
                    libretro-genesisplusgx
+                   libretro-genesisplusgx-expanded
                    libretro-genesisplusgx-wide
                    libretro-gpsp
                    libretro-gw
@@ -145,6 +146,7 @@ PACKAGES_EMULATORS="amiberry
                     bigpemu
                     cemu
                     citron
+                    clk
                     hypseus-singe
                     dolphin-emu
                     dolphin-triforce
@@ -229,6 +231,7 @@ PACKAGES_PORTS="abuse
                 iortcw
                 jazz2-native
                 lindbergh-loader
+                openmohaa
                 openjazz
                 openjk
                 openjkdf2
@@ -309,6 +312,7 @@ PACKAGES_CONTROLLERS="aelightgun
 PACKAGES_UTILS="btop
                 mangohud
                 moonlight-embedded
+                moonlight-qt
                 ryzenadj
                 switchres
                 syncthing

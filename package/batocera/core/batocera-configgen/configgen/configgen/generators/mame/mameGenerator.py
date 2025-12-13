@@ -29,6 +29,7 @@ from ...exceptions import BatoceraException
 from ...utils import bezels as bezelsUtil, videoMode
 from ..Generator import Generator
 from . import mameControllers
+from .mameCommon import is_atom_floppy
 from .mamePaths import MAME_BIOS, MAME_CHEATS, MAME_CONFIG, MAME_DEFAULT_DATA, MAME_ROMS, MAME_SAVES
 
 if TYPE_CHECKING:
@@ -116,9 +117,15 @@ class MameGenerator(Generator):
             softList = 'fmtowns_cd'
 
         commandArray: list[str | Path] =  [ "/usr/bin/mame/mame" ]
+        
         # MAME options used here are explained as it's not always straightforward
         # A lot more options can be configured, just run mame -showusage and have a look
+        
+        # set audio to pipewire to fix audio from 0.278
+        commandArray += [ "-sound", "pipewire" ]
+        # skip game info at start
         commandArray += [ "-skip_gameinfo" ]
+
         if messMode == -1:
             commandArray += [ "-rompath", f"{romDirname};{MAME_BIOS};{BIOS}" ]
         else:
@@ -308,7 +315,7 @@ class MameGenerator(Generator):
                 if system.config.get_bool("ti99_32kram", True):
                     commandArray += ["-ioport:peb:slot2", "32kmem"]
                 if system.config.get_bool("ti99_speech", True):
-                    commandArray += ["-ioport:peb:slot3", "speech"]
+                    commandArray += ["-ioport", "speechsyn"]
 
             #Laser 310 Memory Expansion & Joystick
             if system.name == "laser310":
@@ -437,6 +444,10 @@ class MameGenerator(Generator):
                     targetFolder = MAME_SAVES / system.name
                     targetDisk = targetFolder / romName
                 # Add elif statements here for other systems if enabled
+                else:
+                    blankDisk = Path('/usr/share/mame/blank.default')
+                    targetFolder = MAME_SAVES / system.name
+                    targetDisk = targetFolder / f'{romName}.default'
                 mkdir_if_not_exists(targetFolder)
                 if not targetDisk.exists():
                     shutil.copy2(blankDisk, targetDisk)
@@ -509,6 +520,23 @@ class MameGenerator(Generator):
                         for row in autoRunList:
                             if row and not row[0].startswith('#') and row[0].casefold() == romName.casefold():
                                 autoRunCmd = f"{row[1]}\\n"
+            elif system.name == "atom":
+                autoRunDelay = 1
+                autoRunCmd = messAutoRun[messMode]
+                # Check if the media being used is a floppy type
+                if (
+                    (altromtype == "flop1") or
+                    (softList and softList.endswith("flop")) or
+                    is_atom_floppy(rom)
+                ):
+                    autoRunFile = MAME_DEFAULT_DATA / 'atom_flop_autoload.csv'
+                    if autoRunFile.exists():
+                        with autoRunFile.open() as openARFile:
+                            autoRunList = csv.reader(openARFile, delimiter=';', quotechar="'")
+                            for row in autoRunList:
+                                if row and not row[0].startswith('#') and row[0].casefold() == romName.casefold():
+                                    autoRunCmd = f"{row[1]}\\n"
+                                    break
             else:
                 # Check for an override file, otherwise use generic (if it exists)
                 autoRunCmd = messAutoRun[messMode]
@@ -613,6 +641,7 @@ class MameGenerator(Generator):
             (tmpZipDir / 'default.lay').symlink_to(bz_infos["layout"])
             pngFile = tmpZipDir / bz_infos["png"].name
             pngFile.symlink_to(bz_infos["png"])
+            img_width, img_height = bezelsUtil.fast_image_size(bz_infos["png"])
         else:
             pngFile = tmpZipDir / "default.png"
             pngFile.symlink_to(bz_infos["png"])
@@ -654,6 +683,8 @@ class MameGenerator(Generator):
             f.close()
 
         if (bezel_tattoo := system.config.get_str('bezel.tattoo', "0")) != "0":
+            tattoo: Image.Image | None = None
+
             if bezel_tattoo == 'system':
                 tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / f'{system.name}.png'
                 if not tattoo_file.exists():
@@ -673,35 +704,37 @@ class MameGenerator(Generator):
                     tattoo = Image.open(tattoo_file)
                 except Exception:
                     _logger.error("Error opening custom file: %s", tattoo_file)
-            output_png_file = Path("/tmp/bezel_tattooed.png")
-            back = Image.open(pngFile)
-            tattoo = tattoo.convert("RGBA")
-            back = back.convert("RGBA")
-            tw,th = bezelsUtil.fast_image_size(tattoo_file)
-            tatwidth = int(240/1920 * img_width) # 240 = half of the difference between 4:3 and 16:9 on 1920px (0.5*1920/16*4)
-            pcent = float(tatwidth / tw)
-            tatheight = int(float(th) * pcent)
-            tattoo = tattoo.resize((tatwidth,tatheight), Image.Resampling.LANCZOS)
-            alphatat = tattoo.split()[-1]
-            corner = system.config.get_str('bezel.tattoo_corner', 'NW')
-            if corner.upper() == 'NE':
-                back.paste(tattoo, (img_width-tatwidth,20), alphatat) # 20 pixels vertical margins (on 1080p)
-            elif corner.upper() == 'SE':
-                back.paste(tattoo, (img_width-tatwidth,img_height-tatheight-20), alphatat)
-            elif corner.upper() == 'SW':
-                back.paste(tattoo, (0,img_height-tatheight-20), alphatat)
-            else: # default = NW
-                back.paste(tattoo, (0,20), alphatat)
-            imgnew = Image.new("RGBA", (img_width,img_height), (0,0,0,255))
-            imgnew.paste(back, (0,0,img_width,img_height))
-            imgnew.save(output_png_file, mode="RGBA", format="PNG")
 
-            try:
-                pngFile.unlink()
-            except Exception:
-                pass
+            if tattoo is not None:
+                output_png_file = Path("/tmp/bezel_tattooed.png")
+                back = Image.open(pngFile)
+                tattoo = tattoo.convert("RGBA")
+                back = back.convert("RGBA")
+                tw,th = bezelsUtil.fast_image_size(tattoo_file)
+                tatwidth = int(240/1920 * img_width) # 240 = half of the difference between 4:3 and 16:9 on 1920px (0.5*1920/16*4)
+                pcent = float(tatwidth / tw)
+                tatheight = int(float(th) * pcent)
+                tattoo = tattoo.resize((tatwidth,tatheight), Image.Resampling.LANCZOS)
+                alphatat = tattoo.split()[-1]
+                corner = system.config.get_str('bezel.tattoo_corner', 'NW')
+                if corner.upper() == 'NE':
+                    back.paste(tattoo, (img_width-tatwidth,20), alphatat) # 20 pixels vertical margins (on 1080p)
+                elif corner.upper() == 'SE':
+                    back.paste(tattoo, (img_width-tatwidth,img_height-tatheight-20), alphatat)
+                elif corner.upper() == 'SW':
+                    back.paste(tattoo, (0,img_height-tatheight-20), alphatat)
+                else: # default = NW
+                    back.paste(tattoo, (0,20), alphatat)
+                imgnew = Image.new("RGBA", (img_width,img_height), (0,0,0,255))
+                imgnew.paste(back, (0,0,img_width,img_height))
+                imgnew.save(output_png_file, mode="RGBA", format="PNG")
 
-            pngFile.symlink_to(output_png_file)
+                try:
+                    pngFile.unlink()
+                except Exception:
+                    pass
+
+                pngFile.symlink_to(output_png_file)
 
         # borders for guns
         if gunsBordersSize is not None:

@@ -59,7 +59,7 @@ class FlycastGenerator(Generator):
             Config.set("input", f'device{controller.player_number}.2', system.config.get_str(ctrlpackconfig, '1'))  # Sega VMU
             # Ensure controller(s) are on seperate Ports
             port = controller.player_number-1
-            Config.set("input", f'maple_sdl_joystick_{port}', str(port))
+            Config.set("input", f'maple_sdl_joystick_{controller.index}', str(port))
 
         # add the keyboard mappings for hotkeys
         flycastControllers.generateKeyboardConfig()
@@ -119,6 +119,8 @@ class FlycastGenerator(Generator):
         Config.set("config", "Dreamcast.AutoSaveState", system.config.get_str("flycast_savestate", "no"))
         # windows CE
         Config.set("config", "Dreamcast.ForceWindowsCE", system.config.get_str("flycast_winCE", "no"))
+        # Per-game VMU
+        Config.set("config", "PerGameVmu", system.config.get_bool("flycast_per_game_vmu", return_values=("yes", "no")))
         # DSP
         Config.set("config", "aica.DSPEnabled", system.config.get_str("flycast_DSP", "no"))
         # Guns (WIP)

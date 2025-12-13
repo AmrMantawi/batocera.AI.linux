@@ -4,14 +4,22 @@
 #
 ################################################################################
 
-AZAHAR_VERSION = AZAHARPLUS_2120_2_C
-AZAHAR_SITE = https://github.com/AzaharPlus/AzaharPlus
+AZAHAR_VERSION = 2123.3
+AZAHAR_SITE = https://github.com/azahar-emu/azahar
 AZAHAR_SITE_METHOD = git
 AZAHAR_GIT_SUBMODULES = YES
 AZAHAR_LICENSE = GPLv2
 AZAHAR_SUPPORTS_IN_SOURCE_BUILD = NO
 
 AZAHAR_DEPENDENCIES += boost fdk-aac ffmpeg fmt openal sdl2
+
+ifeq ($(BR2_x86_64),y)
+AZAHAR_CMAKE_BACKEND = ninja
+# Use clang for performance
+AZAHAR_CONF_OPTS += -DCMAKE_C_COMPILER=$(HOST_DIR)/bin/clang
+AZAHAR_CONF_OPTS += -DCMAKE_CXX_COMPILER=$(HOST_DIR)/bin/clang++
+AZAHAR_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS="-lm -lstdc++"
+endif
 
 AZAHAR_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release
 AZAHAR_CONF_OPTS += -DBUILD_SHARED_LIBS=OFF
@@ -27,6 +35,12 @@ AZAHAR_CONF_OPTS += -DUSE_SYSTEM_BOOST=OFF
 AZAHAR_CONF_OPTS += -DENABLE_SDL2=ON
 AZAHAR_CONF_OPTS += -DUSE_SYSTEM_SDL2=ON    # important to avoid HIDAPI
 AZAHAR_CONF_OPTS += -DENABLE_LTO=OFF
+
+ifeq ($(BR2_X86_CPU_HAS_SSE42),y)
+    AZAHAR_CONF_OPTS += -DENABLE_SSE42=ON
+else
+    AZAHAR_CONF_OPTS += -DENABLE_SSE42=OFF
+endif
 
 ifeq ($(BR2_PACKAGE_QT6),y)
     AZAHAR_DEPENDENCIES += qt6base qt6tools qt6multimedia
