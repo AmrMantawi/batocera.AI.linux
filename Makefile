@@ -54,6 +54,7 @@ else # DIRECT_BUILD
 
 	DOCKER_REPO    ?= batoceralinux
 	IMAGE_NAME     ?= batocera.linux-build
+	SOURCES_DIR    ?= $(shell dirname $(PROJECT_DIR))
 
 define RUN_DOCKER
 	$(DOCKER) run -t --init --rm \
@@ -62,6 +63,7 @@ define RUN_DOCKER
 		-v $(DL_DIR):/build/buildroot/dl \
 		-v $(OUTPUT_DIR)/$*:/$* \
 		-v $(CCACHE_DIR):$(HOME)/.buildroot-ccache \
+		-v $(SOURCES_DIR):/sources \
 		-w /$* \
 		-v /etc/passwd:/etc/passwd:ro \
 		-v /etc/group:/etc/group:ro \
