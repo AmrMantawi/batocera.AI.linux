@@ -5,7 +5,8 @@
 ################################################################################
 
 ROCKCHIP_MPP_VERSION = 1.0.9
-ROCKCHIP_MPP_SITE = $(call github,rockchip-linux,mpp,$(ROCKCHIP_MPP_VERSION))
+ROCKCHIP_MPP_SITE = https://gitee.com/hermanchen82/mpp/repository/archive/$(ROCKCHIP_MPP_VERSION).tar.gz?ref=$(ROCKCHIP_MPP_VERSION)
+ROCKCHIP_MPP_SOURCE = rockchip-mpp-$(ROCKCHIP_MPP_VERSION).tar.gz
 ROCKCHIP_MPP_LICENSE = Apache-2.0 & MIT
 ROCKCHIP_MPP_LICENSE_FILES = LICENSES/Apache-2.0 & LICENSES/MIT
 ROCKCHIP_MPP_INSTALL_STAGING = YES
