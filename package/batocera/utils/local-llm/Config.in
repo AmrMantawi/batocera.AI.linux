@@ -1,0 +1,16 @@
+config BR2_PACKAGE_LOCAL_LLM
+	bool "local-llm"
+	depends on BR2_PACKAGE_SDL2
+	select BR2_PACKAGE_JSON_FOR_MODERN_CPP
+	select BR2_PACKAGE_PORTAUDIO
+	select BR2_PACKAGE_PORTAUDIO_ALSA
+	select BR2_PACKAGE_XTENSOR
+	select BR2_PACKAGE_OPUS
+	select BR2_PACKAGE_LIBOPUSENC
+	select BR2_PACKAGE_LIBSOXR
+	help
+	  Custom AI pipeline optimized for embedded platforms.
+	  Includes Speech-to-Text (Sherpa), Large Language Model (RKLLM),
+	  and Text-to-Speech (Paroli) capabilities.
+
+	  https://github.com/amrmantawi/local-llm
