@@ -1,42 +1,7 @@
-From d94588328f77f38fdcd7db7633bea478eb8166da Mon Sep 17 00:00:00 2001
-From: Batocera Linux <batocera@linux.com>
-Date: Thu, 16 Jan 2026 16:00:00 +0000
-Subject: [PATCH] arm64: dts: rockchip: Enable I2S3 for MAX98089 on Orange Pi 5 Plus
-
-Enable I2S3 interface connected to GPIO header (pins 40, 38, 35, 31, 12)
-for MAX98089 audio codec. This matches the user's wiring for Pins 22/32 (I2C4).
-
-MAX98089:
-- Audio codec from Maxim Integrated
-- I2C address: 0x10 on I2C4 (Pins 22 and 32)
-- Connected via I2S3 interface to GPIO header
-- Uses simple-audio-card binding
-- Uses max98088 driver (compatible = "maxim,max98088")
-
-I2S3 pins on GPIO header:
-- Pin 40: I2S3_SDO (data out)
-- Pin 38: I2S3_LRCK (frame sync)
-- Pin 35: I2S3_MCLK (master clock)
-- Pin 31: I2S3_SCLK (bit clock)
-- Pin 12: I2S3_SDI (data in, optional)
-
-Clock configuration:
-- I2C4 clock-frequency set to 100kHz for standard speed handshake
-- Configured I2S3 with proper pinctrl and clk-trcm setting
-- I2S3 clock source set to PLL_AUPLL (MCLK comes from mclkout_i2s3)
-- Codec configured with assigned-clock-rates for MCLK (12.288 MHz)
-
-Also disables es8388_sound to avoid conflicts with MAX98089.
-
-Signed-off-by: Batocera Linux <batocera@linux.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 67 +++++++++++++++++++++-
- 1 file changed, 65 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-index 83ed754c9d27..44192f000ce0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+diff --git i/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts w/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+index 83ed754c9d27..6bd1b6929dcb 100644
+--- i/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
++++ w/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
 @@ -116,7 +116,7 @@ hdmiin-sound {
  	};
   
@@ -46,10 +11,11 @@ index 83ed754c9d27..44192f000ce0 100644
  		compatible = "rockchip,multicodecs-card";
  		rockchip,card-name = "rockchip-es8388";
  		hp-det-gpio = <&gpio1 RK_PD3 GPIO_ACTIVE_HIGH>;
-@@ -152,6 +152,36 @@ play-pause-key {
+@@ -152,7 +152,37 @@ play-pause-key {
  			press-threshold-microvolt = <2000>;
  		};
  	};
+- 
 +
 +	/* --- AUDIO CARD --- */
 +	max98089_sound: max98089-sound {
@@ -80,9 +46,10 @@ index 83ed754c9d27..44192f000ce0 100644
 +			sound-dai = <&max98089>;
 +		};
 +	};
-  
++
  	rk_headset: rk-headset {
  		status = "disabled";
+ 		compatible = "rockchip_headset";
 @@ -709,9 +739,22 @@ &i2c2 {
  };
  
@@ -107,7 +74,7 @@ index 83ed754c9d27..44192f000ce0 100644
  };
  
  &i2c5 {
-@@ -850,6 +893,26 @@ &i2s7_8ch {
+@@ -850,6 +893,23 @@ &i2s7_8ch {
      status = "okay";
  };
  
@@ -115,12 +82,10 @@ index 83ed754c9d27..44192f000ce0 100644
 +    status = "okay";
 +    #sound-dai-cells = <0>;
 +
-+    /* Required for Rockchip I2S */
-+    rockchip,clk-trcm = <1>;
-+    
-+    /* Configure clock source - MCLK comes from mclkout_i2s3 */
-+    assigned-clocks = <&cru CLK_I2S3_2CH_SRC>;
-+    assigned-clock-parents = <&cru PLL_AUPLL>;
++    /* Configure clock source and rate for 12.288 MHz MCLK */
++    assigned-clocks = <&cru CLK_I2S3_2CH_SRC>, <&cru CLK_I2S3_2CH_FRAC>, <&cru MCLK_I2S3_2CH>;
++    assigned-clock-parents = <&cru PLL_AUPLL>, <&cru CLK_I2S3_2CH_SRC>;
++    assigned-clock-rates = <0>, <0>, <12288000>;
 +
 +    pinctrl-names = "default";
 +    pinctrl-0 = <&i2s3_lrck

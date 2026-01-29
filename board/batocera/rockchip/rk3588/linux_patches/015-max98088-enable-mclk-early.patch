@@ -1,0 +1,55 @@
+From d94588328f77f38fdcd7db7633bea478eb8166da Mon Sep 17 00:00:00 2001
+From: Batocera Linux <batocera@linux.com>
+Date: Thu, 24 Jan 2026 16:00:00 +0000
+Subject: [PATCH] ASoC: max98088: Enable MCLK early in probe for I2C communication
+
+The MAX98088/MAX98089 codec requires MCLK to be enabled to respond to
+I2C reads. Currently, the driver only enables MCLK during bias level
+transitions, but it tries to read the device revision register during
+probe before MCLK is enabled.
+
+This causes I2C communication to fail with error -6 (ENXIO) on platforms
+where MCLK is gated by default (e.g., Rockchip with rockchip,bit-set-to-disable).
+
+Enable MCLK early in the probe function, before any I2C communication,
+to ensure the codec can respond properly. Added debug messages to help
+diagnose timing and clock issues.
+
+Signed-off-by: Batocera Linux <batocera@linux.com>
+ sound/soc/codecs/max98088.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/sound/soc/codecs/max98088.c b/sound/soc/codecs/max98088.c
+index eaabfe2cfd70..7cc3b0d0002f 100644
+--- a/sound/soc/codecs/max98088.c
++++ b/sound/soc/codecs/max98088.c
+@@ -1689,6 +1689,29 @@ static int max98088_probe(struct snd_soc_component *component)
+        max98088->mic1pre = 0;
+        max98088->mic2pre = 0;
+ 
++       /* Enable MCLK early to allow I2C communication.
++        * Some codecs (e.g., MAX98089) require MCLK to be enabled
++        * to respond to I2C reads, especially on platforms where
++        * MCLK is gated by default.
++        */
++       if (!IS_ERR(max98088->mclk)) {
++               dev_dbg(component->dev, "Attempting to enable MCLK early for I2C communication\n");
++               ret = clk_prepare_enable(max98088->mclk);
++               if (ret < 0) {
++                       dev_err(component->dev, "Failed to enable MCLK: %d\n", ret);
++                       return ret;
++               }
++               dev_info(component->dev, "MCLK enabled early, rate: %lu Hz\n",
++                        clk_get_rate(max98088->mclk));
++               /* Allow clock to stabilize before I2C communication */
++               dev_dbg(component->dev, "Waiting 10ms for MCLK to stabilize\n");
++               udelay(10000);  /* Increased to 10ms for better stability */
++       } else {
++               dev_warn(component->dev, "MCLK clock not found (IS_ERR), I2C may fail. Error: %ld\n",
++                        PTR_ERR(max98088->mclk));
++       }
++
++       dev_dbg(component->dev, "Attempting to read device revision register (0xFF)\n");
+        ret = snd_soc_component_read(component, M98088_REG_FF_REV_ID);
+        if (ret < 0) {
+                dev_err(component->dev, "Failed to read device revision: %d\n",
