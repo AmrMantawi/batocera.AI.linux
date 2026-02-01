@@ -1,0 +1,12 @@
+config BR2_PACKAGE_XTENSOR
+	bool "xtensor"
+	depends on BR2_INSTALL_LIBSTDCPP
+	select BR2_PACKAGE_XTL
+	help
+	  xtensor is a C++ library meant for numerical analysis with
+	  multi-dimensional array expressions. It is header-only.
+
+	  https://github.com/xtensor-stack/xtensor
+
+comment "xtensor needs a toolchain w/ C++"
+	depends on !BR2_INSTALL_LIBSTDCPP
