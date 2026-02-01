@@ -1,0 +1,12 @@
+config BR2_PACKAGE_XTL
+	bool "xtl"
+	depends on BR2_INSTALL_LIBSTDCPP
+	help
+	  xtl (eXtended Template Library) is a C++ header-only library
+	  providing basic tensor (multidimensional arrays) functionality.
+	  It is required by xtensor.
+
+	  https://github.com/xtensor-stack/xtl
+
+comment "xtl needs a toolchain w/ C++"
+	depends on !BR2_INSTALL_LIBSTDCPP
