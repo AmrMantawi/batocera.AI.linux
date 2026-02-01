@@ -14,7 +14,7 @@ BATOCERA_EMULATIONSTATION_DEPENDENCIES = sdl2 sdl2_mixer vlc libfreeimage freety
 BATOCERA_EMULATIONSTATION_DEPENDENCIES += libcurl rapidjson batocera-es-system host-gettext
 # install in staging for debugging (gdb)
 BATOCERA_EMULATIONSTATION_INSTALL_STAGING = YES
-# BATOCERA_EMULATIONSTATION_OVERRIDE_SRCDIR = /sources/batocera-emulationstation
+BATOCERA_EMULATIONSTATION_OVERRIDE_SRCDIR = /sources/batocera.AI-emulationstation
 
 BATOCERA_EMULATIONSTATION_CONF_OPTS += \
     -DCMAKE_CXX_FLAGS=-D$(call UPPERCASE,$(BATOCERA_SYSTEM_ARCH))
@@ -138,6 +138,10 @@ define BATOCERA_EMULATIONSTATION_RESOURCES
 	    $(TARGET_DIR)/usr/share/emulationstation/resources/shaders
 	$(INSTALL) -m 0644 -D $(@D)/resources/shaders/*.* \
 	    $(TARGET_DIR)/usr/share/emulationstation/resources/shaders/kawase
+
+	$(INSTALL) -m 0755 -d $(TARGET_DIR)/usr/share/emulationstation/resources/BMO_Face
+	$(INSTALL) -m 0644 -D $(@D)/resources/BMO_Face/*.* \
+	    $(TARGET_DIR)/usr/share/emulationstation/resources/BMO_Face
 
 	# es_input.cfg
 	mkdir -p $(TARGET_DIR)/usr/share/batocera/datainit/system/configs/emulationstation
