@@ -77,6 +77,9 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
 		$(INSTALL) -D -m 0644 $(@D)/deps/piper_phonemize/lib/libespeak-ng.so* $(TARGET_DIR)/usr/lib/; \
 	fi
 	cp -f $(@D)/config/models.json $(TARGET_DIR)/usr/share/local-llm/config/models.json
+	# Install espeak-ng-data (required for piper-phonemize)
+	mkdir -p $(TARGET_DIR)/usr/share/espeak-ng-data
+	cp -r $(@D)/deps/piper_phonemize/share/espeak-ng-data/* $(TARGET_DIR)/usr/share/espeak-ng-data/
 	# Install setup script for model installation
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/setup-models.sh $(TARGET_DIR)/usr/bin/local-llm-setup-models
 endef

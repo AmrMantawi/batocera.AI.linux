@@ -10,7 +10,7 @@
 HOST_DIR=$1
 BOARD_DIR=$2
 BUILD_DIR=$3
-BINARIES_DIR=$4
+BIcR=$4
 TARGET_DIR=$5
 BATOCERA_BINARIES_DIR=$6
 
@@ -26,6 +26,7 @@ cp "${BINARIES_DIR}/rootfs.squashfs" "${BATOCERA_BINARIES_DIR}/boot/boot/batocer
 cp "${BINARIES_DIR}/uboot-orangepi-5-plus/rkspi_loader.img" "${BATOCERA_BINARIES_DIR}/boot/boot/" || exit 1
 
 cp "${BINARIES_DIR}/${DTB}"          "${BATOCERA_BINARIES_DIR}/boot/boot/"     || exit 1
+cp "${BINARIES_DIR}/${DTB}"          "${BATOCERA_BINARIES_DIR}/boot/"          || exit 1
 cp "${BOARD_DIR}/boot/extlinux.conf" "${BATOCERA_BINARIES_DIR}/boot/extlinux/" || exit 1
 
 exit 0

@@ -5,9 +5,25 @@
 set -e
 
 # Default paths
-MODELS_DIR="/usr/share/local-llm/models"
-CONFIG_DIR="/usr/share/local-llm/config"
+MODELS_DIR="/userdata/system/local-llm/models"
+CONFIG_DIR="/userdata/system/local-llm/config"
 CONFIG_FILE="${CONFIG_DIR}/models.json"
+
+# Model URLs
+# STT (Sherpa ONNX)
+SHERPA_ENCODER_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/resolve/main/encoder.onnx"
+SHERPA_DECODER_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/resolve/main/decoder.onnx"
+SHERPA_JOINER_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/resolve/main/joiner.onnx"
+SHERPA_TOKENS_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/resolve/main/tokens.txt"
+SILERO_VAD_URL="https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.int8.onnx"
+
+# TTS (Paroli)
+PAROLI_ENCODER_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/encoder.onnx"
+PAROLI_DECODER_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/decoder.onnx"
+PAROLI_CONFIG_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/config.json"
+
+# LLM (RKLLM)
+RKLLM_MODEL_URL="https://huggingface.co/amrmantawi/Qwen2.5-3B-Instruct-rk3588-1.2.2/resolve/main/Qwen2.5-3B-Instruct-rk3588-w8a8-opt-0-hybrid-ratio-0.0.rkllm"
 
 # Colors for output
 RED='\033[0;31m'
@@ -151,112 +167,50 @@ download_file() {
 echo_info "Setting up STT (Speech-to-Text) models..."
 echo_info "Downloading Sherpa ONNX models from GitHub releases..."
 
-# Download and extract Sherpa ONNX model archive (non-quantized version)
-# This model is based on the same training as the 2022-12-29 version
-# Use persistent storage instead of /tmp (which might be tmpfs/in-memory)
-TEMP_BASE_DIR="/usr/share/local-llm"
-mkdir -p "${TEMP_BASE_DIR}"
-SHERPA_ARCHIVE="${TEMP_BASE_DIR}/sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2"
-SHERPA_EXTRACT_DIR="${TEMP_BASE_DIR}/sherpa-onnx-extract"
+echo_info "Downloading Sherpa ONNX models..."
 
-if [ ! -f "${MODELS_DIR}/stt/encoder.onnx" ] || [ ! -f "${MODELS_DIR}/stt/decoder.onnx" ] || [ ! -f "${MODELS_DIR}/stt/joiner.onnx" ] || [ ! -f "${MODELS_DIR}/stt/tokens.txt" ]; then
-    # Check disk space before downloading (archive ~600MB, extracted ~1.5GB)
-    echo_info "Checking disk space..."
-    check_disk_space "${TEMP_BASE_DIR}" 2500 || {
-        echo_error "Not enough disk space to download and extract Sherpa ONNX models"
-        echo_error "Please free up space or install models manually"
-        exit 1
-    }
-    
-    echo_info "Downloading Sherpa ONNX model archive..."
-    mkdir -p "${SHERPA_EXTRACT_DIR}"
-    
-    if command -v wget >/dev/null 2>&1; then
-        wget -q --show-progress -O "${SHERPA_ARCHIVE}" \
-            "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2" || {
-            echo_error "Failed to download Sherpa ONNX model archive"
-            exit 1
-        }
-    elif command -v curl >/dev/null 2>&1; then
-        curl -L --progress-bar -o "${SHERPA_ARCHIVE}" \
-            "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2" || {
-            echo_error "Failed to download Sherpa ONNX model archive"
-            exit 1
-        }
-    else
-        echo_error "Neither wget nor curl is available. Please install one."
-        exit 1
-    fi
-    
-    echo_info "Extracting Sherpa ONNX model archive..."
-    if command -v tar >/dev/null 2>&1; then
-        tar -xjf "${SHERPA_ARCHIVE}" -C "${SHERPA_EXTRACT_DIR}" || {
-            echo_error "Failed to extract archive"
-            exit 1
-        }
-    else
-        echo_error "tar is not available. Please install it."
-        exit 1
-    fi
-    
-    # Copy files from extracted archive (using FP32/non-quantized versions)
-    MODEL_DIR="${SHERPA_EXTRACT_DIR}/sherpa-onnx-streaming-zipformer-en-2023-02-21"
-    if [ -d "${MODEL_DIR}" ]; then
-        echo_info "Copying Sherpa ONNX model files (non-quantized FP32 versions)..."
-        cp -f "${MODEL_DIR}/encoder-epoch-99-avg-1.onnx" "${MODELS_DIR}/stt/encoder.onnx" || {
-            echo_error "Failed to copy encoder.onnx"
-            exit 1
-        }
-        cp -f "${MODEL_DIR}/decoder-epoch-99-avg-1.onnx" "${MODELS_DIR}/stt/decoder.onnx" || {
-            echo_error "Failed to copy decoder.onnx"
-            exit 1
-        }
-        cp -f "${MODEL_DIR}/joiner-epoch-99-avg-1.onnx" "${MODELS_DIR}/stt/joiner.onnx" || {
-            echo_error "Failed to copy joiner.onnx"
-            exit 1
-        }
-        cp -f "${MODEL_DIR}/tokens.txt" "${MODELS_DIR}/stt/tokens.txt" || {
-            echo_error "Failed to copy tokens.txt"
-            exit 1
-        }
-        
-        # Verify copied files are not empty
-        echo_info "Verifying copied files..."
-        for file in "${MODELS_DIR}/stt/encoder.onnx" "${MODELS_DIR}/stt/decoder.onnx" "${MODELS_DIR}/stt/joiner.onnx" "${MODELS_DIR}/stt/tokens.txt"; do
-            if [ ! -s "$file" ]; then
-                echo_error "File $file is empty or missing after copy"
-                exit 1
-            fi
-        done
-        
-        # Verify minimum sizes for ONNX files (rough estimates)
-        local encoder_size=$(stat -f%z "${MODELS_DIR}/stt/encoder.onnx" 2>/dev/null || stat -c%s "${MODELS_DIR}/stt/encoder.onnx" 2>/dev/null || echo "0")
-        local decoder_size=$(stat -f%z "${MODELS_DIR}/stt/decoder.onnx" 2>/dev/null || stat -c%s "${MODELS_DIR}/stt/decoder.onnx" 2>/dev/null || echo "0")
-        local joiner_size=$(stat -f%z "${MODELS_DIR}/stt/joiner.onnx" 2>/dev/null || stat -c%s "${MODELS_DIR}/stt/joiner.onnx" 2>/dev/null || echo "0")
-        
-        if [ "$encoder_size" -lt 100000000 ] || [ "$decoder_size" -lt 1000000 ] || [ "$joiner_size" -lt 500000 ]; then
-            echo_error "Copied files appear to be too small (encoder: ${encoder_size}, decoder: ${decoder_size}, joiner: ${joiner_size})"
-            echo_error "Files may be incomplete"
-            exit 1
-        fi
-        
-        echo_info "File verification complete (encoder: ${encoder_size} bytes, decoder: ${decoder_size} bytes, joiner: ${joiner_size} bytes)"
-    else
-        echo_error "Extracted model directory not found"
-        exit 1
-    fi
-    
-    # Cleanup
-    rm -rf "${SHERPA_ARCHIVE}" "${SHERPA_EXTRACT_DIR}"
-    echo_info "Sherpa ONNX models downloaded and installed"
-else
-    echo_info "Sherpa ONNX models already exist, skipping download"
-fi
+# Disk space check for individual files (~100MB total)
+# encoder ~70MB, decoder ~0.6MB, joiner ~0.3MB, tokens ~6KB
+check_disk_space "${MODELS_DIR}/stt" 150 || {
+    echo_error "Not enough disk space to download Sherpa ONNX models"
+    echo_error "Please free up space or install models manually"
+    exit 1
+}
+
+# Download Encoder
+download_file \
+    "${SHERPA_ENCODER_URL}" \
+    "${MODELS_DIR}/stt/encoder.onnx" \
+    "Sherpa encoder model" \
+    50000000 # ~50MB minimum
+
+# Download Decoder
+download_file \
+    "${SHERPA_DECODER_URL}" \
+    "${MODELS_DIR}/stt/decoder.onnx" \
+    "Sherpa decoder model" \
+    500000 # ~500KB minimum
+
+# Download Joiner
+download_file \
+    "${SHERPA_JOINER_URL}" \
+    "${MODELS_DIR}/stt/joiner.onnx" \
+    "Sherpa joiner model" \
+    200000 # ~200KB minimum
+
+# Download Tokens
+download_file \
+    "${SHERPA_TOKENS_URL}" \
+    "${MODELS_DIR}/stt/tokens.txt" \
+    "Sherpa tokens file" \
+    1000 # ~1KB minimum
+
+echo_info "Sherpa ONNX models downloaded"
 
 # VAD model (int8 quantized)
 echo_info "Downloading VAD model..."
 download_file \
-    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.int8.onnx" \
+    "${SILERO_VAD_URL}" \
     "${MODELS_DIR}/stt/silero_vad.int8.onnx" \
     "Silero VAD model (int8 quantized)" \
     100000  # ~100KB minimum
@@ -266,19 +220,19 @@ echo_info "Setting up TTS (Text-to-Speech) models..."
 echo_info "Downloading Paroli models from Hugging Face..."
 
 download_file \
-    "https://huggingface.co/amrmantawi/paroli-models/resolve/main/encoder.onnx" \
+    "${PAROLI_ENCODER_URL}" \
     "${MODELS_DIR}/tts/encoder.onnx" \
     "Paroli encoder model" \
     20000000  # ~20MB minimum
 
 download_file \
-    "https://huggingface.co/amrmantawi/paroli-models/resolve/main/decoder.onnx" \
+    "${PAROLI_DECODER_URL}" \
     "${MODELS_DIR}/tts/decoder.onnx" \
     "Paroli decoder model" \
     30000000  # ~30MB minimum
 
 download_file \
-    "https://huggingface.co/amrmantawi/paroli-models/resolve/main/config.json" \
+    "${PAROLI_CONFIG_URL}" \
     "${MODELS_DIR}/tts/config.json" \
     "Paroli config file" \
     1000  # 1KB minimum
@@ -295,7 +249,7 @@ check_disk_space "${MODELS_DIR}/llm" 5000 || {
 }
 
 download_file \
-    "https://huggingface.co/amrmantawi/Qwen2.5-3B-Instruct-rk3588-1.2.2/resolve/main/Qwen2.5-3B-Instruct-rk3588-w8a8-opt-0-hybrid-ratio-0.0.rkllm" \
+    "${RKLLM_MODEL_URL}" \
     "${MODELS_DIR}/llm/model.rkllm" \
     "RKLLM model (Qwen2.5-3B-Instruct-rk3588)" \
     1000000000  # ~1GB minimum (model is likely 3-4GB)
@@ -318,23 +272,23 @@ cat > "${TEMP_CONFIG}" <<'EOF'
     "stt": {
       "sherpa": {
         "encoder": {
-          "path": "/usr/share/local-llm/models/stt/encoder.onnx",
+          "path": "/userdata/system/local-llm/models/stt/encoder.onnx",
           "description": "Sherpa encoder model (ONNX)"
         },
         "decoder": {
-          "path": "/usr/share/local-llm/models/stt/decoder.onnx",
+          "path": "/userdata/system/local-llm/models/stt/decoder.onnx",
           "description": "Sherpa decoder model (ONNX)"
         },
         "joiner": {
-          "path": "/usr/share/local-llm/models/stt/joiner.onnx",
+          "path": "/userdata/system/local-llm/models/stt/joiner.onnx",
           "description": "Sherpa joiner model (ONNX)"
         },
         "tokens": {
-          "path": "/usr/share/local-llm/models/stt/tokens.txt",
+          "path": "/userdata/system/local-llm/models/stt/tokens.txt",
           "description": "Sherpa tokens file"
         },
         "vad": {
-          "path": "/usr/share/local-llm/models/stt/silero_vad.int8.onnx",
+          "path": "/userdata/system/local-llm/models/stt/silero_vad.int8.onnx",
           "description": "Sherpa VAD model (ONNX)"
         }
       }
@@ -342,7 +296,7 @@ cat > "${TEMP_CONFIG}" <<'EOF'
     "llm": {
       "rkllm": {
         "model": {
-          "path": "/usr/share/local-llm/models/llm/model.rkllm",
+          "path": "/userdata/system/local-llm/models/llm/model.rkllm",
           "description": "RKLLM model for text generation"
         }
       }
@@ -350,21 +304,21 @@ cat > "${TEMP_CONFIG}" <<'EOF'
     "tts": {
       "paroli": {
         "encoder": {
-          "path": "/usr/share/local-llm/models/tts/encoder.onnx",
+          "path": "/userdata/system/local-llm/models/tts/encoder.onnx",
           "description": "Paroli encoder model (ONNX)"
         },
         "decoder": {
-          "path": "/usr/share/local-llm/models/tts/decoder.onnx",
+          "path": "/userdata/system/local-llm/models/tts/decoder.onnx",
           "description": "Paroli decoder model (ONNX)"
         },
         "config": {
-          "path": "/usr/share/local-llm/models/tts/config.json",
+          "path": "/userdata/system/local-llm/models/tts/config.json",
           "description": "Paroli model configuration JSON"
         }
       }
     },
     "rag": {
-      "kb_root_dir": "/usr/share/local-llm/kb",
+      "kb_root_dir": "/userdata/system/local-llm/kb",
       "top_k": 4,
       "similarity_threshold": 0.3,
       "max_context_tokens": 512,
