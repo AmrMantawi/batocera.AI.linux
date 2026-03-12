@@ -82,6 +82,8 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
 	cp -r $(@D)/deps/piper_phonemize/share/espeak-ng-data/* $(TARGET_DIR)/usr/share/espeak-ng-data/
 	# Install setup script for model installation
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/setup-models.sh $(TARGET_DIR)/usr/bin/local-llm-setup-models
+	# Install init.d service script to start local-llm at boot
+	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/local-llm.service $(TARGET_DIR)/etc/init.d/S95local-llm
 endef
 
 $(eval $(cmake-package))
