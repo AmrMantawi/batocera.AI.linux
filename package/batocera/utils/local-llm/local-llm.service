@@ -11,7 +11,7 @@ test -f $CONFIG || exit 0
 
 start() {
         printf "Starting $NAME: "
-        start-stop-daemon --start --quiet -m --pidfile $PIDFILE --exec $DAEMON --background -- > /var/log/local-llm.log 2>&1 \
+        start-stop-daemon --start --quiet -m --pidfile $PIDFILE --exec $DAEMON --background -- --server --config $CONFIG > /var/log/local-llm.log 2>&1 \
                 && echo "OK" || echo "FAIL"
 }
 
