@@ -158,5 +158,9 @@ mixer $card 'Playback Path' 'SPK'
 mixer $card 'Right Headphone Mixer Right DAC' on
 mixer $card 'Left Headphone Mixer Left DAC' on
 
+# MAX98089 codec - enable speaker DAC mixer routing (fails silently on other cards)
+mixer $card 'Left SPK Mixer Left DAC1' on
+mixer $card 'Right SPK Mixer Right DAC1' on
+
 exit 0
 )&

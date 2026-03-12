@@ -74,7 +74,7 @@ index 83ed754c9d27..6bd1b6929dcb 100644
  };
  
  &i2c5 {
-@@ -850,6 +893,23 @@ &i2s7_8ch {
+@@ -850,6 +893,34 @@ &i2s7_8ch {
      status = "okay";
  };
  
@@ -93,6 +93,17 @@ index 83ed754c9d27..6bd1b6929dcb 100644
 +                 &i2s3_mclk
 +                 &i2s3_sdi
 +                 &i2s3_sdo>;
++};
++
++&i2c4m3_xfer {
++    rockchip,pins =
++        <1 RK_PA3 9 &pcfg_pull_up>,
++        <1 RK_PA2 9 &pcfg_pull_up>;
++};
++
++&i2s3_mclk {
++    rockchip,pins =
++        <3 RK_PA0 3 &pcfg_pull_up>;
 +};
 +
  //phy1
