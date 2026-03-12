@@ -43,15 +43,23 @@ ifeq ($(BR2_PACKAGE_BATOCERA_TARGET_RK3588),y)
 	LOCAL_LLM_CONF_OPTS += -DAARCH64_MCPU=cortex-a76+crc
 endif
 
+# Set runtime espeak-ng data path (overrides piper_phonemize build-dir default)
+LOCAL_LLM_CONF_OPTS += -DESPEAK_NG_DATA_DIR=/usr/share/espeak-ng-data
+
+# Configure downloads sherpa-onnx deps (kaldifst, kaldi-native-fbank, etc.) from GitHub.
+# HTTP 502 from GitHub is transient; just re-run the build.
+
 # First run CMake install to install onnxruntime and other dependencies
 define LOCAL_LLM_INSTALL_TARGET_CMDS
 	# Run CMake install first to install onnxruntime and other libraries
 	$(TARGET_MAKE_ENV) DESTDIR=$(TARGET_DIR) $(BR2_CMAKE) --install $(@D)/buildroot-build
 	# Now install our custom files
 	mkdir -p $(TARGET_DIR)/usr/bin
+	mkdir -p $(TARGET_DIR)/usr/libexec
 	mkdir -p $(TARGET_DIR)/usr/lib
 	mkdir -p $(TARGET_DIR)/usr/share/local-llm/config
-	$(INSTALL) -D -m 0755 $(@D)/buildroot-build/local-llm $(TARGET_DIR)/usr/bin/local-llm
+	$(INSTALL) -D -m 0755 $(@D)/buildroot-build/local-llm $(TARGET_DIR)/usr/libexec/local-llm
+	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/local-llm $(TARGET_DIR)/usr/bin/local-llm
 	# Install RKLLM runtime library
 	if [ ! -f "$(@D)/third_party/rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so" ]; then \
 		echo "ERROR: librkllmrt.so not found at $(@D)/third_party/rknn-llm/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so"; \
@@ -80,10 +88,24 @@ define LOCAL_LLM_INSTALL_TARGET_CMDS
 	# Install espeak-ng-data (required for piper-phonemize)
 	mkdir -p $(TARGET_DIR)/usr/share/espeak-ng-data
 	cp -r $(@D)/deps/piper_phonemize/share/espeak-ng-data/* $(TARGET_DIR)/usr/share/espeak-ng-data/
-	# Install setup script for model installation
+	# phontab is generated at build time; copy from build dir if missing from share
+	if [ ! -f "$(TARGET_DIR)/usr/share/espeak-ng-data/phontab" ]; then \
+		for try in "$(@D)/buildroot-build/_deps/espeak_ng-build/espeak-ng-data/phontab" \
+		          "$(@D)/deps/piper_phonemize/build/espeak-ng/espeak-ng-data/phontab" \
+		          "$(@D)/deps/piper_phonemize/build/espeak-ng-data/phontab" \
+		          "$(@D)/buildroot-build/deps/piper_phonemize/build/espeak-ng/espeak-ng-data/phontab" \
+		          "$(TARGET_DIR)/usr/share/espeak-data/phontab"; do \
+			if [ -f "$$try" ]; then cp "$$try" $(TARGET_DIR)/usr/share/espeak-ng-data/; break; fi; \
+		done; \
+	fi
+endef
+
+# Install Batocera setup script last so it overwrites any upstream script (uses /userdata)
+define LOCAL_LLM_INSTALL_SETUP_SCRIPT
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/setup-models.sh $(TARGET_DIR)/usr/bin/local-llm-setup-models
 	# Install init.d service script to start local-llm at boot
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/local-llm.service $(TARGET_DIR)/etc/init.d/S29local-llm
 endef
+LOCAL_LLM_POST_INSTALL_TARGET_HOOKS += LOCAL_LLM_INSTALL_SETUP_SCRIPT
 
 $(eval $(cmake-package))

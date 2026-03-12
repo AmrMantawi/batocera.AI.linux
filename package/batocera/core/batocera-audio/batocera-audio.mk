@@ -37,6 +37,11 @@ define BATOCERA_AUDIO_INSTALL_TARGET_CMDS
 	cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/*.wav \
 	    $(TARGET_DIR)/usr/share/sounds
 
+	# UCM2 files
+	mkdir -p $(TARGET_DIR)/usr/share/alsa/ucm2
+	cp -pr $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/ucm2/* \
+		$(TARGET_DIR)/usr/share/alsa/ucm2/
+
 	# init script
 	install -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/Saudio \
 		$(TARGET_DIR)/etc/init.d/S06audio
@@ -65,6 +70,8 @@ define BATOCERA_AUDIO_INSTALL_TARGET_CMDS
     mkdir -p $(TARGET_DIR)/usr/share/wireplumber/wireplumber.conf.d
 	cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/80-disable-alsa-reserve.conf \
 		$(TARGET_DIR)/usr/share/wireplumber/wireplumber.conf.d/80-disable-alsa-reserve.conf
+	cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/81-rename-max98089.conf \
+		$(TARGET_DIR)/usr/share/wireplumber/wireplumber.conf.d/81-rename-max98089.conf
 
 	cp $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-audio/pipewire.conf \
 		$(TARGET_DIR)/usr/share/pipewire/pipewire.conf

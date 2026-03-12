@@ -145,7 +145,8 @@ download_file() {
     
     # Verify minimum size if specified
     if [ "$min_size" -gt 0 ]; then
-        local file_size=$(stat -f%z "$temp_dest" 2>/dev/null || stat -c%s "$temp_dest" 2>/dev/null || echo "0")
+        local file_size
+        file_size=$(stat -f%z "$temp_dest" 2>/dev/null || stat -c%s "$temp_dest" 2>/dev/null || echo "0")
         if [ "$file_size" -lt "$min_size" ]; then
             echo_error "Downloaded file is too small (${file_size} bytes, expected at least ${min_size} bytes)"
             rm -f "$temp_dest"

@@ -1,0 +1,12 @@
+#!/bin/sh
+# Wrapper for local-llm: use installed espeak-ng data and userdata config when present
+
+export ESPEAK_NG_DATA_DIR="${ESPEAK_NG_DATA_DIR:-/usr/share/espeak-ng-data}"
+
+USERDATA_CONFIG="/userdata/system/local-llm/config/models.json"
+
+if [ -f "$USERDATA_CONFIG" ]; then
+	exec /usr/libexec/local-llm --config "$USERDATA_CONFIG" "$@"
+else
+	exec /usr/libexec/local-llm "$@"
+fi
