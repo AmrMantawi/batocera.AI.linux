@@ -103,6 +103,8 @@ endef
 # Install Batocera setup script last so it overwrites any upstream script (uses /userdata)
 define LOCAL_LLM_INSTALL_SETUP_SCRIPT
 	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/setup-models.sh $(TARGET_DIR)/usr/bin/local-llm-setup-models
+	# Install init.d service script to start local-llm at boot
+	$(INSTALL) -D -m 0755 $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/utils/local-llm/local-llm.service $(TARGET_DIR)/etc/init.d/S29local-llm
 endef
 LOCAL_LLM_POST_INSTALL_TARGET_HOOKS += LOCAL_LLM_INSTALL_SETUP_SCRIPT
 
