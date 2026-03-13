@@ -39,6 +39,8 @@ case $1 in
         elif [ -f "/var/run/user-splash.pid" ]; then
             picture=0
             PID=$(cat /var/run/user-splash.pid)
+        elif [ -f "/var/run/splash-loading.pid" ]; then
+            picture=1
         else
             echo "$0: No video or image service found!" >&2
             exit 0
@@ -59,6 +61,7 @@ case $1 in
                 #
                 [ $picture -eq 0 ] && splash_autoplay
                 start-stop-daemon -K -q -p /var/run/user-splash.pid
+                /etc/init.d/Ssplash-loading stop 2>/dev/null
             ;;
             [0-90]*)
                 # Stop as long as setted. 90s max for video, 10s max for images
@@ -66,11 +69,13 @@ case $1 in
                 [ $picture -eq 1 -a $sleeptimer -gt 10 ] && sleeptimer=10
                 sleep $sleeptimer
                 start-stop-daemon -K -q -p /var/run/user-splash.pid
+                /etc/init.d/Ssplash-loading stop 2>/dev/null
             ;;
             fastboot|*)
                 # fastboot or invalid settings
                 #
                 start-stop-daemon -K -q -p /var/run/user-splash.pid
+                /etc/init.d/Ssplash-loading stop 2>/dev/null
             ;;
         esac
     ;;

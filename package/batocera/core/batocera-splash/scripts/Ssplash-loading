@@ -1,0 +1,77 @@
+#!/bin/bash
+
+DAEMON="splash-loading"
+PIDFILE="/var/run/splash-loading.pid"
+
+# Colors
+BG='\033[44m'       # blue background
+FG='\033[97m'       # bright white text
+RESET='\033[0m'
+
+do_animate() {
+    # hide cursor, clear screen, set colors
+    printf '\033[?25l\033[2J'
+
+    COLS=$(stty size 2>/dev/null < /dev/tty1 | awk '{print $2}')
+    ROWS=$(stty size 2>/dev/null < /dev/tty1 | awk '{print $1}')
+    COLS=${COLS:-80}
+    ROWS=${ROWS:-24}
+
+    ROW=$(( ROWS / 2 ))
+    COL_START=$(( COLS / 2 - 6 ))
+
+    # fill background
+    printf "${BG}"
+    for r in $(seq 1 "$ROWS"); do
+        printf '\033[%d;1H%*s' "$r" "$COLS" ""
+    done
+
+    DOTS=("." ".." "..." ".." ".")
+    i=0
+
+    while true; do
+        TEXT="LOADING${DOTS[$i]}"
+        PAD=$(( (COLS - ${#TEXT}) / 2 ))
+        printf '\033[%d;%dH%b%s' "$ROW" "$PAD" "${BG}${FG}" "$TEXT"
+        sleep 0.45
+        i=$(( (i + 1) % 5 ))
+    done
+}
+
+do_start() {
+    if ! test -e /dev/tty1; then
+        return 1
+    fi
+    do_animate > /dev/tty1 &
+    echo $! > "$PIDFILE"
+}
+
+do_stop() {
+    if [ -f "$PIDFILE" ]; then
+        kill "$(cat "$PIDFILE")" 2>/dev/null
+        rm -f "$PIDFILE"
+    fi
+    # restore terminal
+    printf '\033[?25h\033[0m\033[2J\033[H' > /dev/tty1
+}
+
+case "$1" in
+    start)
+        printf 'Starting %s: ' "$DAEMON"
+        if grep -qE '^[ ]*splash.screen.enabled[ ]*=[ ]*1[ ]*$' "/boot/batocera-boot.conf"; then
+            do_start
+            echo "OK"
+        else
+            echo "SKIPPED"
+        fi
+        ;;
+    stop)
+        do_stop
+        ;;
+    restart|reload)
+        ;;
+    *)
+        ;;
+esac
+
+exit $?
