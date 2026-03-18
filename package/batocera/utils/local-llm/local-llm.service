@@ -4,6 +4,11 @@ NAME=local-llm
 DAEMON=/usr/bin/$NAME
 PIDFILE=/var/run/$NAME.pid
 CONFIG=/userdata/system/local-llm/config/models.json
+SOCKET=/run/local-llm.sock
+
+# Load audio/dbus environment
+. /etc/profile.d/xdg.sh
+. /etc/profile.d/dbus.sh
 
 # Sanity checks
 test -x $DAEMON || exit 0
@@ -11,7 +16,9 @@ test -f $CONFIG || exit 0
 
 start() {
         printf "Starting $NAME: "
-        start-stop-daemon --start --quiet -m --pidfile $PIDFILE --exec $DAEMON --background -- --server --config $CONFIG > /var/log/local-llm.log 2>&1 \
+        start-stop-daemon --start --quiet -m --pidfile $PIDFILE \
+                --exec /bin/sh --background -- \
+                -c "$DAEMON --server --config $CONFIG < /dev/null > /var/log/local-llm.log 2>&1" \
                 && echo "OK" || echo "FAIL"
 }
 
