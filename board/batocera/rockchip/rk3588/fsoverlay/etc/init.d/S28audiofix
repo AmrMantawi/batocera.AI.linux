@@ -19,7 +19,9 @@ start() {
     fi
 
     if [[ "$BOARD" == "orangepi-5-plus" ]]; then
-        echo "Setting MAX98089 MIC1 ADC gain for Orange Pi 5 Plus"
+        echo "Setting MAX98089 MIC1 ADC routing and gain for Orange Pi 5 Plus"
+        amixer -c 3 sset 'Left ADC Mixer MIC1' on
+        amixer -c 3 sset 'Right ADC Mixer MIC1' on
         amixer -c 3 cset numid=17 15
         amixer -c 3 cset numid=18 15
     fi
