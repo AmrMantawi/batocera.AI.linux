@@ -162,5 +162,9 @@ mixer $card 'Left Headphone Mixer Left DAC' on
 mixer $card 'Left SPK Mixer Left DAC1' on
 mixer $card 'Right SPK Mixer Right DAC1' on
 
+# MAX98089 codec - enable MIC1 routing to ADC (fails silently on other cards)
+mixer $card 'Left ADC Mixer MIC1' on
+mixer $card 'Right ADC Mixer MIC1' on
+
 exit 0
 )&

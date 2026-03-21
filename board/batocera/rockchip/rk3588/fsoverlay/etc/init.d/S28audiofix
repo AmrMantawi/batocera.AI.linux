@@ -6,15 +6,22 @@
 # Required-Stop:
 # Default-Start:     S
 # Default-Stop:
-# Short-Description: Enable OUT2 for GameForce ACE
+# Short-Description: Audio quirks for rk3588 boards
 ### END INIT INFO
 
 MODEL=$(batocera-info | grep "Model:" | awk -F": " '{print $2}' | head -n 1)
+BOARD=$(cat /boot/boot/batocera.board 2>/dev/null)
 
 start() {
     if [[ "$MODEL" == "GameForce_ACE" ]]; then
         echo "Enabling OUT2 Switch for GameForce ACE"
         amixer -c 0 cset name='OUT2 Switch' on
+    fi
+
+    if [[ "$BOARD" == "orangepi-5-plus" ]]; then
+        echo "Setting MAX98089 MIC1 ADC gain for Orange Pi 5 Plus"
+        amixer -c 3 cset numid=17 15
+        amixer -c 3 cset numid=18 15
     fi
 }
 
