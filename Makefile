@@ -67,6 +67,9 @@ define RUN_DOCKER
 		-w /$* \
 		-v /etc/passwd:/etc/passwd:ro \
 		-v /etc/group:/etc/group:ro \
+		-v /etc/ca-certificates/extracted/tls-ca-bundle.pem:/etc/ssl/certs/ca-certificates.crt:ro \
+		-e CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \
+		-e GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt \
 		-u $(UID):$(GID) \
 		$(DOCKER_OPTS) \
 		$(DOCKER_REPO)/$(IMAGE_NAME)
