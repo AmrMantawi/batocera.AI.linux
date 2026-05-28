@@ -23,7 +23,7 @@ PAROLI_DECODER_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main
 PAROLI_CONFIG_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/config.json"
 
 # LLM (RKLLM)
-RKLLM_MODEL_URL="https://huggingface.co/amrmantawi/Qwen2.5-3B-Instruct-rk3588-1.2.2/resolve/main/Qwen2.5-3B-Instruct-rk3588-w8a8-opt-0-hybrid-ratio-0.0.rkllm"
+RKLLM_MODEL_URL="https://huggingface.co/amrmantawi/bmo-qwen2.5-3b-rk3588-1.2.2/resolve/main/bmo-qwen2.5-3b-rk3588-w8a8-opt-0-hybrid-ratio-0.0.rkllm"
 
 # Colors for output
 RED='\033[0;31m'
@@ -252,7 +252,7 @@ check_disk_space "${MODELS_DIR}/llm" 5000 || {
 download_file \
     "${RKLLM_MODEL_URL}" \
     "${MODELS_DIR}/llm/model.rkllm" \
-    "RKLLM model (Qwen2.5-3B-Instruct-rk3588)" \
+    "RKLLM model (bmo-qwen2.5-3b-rk3588)" \
     1000000000  # ~1GB minimum (model is likely 3-4GB)
 
 # Generate models.json
@@ -376,6 +376,6 @@ echo "  - decoder.onnx"
 echo "  - config.json"
 echo ""
 echo "LLM (RKLLM) model:"
-echo "  - model.rkllm (Qwen2.5-3B-Instruct-rk3588)"
+echo "  - model.rkllm (bmo-qwen2.5-3b-rk3588)"
 echo ""
 echo_info "local-llm should now be ready to use!"
