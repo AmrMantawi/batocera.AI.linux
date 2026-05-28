@@ -5,3 +5,6 @@ audio.device=alsa_output._sys_devices_platform_hdmi0-sound_sound_card0.HDMI__HDM
 
 # default cpu governor
 system.cpu.governor=performance
+
+# default rotation (180 degrees)
+display.rotate=2
