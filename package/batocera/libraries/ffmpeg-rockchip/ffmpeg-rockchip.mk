@@ -65,9 +65,15 @@ FFMPEG_ROCKCHIP_DEPENDENCIES += rockchip-rga rockchip-mpp
 endif
 
 # batocera - add pulse audio support for batocera-record
+# When pipewire is enabled, use pipewire-alsa instead to avoid the circular
+# Make dependency: ffmpeg -> pulseaudio -> webrtc-audio-processing -> ffmpeg
 ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+ifeq ($(BR2_PACKAGE_PIPEWIRE),)
 FFMPEG_ROCKCHIP_CONF_OPTS += --enable-libpulse
 FFMPEG_ROCKCHIP_DEPENDENCIES += pulseaudio
+else
+FFMPEG_ROCKCHIP_CONF_OPTS += --disable-libpulse
+endif
 endif
 
 # batocera - force dash demuxer & libxml2 for Kodi
