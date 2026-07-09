@@ -17,13 +17,13 @@ SHERPA_JOINER_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipfo
 SHERPA_TOKENS_URL="https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/resolve/main/tokens.txt"
 SILERO_VAD_URL="https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.int8.onnx"
 
-# TTS (Paroli)
-PAROLI_ENCODER_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/encoder.onnx"
-PAROLI_DECODER_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/decoder.onnx"
-PAROLI_CONFIG_URL="https://huggingface.co/amrmantawi/paroli-models/resolve/main/config.json"
+# TTS (BMO Paroli)
+PAROLI_ENCODER_URL="https://huggingface.co/amrmantawi/bmo-paroli-tts/resolve/main/encoder.onnx"
+PAROLI_DECODER_URL="https://huggingface.co/amrmantawi/bmo-paroli-tts/resolve/main/decoder.onnx"
+PAROLI_CONFIG_URL="https://huggingface.co/amrmantawi/bmo-paroli-tts/resolve/main/config.json"
 
 # LLM (RKLLM)
-RKLLM_MODEL_URL="https://huggingface.co/amrmantawi/bmo-qwen2.5-3b-rk3588-1.2.2/resolve/main/bmo-qwen2.5-3b-rk3588-w8a8-opt-0-hybrid-ratio-0.0.rkllm"
+RKLLM_MODEL_URL="https://huggingface.co/amrmantawi/bmo-qwen3.5-2B-rk3588-1.3.0/resolve/main/bmo-qwen3.5-2B-rk3588-w8a8-opt-1-hybrid-ratio-0.0.rkllm"
 
 # Colors for output
 RED='\033[0;31m'
@@ -218,7 +218,7 @@ download_file \
 
 # Download TTS models (Paroli)
 echo_info "Setting up TTS (Text-to-Speech) models..."
-echo_info "Downloading Paroli models from Hugging Face..."
+echo_info "Downloading BMO Paroli TTS models from Hugging Face..."
 
 download_file \
     "${PAROLI_ENCODER_URL}" \
@@ -242,7 +242,7 @@ download_file \
 echo_info "Setting up LLM (Large Language Model) models..."
 echo_info "Downloading RKLLM model from Hugging Face..."
 
-# Check disk space before downloading large RKLLM model (~3-4GB)
+# Check disk space before downloading large RKLLM model (~3GB)
 check_disk_space "${MODELS_DIR}/llm" 5000 || {
     echo_error "Not enough disk space to download RKLLM model (requires ~5GB free)"
     echo_error "Please free up space or install model manually"
@@ -252,8 +252,8 @@ check_disk_space "${MODELS_DIR}/llm" 5000 || {
 download_file \
     "${RKLLM_MODEL_URL}" \
     "${MODELS_DIR}/llm/model.rkllm" \
-    "RKLLM model (bmo-qwen2.5-3b-rk3588)" \
-    1000000000  # ~1GB minimum (model is likely 3-4GB)
+    "RKLLM model (bmo-qwen3.5-2B-rk3588)" \
+    1000000000  # ~1GB minimum (model is ~3GB)
 
 # Generate models.json
 echo_info "Generating models.json configuration file..."
@@ -376,6 +376,6 @@ echo "  - decoder.onnx"
 echo "  - config.json"
 echo ""
 echo "LLM (RKLLM) model:"
-echo "  - model.rkllm (bmo-qwen2.5-3b-rk3588)"
+echo "  - model.rkllm (bmo-qwen3.5-2B-rk3588)"
 echo ""
 echo_info "local-llm should now be ready to use!"

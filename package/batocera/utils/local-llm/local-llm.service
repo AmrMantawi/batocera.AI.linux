@@ -24,8 +24,9 @@ start() {
 
 stop() {
         printf "Stopping $NAME: "
-        start-stop-daemon --stop --quiet --pidfile $PIDFILE \
-                && echo "OK" || echo "FAIL"
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE
+        pkill -f "$DAEMON" 2>/dev/null
+        echo "OK"
 }
 
 case "$1" in
