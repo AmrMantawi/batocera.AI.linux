@@ -4,6 +4,9 @@ do_usage() {
     echo "$1 list"
     echo "$1 get"
     echo "$1 set {auto|<device>}"
+    echo "$1 list-input"
+    echo "$1 get-input"
+    echo "$1 set-input {auto|<device>}"
     echo "$1 list-profiles"
     echo "$1 get-profile"
     echo "$1 set-profile {auto|<profile>}"
@@ -25,7 +28,7 @@ ACTION="$1"
 case "${ACTION}" in
     list)
         printf "auto\tauto\n"
-        LC_ALL=C pactl list sinks-raw | sed -e s+"^sink=\"[0-9]*\" name=\"\([^ ]*\)\" .* description=\"\(.*\)\"$"+"\1\t\2"+
+        LC_ALL=C pactl list sinks-raw | sed -e s+"^sink=\"[0-9]*\" name=\"\([^\"]*\)\" .* description=\"\(.*\)\"$"+"\1\t\2"+
         ;;
 
     get)
@@ -72,6 +75,34 @@ case "${ACTION}" in
                 LC_ALL=C pactl set-default-sink "${MODE}" || exit 1
                 if [[ $(LC_ALL=C pactl get-default-sink) != "${MODE}" ]]; then
                     # default-sink didn't switch right away for some reason, try again later
+                    exit 1
+                fi
+                ;;
+        esac
+        ;;
+
+    list-input)
+        printf "auto\tauto\n"
+        LC_ALL=C pactl list sources-raw | grep -v '\.monitor"' | sed -e s+"^source=\"[0-9]*\" name=\"\([^\"]*\)\" .* description=\"\(.*\)\"$"+"\1\t\2"+
+        ;;
+
+    get-input)
+        /usr/bin/batocera-settings-get audio.inputdevice
+        ;;
+
+    set-input)
+        MODE="$2"
+        case "${MODE}" in
+            auto)
+                BT_SOURCE=$(LC_ALL=C pactl list short sources | grep bluez_input | awk '{print $2}' | head -n1)
+                if [ -n "$BT_SOURCE" ]; then
+                    LC_ALL=C pactl set-default-source "${BT_SOURCE}" || exit 1
+                fi
+                ;;
+            *)
+                LC_ALL=C pactl set-default-source "${MODE}" || exit 1
+                if [[ $(LC_ALL=C pactl get-default-source) != "${MODE}" ]]; then
+                    # default-source didn't switch right away for some reason, try again later
                     exit 1
                 fi
                 ;;
