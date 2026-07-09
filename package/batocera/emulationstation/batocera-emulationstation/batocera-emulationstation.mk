@@ -139,9 +139,8 @@ define BATOCERA_EMULATIONSTATION_RESOURCES
 	$(INSTALL) -m 0644 -D $(@D)/resources/shaders/*.* \
 	    $(TARGET_DIR)/usr/share/emulationstation/resources/shaders/kawase
 
-	$(INSTALL) -m 0755 -d $(TARGET_DIR)/usr/share/emulationstation/resources/BMO_Face
-	$(INSTALL) -m 0644 -D $(@D)/resources/BMO_Face/*.* \
-	    $(TARGET_DIR)/usr/share/emulationstation/resources/BMO_Face
+	cp -r $(@D)/resources/BMO_Face \
+	    $(TARGET_DIR)/usr/share/emulationstation/resources/
 
 	# es_input.cfg
 	mkdir -p $(TARGET_DIR)/usr/share/batocera/datainit/system/configs/emulationstation
