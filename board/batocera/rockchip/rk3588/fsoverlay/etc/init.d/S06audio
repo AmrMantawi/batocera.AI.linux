@@ -74,7 +74,7 @@ fix_max98089_mic() {
 set_echo_cancel_defaults() {
     local i=0
     while [ $i -lt 30 ]; do
-        if pw-metadata 0 2>/dev/null | grep -q "default.audio.sink"; then
+        if pactl list sinks 2>/dev/null | grep -q "Echo Cancellation Sink"; then
             pw-metadata 0 default.configured.audio.sink   '{"name":"Echo Cancellation Sink"}'   >/dev/null 2>&1
             pw-metadata 0 default.configured.audio.source '{"name":"Echo Cancellation Source"}' >/dev/null 2>&1
             return 0
