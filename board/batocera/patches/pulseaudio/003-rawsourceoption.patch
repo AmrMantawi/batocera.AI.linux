@@ -1,0 +1,61 @@
+diff --git a/src/utils/pactl.c b/src/utils/pactl.c
+index 850597a..ea2c805 100644
+--- a/src/utils/pactl.c
++++ b/src/utils/pactl.c
+@@ -759,6 +759,38 @@ static void get_sink_raw_info_callback(pa_context *c, const pa_sink_info *i, int
+ 
+ }
+ 
++static void get_source_raw_info_callback(pa_context *c, const pa_source_info *i, int is_last, void *userdata) {
++
++    char cv[PA_CVOLUME_SNPRINT_VERBOSE_MAX];
++    char *pl;
++
++    if (is_last < 0) {
++        pa_log(_("Failed to get source information: %s"), pa_strerror(pa_context_errno(c)));
++        quit(1);
++        return;
++    }
++
++    if (is_last) {
++        complete_action();
++        return;
++    }
++
++    pa_assert(i);
++
++    int channel = 0; // first channel only
++
++    printf(_("source=\"%u\" name=\"%s\" mute=\"%i\" volume=\"%i\" description=\"%s\"\n"),
++           i->index,
++           i->name,
++           i->mute,
++	   (unsigned)(((uint64_t) i->volume.values[channel] * 100 + (uint64_t)PA_VOLUME_NORM / 2) / (uint64_t)PA_VOLUME_NORM),
++	   pa_strnull(i->description)
++	   );
++
++    pa_xfree(pl);
++
++}
++
+ static void get_source_info_callback(pa_context *c, const pa_source_info *i, int is_last, void *userdata) {
+ 
+     static const char *state_table[] = {
+@@ -2348,6 +2380,8 @@ static void context_state_callback(pa_context *c, void *userdata) {
+ 			  o = pa_context_get_sink_info_list(c, get_sink_raw_info_callback, NULL);
+                         else if (pa_streq(list_type, "sources"))
+                             o = pa_context_get_source_info_list(c, get_source_info_callback, NULL);
++                        else if (pa_streq(list_type, "sources-raw"))
++                            o = pa_context_get_source_info_list(c, get_source_raw_info_callback, NULL);
+                         else if (pa_streq(list_type, "sink-inputs"))
+                             o = pa_context_get_sink_input_info_list(c, get_sink_input_info_callback, NULL);
+                         else if (pa_streq(list_type, "source-outputs"))
+@@ -2857,7 +2891,7 @@ int main(int argc, char *argv[]) {
+                 if (pa_streq(argv[i], "modules") || pa_streq(argv[i], "clients") ||
+                     pa_streq(argv[i], "sinks")   || pa_streq(argv[i], "sink-inputs") || pa_streq(argv[i], "sinks-raw") ||
+                     pa_streq(argv[i], "sources") || pa_streq(argv[i], "source-outputs") ||
+-                    pa_streq(argv[i], "samples") || pa_streq(argv[i], "cards") || pa_streq(argv[i], "cards-profiles-raw") ||
++                    pa_streq(argv[i], "samples") || pa_streq(argv[i], "cards") || pa_streq(argv[i], "cards-profiles-raw") || pa_streq(argv[i], "sources-raw") ||
+                     pa_streq(argv[i], "message-handlers")) {
+                     list_type = pa_xstrdup(argv[i]);
+                 } else if (pa_streq(argv[i], "short")) {
