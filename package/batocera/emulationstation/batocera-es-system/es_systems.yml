@@ -2886,6 +2886,8 @@ steam:
   comment_en: |
           Play Steam.
           Run batocera-steam-update to update the roms directory according to your installed games.
+          On arm64 boards, Steam runs translated through FEX and must be installed for the x86_64 arch:
+          flatpak install --arch=x86_64 flathub com.valvesoftware.Steam
   comment_br: |
           Execute o Steam.
           Em seguida execute o comando batocera-steam-update para atualizar o diretório de roms de acordo com seus jogos instalados.

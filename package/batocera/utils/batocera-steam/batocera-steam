@@ -4,6 +4,17 @@ log="/userdata/system/logs/steam.log"
 
 GAME=$1
 
+# Steam is only ever published as an x86_64 Flatpak. On arm64 boards it
+# runs translated through FEX (binfmt_misc registered by the fex-emu
+# package), so pin the Flatpak arch explicitly and keep FEXServer alive
+# to avoid re-JITing hot code paths between Steam invocations.
+if [ "$(uname -m)" = "aarch64" ]; then
+    FLATPAK_ARCH_ARGS="--arch=x86_64"
+    pidof FEXServer > /dev/null 2>&1 || FEXServer --wait &
+else
+    FLATPAK_ARCH_ARGS=
+fi
+
 batocera-mouse show
 
 # bad hack in a first time to get audio for user batocera                                                                                                                                          
@@ -47,7 +58,7 @@ fi
 
 if test -z "${GAME}"
 then
-    DISPLAY=$(getLocalXDisplay) flatpak run com.valvesoftware.Steam -bigpicture
+    DISPLAY=$(getLocalXDisplay) flatpak run ${FLATPAK_ARCH_ARGS} com.valvesoftware.Steam -bigpicture
 else
     # Steam has no option to exit when quitting a game. We previously used to monitor the
     # console output of the steam command, but that is no longer reliable:
@@ -58,11 +69,11 @@ else
     log_file="$target_dir/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/console_log.txt"
     (
         grep -q -E '^\[.*\] (Exiting app|Game process removed)' <(tail -f -n 0 "$log_file")
-        DISPLAY=$(getLocalXDisplay) flatpak run com.valvesoftware.Steam -shutdown
+        DISPLAY=$(getLocalXDisplay) flatpak run ${FLATPAK_ARCH_ARGS} com.valvesoftware.Steam -shutdown
     ) &
     log_watcher_pid=$!
 
-    DISPLAY=$(getLocalXDisplay) flatpak run com.valvesoftware.Steam -silent ${GAME}
+    DISPLAY=$(getLocalXDisplay) flatpak run ${FLATPAK_ARCH_ARGS} com.valvesoftware.Steam -silent ${GAME}
     # Kill our background log watching subshell if it's still there.
     kill "$log_watcher_pid"
 fi
