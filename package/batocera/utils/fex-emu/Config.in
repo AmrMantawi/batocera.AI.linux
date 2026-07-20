@@ -1,0 +1,15 @@
+config BR2_PACKAGE_FEX_EMU
+	bool "fex-emu"
+	depends on BR2_aarch64
+	help
+	  FEX is a fast usermode x86 and x86-64 emulator for arm64 Linux.
+	  It JIT-translates x86(-64) instructions to arm64 and registers
+	  itself with the kernel's binfmt_misc so x86(-64) ELF binaries
+	  are transparently launched through it. This is the same
+	  translation layer Valve bundles into Proton for Steam Frame /
+	  SteamOS on arm64.
+
+	  Running x86(-64) binaries also requires an x86 RootFS (fetched
+	  at runtime via FEXRootFSFetcher) providing x86 shared libraries.
+
+	  https://github.com/FEX-Emu/FEX

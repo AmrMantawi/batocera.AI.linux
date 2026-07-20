@@ -1,0 +1,57 @@
+#!/bin/sh
+# Registers FEXInterpreter with the kernel's binfmt_misc so that x86
+# and x86_64 ELF binaries are transparently executed through it on arm64.
+
+FEX_BIN=/usr/bin/FEXInterpreter
+BINFMT_DIR=/proc/sys/fs/binfmt_misc
+
+test -x $FEX_BIN || exit 0
+
+register_one() {
+	name=$1
+	magic=$2
+	mask=$3
+
+	if [ -e "$BINFMT_DIR/$name" ]; then
+		echo -1 > "$BINFMT_DIR/$name"
+	fi
+	echo ":$name:M::$magic:$mask:$FEX_BIN:OCF" > "$BINFMT_DIR/register"
+}
+
+register() {
+	if [ ! -d $BINFMT_DIR ]; then
+		mount -t binfmt_misc binfmt_misc $BINFMT_DIR 2>/dev/null
+	fi
+	test -d $BINFMT_DIR || exit 0
+
+	# x86_64 ELF
+	register_one x86_64 \
+	    '\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x3e\x00' \
+	    '\xff\xff\xff\xff\xff\xfe\xfe\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff'
+
+	# i386 ELF
+	register_one i386 \
+	    '\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x03\x00' \
+	    '\xff\xff\xff\xff\xff\xfe\xfe\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff'
+}
+
+unregister() {
+	test -e "$BINFMT_DIR/x86_64" && echo -1 > "$BINFMT_DIR/x86_64"
+	test -e "$BINFMT_DIR/i386" && echo -1 > "$BINFMT_DIR/i386"
+}
+
+case "$1" in
+	start)
+		register
+		;;
+	stop)
+		unregister
+		;;
+	restart)
+		unregister
+		register
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
