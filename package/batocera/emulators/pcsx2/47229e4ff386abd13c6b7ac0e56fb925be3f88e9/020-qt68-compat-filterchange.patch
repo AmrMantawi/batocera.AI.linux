@@ -1,0 +1,27 @@
+--- a/pcsx2-qt/GameList/GameListWidget.cpp
++++ b/pcsx2-qt/GameList/GameListWidget.cpp
+@@ -78,21 +78,18 @@
+ 
+ 	void setFilterType(GameList::EntryType type)
+ 	{
+-		beginFilterChange();
+ 		m_filter_type = type;
+-		endFilterChange(Direction::Rows);
++		invalidateFilter();
+ 	}
+ 	void setFilterRegion(GameList::Region region)
+ 	{
+-		beginFilterChange();
+ 		m_filter_region = region;
+-		endFilterChange(Direction::Rows);
++		invalidateFilter();
+ 	}
+ 	void setFilterName(const QString& name)
+ 	{
+-		beginFilterChange();
+ 		m_filter_name = name;
+-		endFilterChange(Direction::Rows);
++		invalidateFilter();
+ 	}
+ 
+ 	bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const override

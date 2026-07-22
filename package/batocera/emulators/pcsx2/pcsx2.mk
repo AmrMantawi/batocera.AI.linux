@@ -4,8 +4,15 @@
 #
 ################################################################################
 
+ifeq ($(BR2_aarch64),y)
+# ARMSX2: PCSX2 fork with a native ARM64 JIT (mainline PCSX2 is interpreter-only on ARM)
+# https://github.com/ARMSX2/ARMSX2 - pinned to the linuxv0.0.1 tag (first validated Linux build)
+PCSX2_VERSION = 47229e4ff386abd13c6b7ac0e56fb925be3f88e9
+PCSX2_SITE = https://github.com/ARMSX2/ARMSX2.git
+else
 PCSX2_VERSION = v2.4.0
 PCSX2_SITE = https://github.com/pcsx2/pcsx2.git
+endif
 PCSX2_SITE_METHOD = git
 PCSX2_GIT_SUBMODULES = YES
 PCSX2_LICENSE = GPLv3
@@ -16,7 +23,7 @@ PCSX2_SUPPORTS_IN_SOURCE_BUILD = NO
 PCSX2_DEPENDENCIES += alsa-lib ecm fmt freetype host-clang host-libcurl kddockwidgets
 PCSX2_DEPENDENCIES += libaio libbacktrace libcurl libgtk3 libpcap libpng libsamplerate
 PCSX2_DEPENDENCIES += libsoundtouch plutosvg portaudio qt6base qt6svg qt6tools
-PCSX2_DEPENDENCIES += shaderc sdl3 webp wxwidgets xorgproto yaml-cpp zlib
+PCSX2_DEPENDENCIES += rapidyaml shaderc sdl3 webp wxwidgets xorgproto yaml-cpp zlib
 
 # Use clang for performance
 PCSX2_CONF_OPTS += -DCMAKE_C_COMPILER=$(HOST_DIR)/bin/clang
@@ -27,8 +34,21 @@ PCSX2_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release
 PCSX2_CONF_OPTS += -DBUILD_SHARED_LIBS=OFF
 PCSX2_CONF_OPTS += -DENABLE_TESTS=OFF
 PCSX2_CONF_OPTS += -DUSE_SYSTEM_LIBS=AUTO
+
+ifeq ($(BR2_x86_64),y)
 # The following flag is misleading and *needed* ON to avoid doing -march=native
 PCSX2_CONF_OPTS += -DDISABLE_ADVANCE_SIMD=ON
+endif
+
+ifeq ($(BR2_aarch64),y)
+# same flags ARMSX2's own CI uses for its 4K-page-size Linux aarch64 build
+PCSX2_CONF_OPTS += -DHOST_PAGE_SIZE=4096
+PCSX2_CONF_OPTS += -DHOST_CACHE_LINE_SIZE=64
+# kddockwidgets' installed CMake target only exports include/kddockwidgets-qt6 as an
+# include dir, not the nested .../kddockwidgets subdir some of its own headers need
+# for quote-form includes (eg. core/indicators/ClassicDropIndicatorOverlay.h).
+PCSX2_CONF_OPTS += -DCMAKE_CXX_FLAGS="-Wno-c++11-narrowing -Wno-narrowing -I$(STAGING_DIR)/usr/include/kddockwidgets-qt6/kddockwidgets"
+endif
 
 ifeq ($(BR2_PACKAGE_XORG7),y)
     PCSX2_CONF_OPTS += -DX11_API=ON
@@ -54,8 +74,15 @@ else
     PCSX2_CONF_OPTS += -DUSE_VULKAN=OFF
 endif
 
+ifeq ($(BR2_aarch64),y)
+# ARMSX2 renames the built binary to armsx2-qt on Linux (see pcsx2-qt/CMakeLists.txt)
+PCSX2_BUILT_BINARY_NAME = armsx2-qt
+else
+PCSX2_BUILT_BINARY_NAME = pcsx2-qt
+endif
+
 define PCSX2_INSTALL_TARGET_CMDS
-	$(INSTALL) -m 0755 -D $(@D)/buildroot-build/bin/pcsx2-qt \
+	$(INSTALL) -m 0755 -D $(@D)/buildroot-build/bin/$(PCSX2_BUILT_BINARY_NAME) \
         $(TARGET_DIR)/usr/pcsx2/bin/pcsx2-qt
 	cp -pr  $(@D)/bin/resources $(TARGET_DIR)/usr/pcsx2/bin/
     cp -pr  $(@D)/buildroot-build/bin/translations $(TARGET_DIR)/usr/pcsx2/bin/

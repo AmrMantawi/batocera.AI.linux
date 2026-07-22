@@ -675,6 +675,7 @@ menu "Libraries"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/libraries/plutosvg/Config.in"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/libraries/kddockwidgets/Config.in"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/libraries/pysdl3/Config.in"
+  source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/libraries/rapidyaml/Config.in"
 endmenu
 
 menu "Audio"

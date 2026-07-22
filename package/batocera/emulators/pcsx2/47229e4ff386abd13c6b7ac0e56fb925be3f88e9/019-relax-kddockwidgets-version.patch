@@ -1,0 +1,11 @@
+--- a/cmake/SearchForStuff.cmake
++++ b/cmake/SearchForStuff.cmake
+@@ -121,7 +121,7 @@
+ 	endif()
+ 
+ 	# The docking system for the debugger.
+-	find_package(KDDockWidgets-qt6 2.3.0 REQUIRED)
++	find_package(KDDockWidgets-qt6 2.2.5 REQUIRED)
+ endif()
+ 
+ if(WIN32)
