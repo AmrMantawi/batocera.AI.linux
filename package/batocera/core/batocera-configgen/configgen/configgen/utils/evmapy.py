@@ -231,6 +231,11 @@ class evmapy(AbstractContextManager[None, None]):
         config_file.write_text(json.dumps(evmapy_config, indent=2))
 
     def __write_controller_config(self, controller: Controller, keys_actions: _KeysActions, keys_file: Path, /) -> None:
+        if controller.device_path is None:
+            # some controllers (eg. keyboard-type) aren't reported with a device path by ES
+            _logger.debug('no device path for controller %s, skipping evmapy config', controller.name)
+            return
+
         config_file = _EVMAPY_RUN_DIR / f'{Path(controller.device_path).name}.json'
         _logger.debug('config file for keysfile is %s (from %s)', config_file, keys_file)
 
