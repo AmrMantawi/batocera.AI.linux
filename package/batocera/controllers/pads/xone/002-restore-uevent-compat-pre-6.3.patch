@@ -1,0 +1,27 @@
+From: Batocera
+Date: 2026-07-24
+Subject: bus: restore gip_client_uevent() compatibility for kernels < 6.3
+
+Upstream commit e927febb ("Remove compatibility for `gip_client_uevent()`")
+dropped support for kernels older than 6.5, since struct device_type's
+uevent callback only gained a `const struct device *` first parameter
+in Linux 6.3. Batocera still targets vendor kernels (e.g. rk3588's 6.1)
+that predate this change, so restore the version-gated signature that
+upstream removed.
+
+--- a/bus/bus.c
++++ b/bus/bus.c
+@@ -26,8 +26,11 @@ static struct device_type gip_adapter_type = {
+ 	.release = gip_adapter_release,
+ };
+
+-static int gip_client_uevent(const struct device *dev,
+-			     struct kobj_uevent_env *env)
++static int gip_client_uevent(
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 3, 0)
++const
++#endif
++struct device *dev, struct kobj_uevent_env *env)
+ {
+ 	struct gip_client *client = to_gip_client(dev);
+ 	struct gip_classes *classes = client->classes;

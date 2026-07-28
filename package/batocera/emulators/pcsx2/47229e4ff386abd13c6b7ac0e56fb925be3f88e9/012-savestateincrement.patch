@@ -1,0 +1,46 @@
+diff --git a/pcsx2/Config.h b/pcsx2/Config.h
+--- a/pcsx2/Config.h
++++ b/pcsx2/Config.h
+@@ -1372,6 +1372,7 @@
+ 		InhibitScreensaver : 1,
+ 		BackupSavestate : 1,
+ 		ManuallySetRealTimeClock : 1, // passes user-set real-time clock information to cdvd at startup
++		AutoIncrementSlot : 1,
+ 		UseSystemLocaleFormat : 1, // presents OS time format instead of yyyy-MM-dd HH:mm:ss for manual RTC
+
+ 		HostFs : 1,
+diff --git a/pcsx2/Pcsx2Config.cpp b/pcsx2/Pcsx2Config.cpp
+--- a/pcsx2/Pcsx2Config.cpp
++++ b/pcsx2/Pcsx2Config.cpp
+@@ -1955,6 +1955,7 @@
+ 	WarnAboutUnsafeSettings = true;
+ 	EnableDiscordPresence = false;
+ 	ManuallySetRealTimeClock = false;
++	AutoIncrementSlot = false;
+ 	UseSystemLocaleFormat = false;
+
+ 	// To be moved to FileMemoryCard pluign (someday)
+@@ -1998,6 +1999,7 @@
+ 	SettingsWrapBitBool(EnableDiscordPresence);
+ 	SettingsWrapBitBool(InhibitScreensaver);
+ 	SettingsWrapBitBool(HostFs);
++	SettingsWrapBitBool(AutoIncrementSlot);
+
+ 	SettingsWrapBitBool(BackupSavestate);
+
+diff --git a/pcsx2/VMManager.cpp b/pcsx2/VMManager.cpp
+--- a/pcsx2/VMManager.cpp
++++ b/pcsx2/VMManager.cpp
+@@ -2022,6 +2022,12 @@ bool VMManager::SaveState(const char* filename, bool zip_on_thread, bool backup_
+
+ bool VMManager::SaveStateToSlot(s32 slot, bool zip_on_thread)
+ {
++	//increment the slot before saving
++	if(EmuConfig.AutoIncrementSlot) {
++	  SaveStateSelectorUI::SelectNextSlot(false);
++	  slot = SaveStateSelectorUI::GetCurrentSlot();
++	}
++
+ 	const std::string filename(GetCurrentSaveStateFileName(slot));
+ 	if (filename.empty())
+ 		return false;

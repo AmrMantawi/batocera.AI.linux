@@ -30,6 +30,7 @@ PACKAGES=(
     "build-essential"
     "cpio"
     "curl"
+    "dosfstools"  # genimage: mkdosfs for boot.vfat images
     "file"
     "flex"
     "gettext"  # buildstats.sh
@@ -43,6 +44,7 @@ PACKAGES=(
     "locales"
     "lzip"
     "mercurial"
+    "mtools"  # genimage: mcopy for vfat images
     "openjdk-17-jdk-headless"  # use for kodi
     "python3"
     "rsync"

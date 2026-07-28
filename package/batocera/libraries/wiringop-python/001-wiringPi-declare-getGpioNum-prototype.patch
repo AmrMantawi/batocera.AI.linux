@@ -1,0 +1,15 @@
+Add a proper prototype for getGpioNum() (defined in examples/blink.c and
+wrapped unconditionally by generate-bindings.py) so that wiringpi_wrap.c
+does not call it via an implicit declaration. Modern GCC (14+) treats
+implicit function declarations as a hard error, which broke the build.
+
+--- a/wiringOP/wiringPi/wiringPi.h
++++ b/wiringOP/wiringPi/wiringPi.h
+@@ -896,6 +896,7 @@
+ // Internal
+
+ #ifdef CONFIG_ORANGEPI
++extern unsigned char getGpioNum (void);
+ extern void piGpioLayoutOops (const char *why);
+ #endif
+

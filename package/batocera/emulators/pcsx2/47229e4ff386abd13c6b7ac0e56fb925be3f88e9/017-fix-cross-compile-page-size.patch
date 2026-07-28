@@ -1,0 +1,26 @@
+--- a/cmake/BuildParameters.cmake
++++ b/cmake/BuildParameters.cmake
+@@ -124,10 +124,21 @@
+ 
+ 	# If we're running on Linux, we need to detect the page/cache line size.
+ 	# It could be a virtual machine with 4K pages, or 16K with Asahi.
++	# When cross-compiling, try_run() can't execute a target binary on the host,
++	# so require HOST_PAGE_SIZE/HOST_CACHE_LINE_SIZE to be pre-set via -D instead.
+ 	if(LINUX)
+-		detect_page_size()
++		if(CMAKE_CROSSCOMPILING)
++			if(NOT DEFINED HOST_PAGE_SIZE)
++				message(FATAL_ERROR "Cross-compiling: -DHOST_PAGE_SIZE must be set")
++			endif()
++			if(NOT DEFINED HOST_CACHE_LINE_SIZE)
++				message(FATAL_ERROR "Cross-compiling: -DHOST_CACHE_LINE_SIZE must be set")
++			endif()
++		else()
++			detect_page_size()
++			detect_cache_line_size()
++		endif()
+ 		list(APPEND PCSX2_DEFS OVERRIDE_HOST_PAGE_SIZE=${HOST_PAGE_SIZE})
+-		detect_cache_line_size()
+ 		list(APPEND PCSX2_DEFS OVERRIDE_HOST_CACHE_LINE_SIZE=${HOST_CACHE_LINE_SIZE})
+ 	endif()
+ 	

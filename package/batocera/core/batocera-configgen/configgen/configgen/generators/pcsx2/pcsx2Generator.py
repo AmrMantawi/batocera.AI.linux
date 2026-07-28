@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import platform
 import re
 import shutil
 import time
@@ -36,7 +37,12 @@ _logger = logging.getLogger(__name__)
 
 _PCSX2_BIN_DIR: Final = Path("/usr/pcsx2/bin")
 _PCSX2_RESOURCES_DIR: Final = _PCSX2_BIN_DIR / "resources"
-_PCSX2_CONFIG: Final = CONFIGS / "PCSX2"
+# The aarch64 build uses the ARMSX2 fork, which renamed its data directory
+# (EmuFolders::DataRoot, resolved from $XDG_CONFIG_HOME) from "PCSX2" to
+# "ARMSX2". Writing our config under the wrong name means the binary never
+# finds it and always falls back to its first-run setup wizard.
+_PCSX2_DATA_DIRNAME: Final = "ARMSX2" if platform.uname().machine == "aarch64" else "PCSX2"
+_PCSX2_CONFIG: Final = CONFIGS / _PCSX2_DATA_DIRNAME
 _PCSX2_BIOS: Final = BIOS / "ps2"
 
 class Pcsx2Generator(Generator):

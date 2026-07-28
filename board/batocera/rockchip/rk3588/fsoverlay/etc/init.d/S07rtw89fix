@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# On orangepi-5-plus, the RTL8852BE (rtw89_8852be) wifi card intermittently
+# fails PCIe MAC init at boot ("xtal si not ready" / "mac init fail", ret
+# -110). A PCIe bus rescan after a short settle window recovers it, matching
+# the "a reboot sometimes fixes it" behavior seen without the driver fix.
+# Must run before S08connman so wifi is usable by the time connman starts it.
+
+fix_rtw89_pcie() {
+    local marker attempt before_lines after_lines
+
+    for attempt in 1 2 3; do
+        marker=$(dmesg | grep -oP 'rtw89_\S+ \K[0-9a-f.:]+(?=: mac init fail)' | tail -1)
+        [ -z "$marker" ] && return 0
+
+        echo "*** rtw89 PCIe mac init failed on ${marker}, retrying (attempt ${attempt})... ***" > /dev/kmsg
+        before_lines=$(dmesg | wc -l)
+
+        [ -e "/sys/bus/pci/devices/${marker}/remove" ] && echo 1 > "/sys/bus/pci/devices/${marker}/remove" 2>/dev/null
+        sleep 2
+        echo 1 > /sys/bus/pci/rescan 2>/dev/null
+        sleep 3
+
+        after_lines=$(dmesg | wc -l)
+        if ! dmesg | tail -n "$((after_lines - before_lines))" | grep -q "mac init fail"; then
+            echo "*** rtw89 PCIe wifi recovered after rescan. ***" > /dev/kmsg
+            return 0
+        fi
+    done
+
+    echo "*** rtw89 PCIe wifi still failing after ${attempt} rescan attempts. ***" > /dev/kmsg
+}
+
+case "$1" in
+    start)
+        if [ -f /boot/boot/batocera.board ] && [ "$(cat /boot/boot/batocera.board)" = "orangepi-5-plus" ]; then
+            # Give the driver its normal probe window before intervening
+            sleep 5
+            fix_rtw89_pcie
+        fi
+        ;;
+    stop|restart)
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

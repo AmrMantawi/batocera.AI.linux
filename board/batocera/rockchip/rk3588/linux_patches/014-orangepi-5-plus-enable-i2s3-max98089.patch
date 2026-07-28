@@ -1,0 +1,111 @@
+diff --git i/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts w/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+index 83ed754c9d27..6bd1b6929dcb 100644
+--- i/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
++++ w/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+@@ -116,7 +116,7 @@ hdmiin-sound {
+ 	};
+  
+ 	es8388_sound: es8388-sound {
+-		status = "okay";
++		status = "disabled";
+ 		compatible = "rockchip,multicodecs-card";
+ 		rockchip,card-name = "rockchip-es8388";
+ 		hp-det-gpio = <&gpio1 RK_PD3 GPIO_ACTIVE_HIGH>;
+@@ -152,7 +152,37 @@ play-pause-key {
+ 			press-threshold-microvolt = <2000>;
+ 		};
+ 	};
+- 
++
++	/* --- AUDIO CARD --- */
++	max98089_sound: max98089-sound {
++		status = "okay";
++		compatible = "simple-audio-card";
++		simple-audio-card,name = "MAX98089-Audio";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,mclk-fs = <256>;
++
++		simple-audio-card,widgets =
++			"Speaker", "External Speakers",
++			"Microphone", "Analog Mic";
++
++		/* CORRECT ROUTING */
++		simple-audio-card,routing =
++			"External Speakers", "SPKL",
++			"External Speakers", "SPKR",
++			"MIC1", "Analog Mic";
++
++		simple-audio-card,bitclock-master = <&max98089_cpu_dai>;
++		simple-audio-card,frame-master = <&max98089_cpu_dai>;
++
++		max98089_cpu_dai: simple-audio-card,cpu {
++			sound-dai = <&i2s3_2ch>;
++		};
++
++		simple-audio-card,codec {
++			sound-dai = <&max98089>;
++		};
++	};
++
+ 	rk_headset: rk-headset {
+ 		status = "disabled";
+ 		compatible = "rockchip_headset";
+@@ -709,9 +739,22 @@ &i2c2 {
+ };
+ 
+ &i2c4 {
+-    status = "disabled";
++    status = "okay";
+     pinctrl-names = "default";
+     pinctrl-0 = <&i2c4m3_xfer>;
++    clock-frequency = <100000>;
++
++    max98089: codec@10 {
++        compatible = "maxim,max98089", "maxim,max98088";
++        reg = <0x10>;
++        #sound-dai-cells = <0>;
++        status = "okay";
++
++        clocks = <&mclkout_i2s3>;
++        clock-names = "mclk";
++        assigned-clocks = <&mclkout_i2s3>;
++        assigned-clock-rates = <12288000>;
++    };
+ };
+ 
+ &i2c5 {
+@@ -850,6 +893,34 @@ &i2s7_8ch {
+     status = "okay";
+ };
+ 
++&i2s3_2ch {
++    status = "okay";
++    #sound-dai-cells = <0>;
++
++    /* Configure clock source and rate for 12.288 MHz MCLK */
++    assigned-clocks = <&cru CLK_I2S3_2CH_SRC>, <&cru CLK_I2S3_2CH_FRAC>, <&cru MCLK_I2S3_2CH>;
++    assigned-clock-parents = <&cru PLL_AUPLL>, <&cru CLK_I2S3_2CH_SRC>;
++    assigned-clock-rates = <0>, <0>, <12288000>;
++
++    pinctrl-names = "default";
++    pinctrl-0 = <&i2s3_lrck
++                 &i2s3_sclk
++                 &i2s3_mclk
++                 &i2s3_sdi
++                 &i2s3_sdo>;
++};
++
++&i2c4m3_xfer {
++    rockchip,pins =
++        <1 RK_PA3 9 &pcfg_pull_up>,
++        <1 RK_PA2 9 &pcfg_pull_up>;
++};
++
++&i2s3_mclk {
++    rockchip,pins =
++        <3 RK_PA0 3 &pcfg_pull_up>;
++};
++
+ //phy1
+ &pcie2x1l0 {
+     reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;

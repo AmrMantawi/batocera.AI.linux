@@ -46,7 +46,8 @@ UBOOT_RK3588_BUILDPAIR += rock-5b/rock5b-rk3588_defconfig
 UBOOT_RK3588_BUILDPAIR += nanopi-r6/nanopi-r6s-rk3588s_defconfig
 UBOOT_RK3588_BUILDPAIR += cm3588-nas/cm3588-nas-rk3588_defconfig
 UBOOT_RK3588_BUILDPAIR += rock-5c/rock-5c-rk3588s_defconfig
-UBOOT_RK3588_BUILDPAIR += orangepi-5-plus/orangepi-5-plus-rk3588_defconfig
+# orangepi-5-plus: mainline U-Boot hangs after ATF handoff on real hardware (boot loop).
+# Uses the known-working prebuilt vendor blobs from uboot-orangepi-5-plus instead.
 UBOOT_RK3588_BUILDPAIR += khadas-edge2/khadas-edge2-rk3588s_defconfig
 UBOOT_RK3588_BUILDPAIR += coolpi-4b/coolpi-4b-rk3588s_defconfig
 UBOOT_RK3588_BUILDPAIR += gameforce-ace/gameforce-ace-rk3588s_defconfig

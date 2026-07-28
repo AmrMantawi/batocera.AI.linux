@@ -1,0 +1,20 @@
+Newer pipewire (>= 1.2) tightened pw_node_enum_params() to take a typed
+"struct pw_node *" instead of "struct pw_proxy *" (it's a static inline
+wrapper in node.h, ABI-compatible, just stricter at the C type level).
+The vendored SDL2 pipewire audio backend still passes the raw proxy
+pointer, which now fails to compile:
+
+  error: passing argument 1 of 'pw_node_enum_params' from incompatible
+  pointer type [-Wincompatible-pointer-types]
+
+--- a/framework/external/sdl/SDL2/src/audio/pipewire/SDL_pipewire.c
++++ b/framework/external/sdl/SDL2/src/audio/pipewire/SDL_pipewire.c
+@@ -590,7 +590,7 @@ static void node_event_info(void *object, const struct pw_node_info *info)
+
+         /* Need to parse the parameters to get the sample rate */
+         for (i = 0; i < info->n_params; ++i) {
+-            pw_node_enum_params(node->proxy, 0, info->params[i].id, 0, 0, NULL);
++            pw_node_enum_params((struct pw_node *)node->proxy, 0, info->params[i].id, 0, 0, NULL);
+         }
+
+         hotplug_core_sync(node);

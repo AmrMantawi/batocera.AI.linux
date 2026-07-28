@@ -27,6 +27,12 @@ WIRINGOP_PYTHON_LICENSE_FILES = LICENSE.txt
 
 WIRINGOP_PYTHON_DEPENDENCIES = host-swig libxcrypt
 
+# CONFIG_ORANGEPI exposes the piGpioLayoutOops()/getGpioNum() prototypes in
+# wiringPi.h (patched, see 0001-*.patch); without it the swig wrapper calls
+# them with no declaration in scope, which recent GCC (14+) treats as a
+# hard error instead of a warning.
+WIRINGOP_PYTHON_ENV += CFLAGS="$(TARGET_CFLAGS) -DCONFIG_ORANGEPI"
+
 define WIRINGOP_PYTHON_BINDINGS
 	cd $(@D) ; \
 	$(HOST_DIR)/bin/python3 generate-bindings.py > $(@D)/bindings.i

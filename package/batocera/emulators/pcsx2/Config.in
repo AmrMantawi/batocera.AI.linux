@@ -1,7 +1,7 @@
 config BR2_PACKAGE_PCSX2
     bool "pcsx2"
-    depends on BR2_x86_64
-    depends on BR2_PACKAGE_XORG7
+    depends on BR2_x86_64 || BR2_aarch64
+    depends on BR2_PACKAGE_XORG7 || BR2_PACKAGE_BATOCERA_WAYLAND
     select BR2_PACKAGE_ALSA_LIB  
     select BR2_PACKAGE_BATOCERA_QT6  
     select BR2_PACKAGE_BR2_PACKAGE_FMT  
